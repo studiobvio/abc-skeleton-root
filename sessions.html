@@ -1,0 +1,48 @@
+---
+layout: default
+title: Sessions
+---
+
+<div class="row">
+  <h1>Sessions</h1>
+  <!-- buttons for filtering cards -->
+  <div class="d-grid gap-2 d-sm-block">
+    {% assign tags = site.sessions | where: 'published', 'true' | map: 'tags' |
+    join: ',' | split: ',' | uniq %} {% for tag in tags %}
+    <button class="btn btn-secondary btn-sm" href="#">{{ tag }}</button>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="row">
+  {% for session in site.sessions limit: 12 %}
+  <div class="col-4">
+    <div class="card" style="margin: 8px">
+      <img
+        src="{{ session.course_image | relative_url}} "
+        class="card-img-top"
+        alt="{{ session.course_image_alt}}"
+      />
+      <div class="card-body">
+        <h5 class="card-title fw-bolder">{{ session.title }}</h5>
+        <h6 class="car-subtitle mb-2 text-muted">{{ session.subtitle }}</h6>
+        <h6 class="fst-italic">by {{ session.authors[0].name }}</h6>
+        <p class="card-text text-small">{{ session.description }}</p>
+        {% if session.learning-outcomes %} {% assign outcomes =
+        session.learning-outcomes %}
+        <ul class="list-group list-group-flush">
+          {% for outcome in outcomes %}
+          <li class="list-group-item text-small text-muted">{{ outcome }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="lst-italic text-muted">No learning outcomes provide.</p>
+        {% endif %}
+        <a href="{{ session.url | relative_url}}" class="btn btn-primary">
+          Go to this session
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
