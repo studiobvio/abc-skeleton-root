@@ -32,7 +32,7 @@ collections:
     output: true
   casestudies:
     output: true
-  resources:
-    output: false
   sessions:
+    output: true
+  posts:
     output: true

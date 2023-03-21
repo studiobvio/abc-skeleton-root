@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Sessions
 ---
 
@@ -19,9 +19,9 @@ title: Sessions
   <div class="col-4">
     <div class="card" style="margin: 8px">
       <img
-        src="{{ session.course_image | relative_url}} "
+        src="{{ session.main_image | relative_url}} "
         class="card-img-top"
-        alt="{{ session.course_image_alt}}"
+        alt="{{ session.main_image_alt}}"
       />
       <div class="card-body">
         <h5 class="card-title fw-bolder">{{ session.title }}</h5>

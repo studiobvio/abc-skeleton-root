@@ -29,8 +29,8 @@ affiliations:
     index: 2
 
 video_link: "https://youtu.be/BLcO-2K165U"
-course_image: "/assets/images/002_Session_OpenSource.jpg"
-course_image_alt: A picture of my course.
+main_image: "/assets/images/002_Session_OpenSource.jpg"
+main_image_alt: A picture of my course.
 
 description: "As transition designers of a post-capitalist society, we need to be resourced with agile and accessible technologies to facilitate our capacity to rapidly prototype pedagogical systems for structural change. Taking inspiration from open-source software platforms and their communities of builders, in this session participants will be introduced to alternative, radically transparent methods of evolving the incumbent architectural 'studio' and design pedagogy more broadly into an emancipatory technology that can and should be hacked and owned by everyone."
 

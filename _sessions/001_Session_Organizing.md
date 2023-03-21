@@ -31,8 +31,8 @@ affiliations:
 
 video_link: "https://www.youtube.com/watch?v=vH6LN0O6fy4"
 video_image:
-course_image: "/assets/images/002_Session_OpenSource.jpg"
-course_image_alt: "Picture of a network."
+main_image: "/assets/images/002_Session_OpenSource.jpg"
+main_image_alt: "Picture of a network."
 
 description: "Beyond their pedagogical and theoretical goals, syllabi operate as institutional contracts that are used to explain (and enforce) the scope of a studio. Project briefs offer the footprint for the power dynamics of the studio. This workshop investigates the influences on and implications of syllabi and project briefs and opens their development to student consideration and involvement."
 
