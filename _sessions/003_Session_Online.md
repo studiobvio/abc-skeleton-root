@@ -10,6 +10,8 @@ categories:
 tags:
   - "Social Technologies"
   - "Commoning"
+  - "Solidarity"
+  - "Organizing"
 
 authors:
   - name: "Manju Adikesavan"

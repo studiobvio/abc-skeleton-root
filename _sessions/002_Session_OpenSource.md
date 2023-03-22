@@ -9,8 +9,6 @@ categories:
 tags:
   - "Design Futuring"
   - "Commoning"
-  - "Pancakes"
-  - "Waffles"
 
 authors:
   - name: "Will Martin"

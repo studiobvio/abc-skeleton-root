@@ -10,8 +10,6 @@ categories:
 tags:
   - "Solidarity"
   - "Organizing"
-  - "Pancakes"
-  - "Waffles"
 
 authors:
   - name: Federico Garcia Lammers

@@ -6,17 +6,30 @@ title: Sessions
 <div class="container my-5">
   <h1>Sessions</h1>
   <!-- buttons for filtering cards -->
-  <div class="d-grid gap-2 d-sm-block">
-    {% assign tags = site.sessions | where: 'published', 'true' | map: 'tags' |
-    join: ',' | split: ',' | uniq %} {% for tag in tags %}
-    <button class="btn btn-secondary btn-sm" href="#">{{ tag }}</button>
-    {% endfor %}
-  </div>
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button active"
+    data-tag="all"
+  >
+    All
+  </button>
+  {% assign tags = site.sessions | map: 'tags' | join: ',' | split: ',' | uniq |
+  sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button"
+    data-tag="{{ tagSlug }}"
+  >
+    {{ tag }}
+  </button>
+  {% endfor %}
 </div>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
   {% for session in site.sessions limit: 12 %}
-  <div class="col">
+  <div
+    class="col post {% for tag in session.tags %}{{ tag | slugify }} {% endfor %}"
+  >
     <div class="card" style="margin: 8px">
       <img
         src="{{ session.main_image | relative_url}} "
@@ -51,3 +64,30 @@ title: Sessions
   </div>
   {% endfor %}
 </div>
+
+<script>
+  const tagButtons = document.querySelectorAll(".tag-button");
+  const postElements = document.querySelectorAll(".post");
+
+  tagButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const clickedTag = event.target.dataset.tag;
+
+      postElements.forEach((post) => {
+        const tags = post.classList;
+
+        if (clickedTag === "all" || tags.contains(clickedTag)) {
+          post.style.display = "";
+        } else {
+          post.style.display = "none";
+        }
+      });
+
+      tagButtons.forEach((button) => {
+        button.classList.remove("active");
+      });
+
+      event.target.classList.add("active");
+    });
+  });
+</script>

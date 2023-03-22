@@ -155,28 +155,61 @@
       <div class="container"><div class="container my-5">
   <h1>Sessions</h1>
   <!-- buttons for filtering cards -->
-  <div class="d-grid gap-2 d-sm-block">
-     
-    <button class="btn btn-secondary btn-sm" href="#">Social Technologies</button>
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button active"
+    data-tag="all"
+  >
+    All
+  </button>
     
-    <button class="btn btn-secondary btn-sm" href="#">Commoning</button>
-    
-    <button class="btn btn-secondary btn-sm" href="#">Solidarity</button>
-    
-    <button class="btn btn-secondary btn-sm" href="#">Organizing</button>
-    
-    <button class="btn btn-secondary btn-sm" href="#">Pancakes</button>
-    
-    <button class="btn btn-secondary btn-sm" href="#">Waffles</button>
-    
-    <button class="btn btn-secondary btn-sm" href="#">Design Futuring</button>
-    
-  </div>
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button"
+    data-tag="commoning"
+  >
+    Commoning
+  </button>
+   
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button"
+    data-tag="design-futuring"
+  >
+    Design Futuring
+  </button>
+   
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button"
+    data-tag="organizing"
+  >
+    Organizing
+  </button>
+   
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button"
+    data-tag="social-technologies"
+  >
+    Social Technologies
+  </button>
+   
+  <button
+    type="button"
+    class="btn btn-outline-primary tag-button"
+    data-tag="solidarity"
+  >
+    Solidarity
+  </button>
+  
 </div>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
   
-  <div class="col">
+  <div
+    class="col post social-technologies commoning solidarity organizing "
+  >
     <div class="card" style="margin: 8px">
       <img
         src="/abc-skeleton-root/assets/images/003_Session_Online.jpg "
@@ -202,6 +235,10 @@
             >Social Technologies</a
           >, <a href="/tag/commoning"
             >Commoning</a
+          >, <a href="/tag/solidarity"
+            >Solidarity</a
+          >, <a href="/tag/organizing"
+            >Organizing</a
           >
         </p>
         <a href="/abc-skeleton-root/sessions/003_Session_Online.html" class="btn btn-primary">
@@ -211,7 +248,9 @@
     </div>
   </div>
   
-  <div class="col">
+  <div
+    class="col post solidarity organizing "
+  >
     <div class="card" style="margin: 8px">
       <img
         src="/abc-skeleton-root/assets/images/002_Session_OpenSource.jpg "
@@ -231,10 +270,6 @@
             >Solidarity</a
           >, <a href="/tag/organizing"
             >Organizing</a
-          >, <a href="/tag/pancakes"
-            >Pancakes</a
-          >, <a href="/tag/waffles"
-            >Waffles</a
           >
         </p>
         <a href="/abc-skeleton-root/sessions/001_Session_Organizing.html" class="btn btn-primary">
@@ -244,7 +279,9 @@
     </div>
   </div>
   
-  <div class="col">
+  <div
+    class="col post design-futuring commoning "
+  >
     <div class="card" style="margin: 8px">
       <img
         src="/abc-skeleton-root/assets/images/002_Session_OpenSource.jpg "
@@ -268,10 +305,6 @@
             >Design Futuring</a
           >, <a href="/tag/commoning"
             >Commoning</a
-          >, <a href="/tag/pancakes"
-            >Pancakes</a
-          >, <a href="/tag/waffles"
-            >Waffles</a
           >
         </p>
         <a href="/abc-skeleton-root/sessions/002_Session_OpenSource.html" class="btn btn-primary">
@@ -282,6 +315,33 @@
   </div>
   
 </div>
+
+<script>
+  const tagButtons = document.querySelectorAll(".tag-button");
+  const postElements = document.querySelectorAll(".post");
+
+  tagButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const clickedTag = event.target.dataset.tag;
+
+      postElements.forEach((post) => {
+        const tags = post.classList;
+
+        if (clickedTag === "all" || tags.contains(clickedTag)) {
+          post.style.display = "";
+        } else {
+          post.style.display = "none";
+        }
+      });
+
+      tagButtons.forEach((button) => {
+        button.classList.remove("active");
+      });
+
+      event.target.classList.add("active");
+    });
+  });
+</script>
 
 </div>
     </main>
