@@ -3,12 +3,56 @@ layout: page
 ---
 
 <div class="container">
-  <h1>{{ page.title }}</h1>
-  <h2>by {{ page.authors[0].name }}</h2>
+  <h2>{{ page.title }}:
+    <span>{{ page.subtitle }}</span>
+  </h2>
+  <h6>by {{ page.authors[0].name }}</h2>
 </div>
 
 <div class="container">{{ content }}</div>
 
-<a href="{{ site.url }}{{ site.baseurl }}/sessions.html"
-  >Back to all sessions</a
->
+<a href="{{ site.url }}{{ site.baseurl }}/sessions.html">Back to all sessions</a>
+
+
+<div class="relatedSession">
+
+  <h4>You May Also Enjoy</h4>
+
+  {% assign maxRelated = 4 %}
+  {% assign minCommonTags = 2 %}
+  {% assign maxRelatedCounter = 0 %}
+
+  {% for session in site.sessions %}
+
+    {% assign sameTagCount = 0 %}
+    {% assign commonTags = '' %}
+
+    {% for tag in session.tags %}
+      {% if session.url != page.url %}
+        {% if page.tags contains tag %}
+          {% assign sameTagCount = sameTagCount | plus: 1 %}
+          {% capture tagmarkup %}
+            <span class="label label-default">{{ tag }}</span>
+          {% endcapture %}
+          {% assign commonTags = commonTags | append: tagmarkup %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if sameTagCount >= minCommonTags %}
+
+
+      <div>
+        <h5>
+          <a href="{{ site.baseurl }}{{ session.url }}">{{ session.title }}</a>
+        </h5>
+      </div>
+      {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+      {% if maxRelatedCounter >= maxRelated %}
+        {% break %}
+      {% endif %}
+    {% endif %}
+
+  {% endfor %}
+
+</div>

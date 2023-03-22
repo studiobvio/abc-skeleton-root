@@ -1,0 +1,42 @@
+---
+layout: page
+title: Blog
+---
+
+<div class="row">
+  <div>
+    <h1>Blog</h1>
+    <!-- buttons for filtering cards -->
+    <div class="d-grid gap-2 d-sm-block">
+      {% assign categories = site.posts | where: 'published', 'true' | map:
+      'categories' | join: ',' | split: ',' | uniq %} {% for category in
+      categories %}
+      <button class="btn btn-secondary btn-sm" href="#">{{ category }}</button>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="row">
+    {% for post in site.posts limit: 12 %}
+    <div class="col-4">
+      <div class="card" style="margin: 8px">
+        {% if post.main_image %}
+        <img
+          src="{{ post.main_image | relative_url}} "
+          class="card-img-top"
+          alt="{{ post.main_image_alt}}"
+        />
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title fw-bolder">{{ post.title }}</h5>
+          <h6 class="car-subtitle mb-2 text-muted">{{ post.subtitle }}</h6>
+          <h6 class="fst-italic">{{ post.date }}</h6>
+          <p>{{ post.excerpt }}</p>
+          <a href="{{ post.url | relative_url}}" class="btn btn-primary">
+            Go to this post.
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

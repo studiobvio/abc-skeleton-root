@@ -1,7 +1,7 @@
 ---
 layout: session
 published: true
-title: "Ours to hack and to own:"
+title: "Ours to hack and to own"
 subtitle: "Open-source Strategies and the Pedagogy of Potential"
 categories:
   - "Workshop"
@@ -9,6 +9,8 @@ categories:
 tags:
   - "Design Futuring"
   - "Commoning"
+  - "Pancakes"
+  - "Waffles"
 
 authors:
   - name: "Will Martin"
