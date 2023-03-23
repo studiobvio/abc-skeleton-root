@@ -9,59 +9,98 @@ title: Sessions
   <button
     type="button"
     class="btn btn-outline-primary tag-button active"
-    data-tag="all"
-  >
+    data-tag="all">
     All
   </button>
-  {% assign tags = site.sessions | map: 'tags' | join: ',' | split: ',' | uniq |
-  sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
-  <button
-    type="button"
-    class="btn btn-outline-primary tag-button"
-    data-tag="{{ tagSlug }}"
-  >
-    {{ tag }}
-  </button>
+  {% assign tags = site.sessions | map: 'tags' | join: ',' | split: ',' | uniq 
+   | sort %}
+  {% for tag in tags %}
+    {% assign tagSlug = tag | slugify %}
+    <button
+      type="button"
+      class="btn btn-outline-primary tag-button"
+      data-tag="{{ tagSlug }}">
+      {{ tag }}
+    </button>
   {% endfor %}
 </div>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
   {% for session in site.sessions limit: 12 %}
-  <div
-    class="col post {% for tag in session.tags %}{{ tag | slugify }} {% endfor %}"
-  >
-    <div class="card" style="margin: 8px">
-      <img
-        src="{{ session.main_image | relative_url}} "
-        class="card-img-top"
-        alt="{{ session.main_image_alt}}"
-      />
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">{{ session.title }}</h5>
-        <h6 class="car-subtitle mb-2 text-muted">{{ session.subtitle }}</h6>
-        <h6 class="fst-italic">by {{ session.authors[0].name }}</h6>
-        <p class="card-text text-small">{{ session.description }}</p>
-        {% if session.learning-outcomes %} {% assign outcomes =
-        session.learning-outcomes %}
-        <ul class="list-group list-group-flush">
-          {% for outcome in outcomes %}
-          <li class="list-group-item text-small text-muted">{{ outcome }}</li>
-          {% endfor %}
-        </ul>
-        {% else %}
-        <p class="lst-italic text-muted">No learning outcomes provide.</p>
-        {% endif %}
-        <p>
-          Tags: {% for tag in session.tags %}<a href="/tag/{{ tag | slugify }}"
-            >{{ tag }}</a
-          >{% unless forloop.last %}, {% endunless %}{% endfor %}
-        </p>
-        <a href="{{ session.url | relative_url}}" class="btn btn-primary">
-          Go to this session
+    <div class="col post {% for tag in session.tags %}{{ tag | slugify }} {% endfor %}">
+      <div class="card" style="margin: 8px">
+        <div class="card-header">
+          {{ session.content-type }}
+        </div>
+        <a href="{{ session.url | relative_url}}">
+          <img
+            src="{{ session.main_image | relative_url}} "
+            class="card-img-top"
+            alt="{{ session.main_image_alt}}" />
         </a>
+        <div class="card-body">
+          <h5 class="card-title fw-bolder">
+            {{ session.title }}{% if session.subtitle %}:{% endif %}
+          </h5>
+          <h6 class="car-subtitle mb-2 text-muted">{{ session.subtitle }}</h6>
+          <h6 class="fst-italic">by
+            {% assign authors = session.authors | map: 'name' %}
+            {% assign authors_count = authors | size %}
+            {% assign authors_count_minus1 = authors_count | minus: 1 %}
+            {% assign authors_count_minus2 = authors_count | minus: 2 %}
+
+            {% if authors_count == 1 %}
+              {{ authors[0] }}
+            {% elsif authors_count == 2 %}
+              {{ authors[0] }} and {{ authors[1] }}
+            {% else %}
+              {% for i in (0..authors_count_minus2) %}
+                {{ authors[i] }},
+              {% endfor %}
+              and {{ authors[authors_count_minus1] }}
+            {% endif %}
+          </h6>
+          <p class="card-text text-small">{{ session.abstract.short }}</p>
+          {% if session.learning-outcomes %}
+            {% assign outcomes = 
+             session.learning-outcomes %}
+            <h4>
+              <button
+                class="btn btn-light btn-sm"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-{{ session.title | slugify }}"
+                aria-expanded="false"
+                aria-controls="collapseOne">
+                Learning Outcomes
+              </button>
+            </h4>
+            <div
+              id="collapse-{{ session.title | slugify }}"
+              class="collapse"
+              data-bs-parent=".card">
+              <ul class="list-group list-group-flush">
+                {% for outcome in outcomes %}
+                  <li class="list-group-item text-small text-muted">{{ outcome }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% else %}
+            <p class="lst-italic text-muted">No learning outcomes provided.</p>
+          {% endif %}
+          <p>
+            Tags:
+            {% for tag in session.tags %}
+              <a href="/tag/{{ tag | slugify }}">{{ tag }}</a>
+              {% unless forloop.last %},
+              {% endunless %}
+            {% endfor %}
+          </p>
+          <a href="{{ session.url | relative_url}}" class="btn btn-primary">
+            Go to this session
+          </a>
+        </div>
       </div>
     </div>
-  </div>
   {% endfor %}
 </div>
 

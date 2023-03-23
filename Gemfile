@@ -12,3 +12,7 @@ gem "execjs", "= 2.7"
 gem "jekyll-autoprefixer", "~> 1.0"
 
 gem "jekyll-feed", "~> 0.17.0"
+
+gem 'jekyll-sitemap'
+
+gem 'jekyll-seo-tag'

@@ -1,8 +1,11 @@
 ---
 layout: session
 published: true
+permalink:
+date: 2022-07-21
 title: "Ours to hack and to own"
 subtitle: "Open-source Strategies and the Pedagogy of Potential"
+content-type: "Workshop"
 categories:
   - "Workshop"
   - "Theoretical Proposal"
@@ -10,34 +13,46 @@ tags:
   - "Design Futuring"
   - "Commoning"
 
+description:
+
 authors:
   - name: "Will Martin"
-    position: "1,2"
-    affiliation: "1,2"
-    linkedin: "https://www.linkedin.com/in/william-martin-62034114/"
-
-positions:
-  - name: "Member"
-    index: 1
-  - name: "Lecturer, Studio Instructor"
-    index: 2
-
-affiliations:
-  - name: "The Architecture Lobby"
-    index: 1
-  - name: "University of Colorado Denver, College of Architecture and Planning, Denver, Colorado, USA"
-    index: 2
+    personal-website: "https://studiobvio.com"
+    social:
+      - name: "Twitter"
+        handle: "studiobvio"
+        link: "https://twitter.com/studiobvio"
+      - name: "LinkedIn"
+        handle: "william-martin-62034114"
+        link: "https://www.linkedin.com/in/william-martin-62034114/"
+    affiliations:
+      - name: "University of Colorado Denver, College of Architecture and Planning"
+        location: Denver, Colorado
+        titles:
+          - title: "Lecturer, Studio Instructor"
+      - name: "The Architecture Lobby"
+        location: Denver, Colorado
+        titles:
+          title: "Member"
+          title: "Founder"
+          title: "Chapter Steward"
+      - name: "Studiobvio"
+        location: Denver, Colorado
+        titles:
+          title: "Founder"
 
 video_link: "https://youtu.be/BLcO-2K165U"
 main_image: "/assets/images/002_Session_OpenSource.jpg"
 main_image_alt: A picture of my course.
 
-description: "As transition designers of a post-capitalist society, we need to be resourced with agile and accessible technologies to facilitate our capacity to rapidly prototype pedagogical systems for structural change. Taking inspiration from open-source software platforms and their communities of builders, in this session participants will be introduced to alternative, radically transparent methods of evolving the incumbent architectural 'studio' and design pedagogy more broadly into an emancipatory technology that can and should be hacked and owned by everyone."
+abstract:
+  short: "As transition designers of a post-capitalist society, we need to be resourced with agile and accessible technologies to facilitate our capacity to rapidly prototype pedagogical systems for structural change. Taking inspiration from open-source software platforms and their communities of builders, in this session participants will be introduced to alternative, radically transparent methods of evolving the incumbent architectural 'studio' and design pedagogy more broadly into an emancipatory technology that can and should be hacked and owned by everyone."
+  long:
 
 learning-outcomes:
   - "You will be introduced to a provisional conceptual model and applied methods of co-evolving the architectural “studio” into an open-source and emancipatory 'technology' that can and should be hacked and owned and used by everyone."
 
-date: 2022-07-21
+
 
 bibliography: paper.bib
 ---
