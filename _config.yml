@@ -30,15 +30,9 @@ autoprefixer:
 #    - Safari > 2
 
 collections:
-  papers:
-    output: true
-    label: "Paper"
-  casestudies:
-    output: true
-    label: "Case Study"
-  sessions:
-    output: true
-    label: "Session"
   posts:
     output: true
     label: "Post"
+  resources:
+    output: true
+    label: "Resource"

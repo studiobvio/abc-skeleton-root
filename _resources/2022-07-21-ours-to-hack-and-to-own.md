@@ -1,5 +1,5 @@
 ---
-layout: session
+layout: resource
 published: true
 permalink:
 date: 2022-07-21

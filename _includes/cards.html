@@ -1,10 +1,7 @@
----
-layout: page
-title: Sessions
----
-
 <div class="container my-5">
-  <h1>Sessions</h1>
+  {% assign collection_name = page.title | downcase %}
+  {{ collection_name }}
+  {% assign collection = site[collection_name] %}
   <!-- buttons for filtering cards -->
   <button
     type="button"
@@ -12,7 +9,8 @@ title: Sessions
     data-tag="all">
     All
   </button>
-  {% assign tags = site.sessions | map: 'tags' | join: ',' | split: ',' | uniq 
+
+  {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq 
    | sort %}
   {% for tag in tags %}
     {% assign tagSlug = tag | slugify %}
@@ -24,58 +22,57 @@ title: Sessions
     </button>
   {% endfor %}
 </div>
-
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
-  {% for session in site.sessions limit: 12 %}
-    <div class="col post {% for tag in session.tags %}{{ tag | slugify }} {% endfor %}">
+  {% for item in collection} limit: 12 %}
+    <div class="col post {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}">
       <div class="card" style="margin: 8px">
-        <div class="card-header">
-          {{ session.content-type }}
-        </div>
-        <a href="{{ session.url | relative_url}}">
+        <div class="card-header">{{ item.content-type }}</div>
+        <a href="{{ item.url | relative_url}}">
+          {% assign file_name = item.url | split: '/' | last | split: '.' | first %}
           <img
-            src="{{ session.main_image | relative_url}} "
+            src="{{site.baseurl}}/assets/images/{{ file_name }}/main.jpg"
             class="card-img-top"
-            alt="{{ session.main_image_alt}}" />
+            alt="{{ item.main_image_alt}}" />
         </a>
         <div class="card-body">
           <h5 class="card-title fw-bolder">
-            {{ session.title }}{% if session.subtitle %}:{% endif %}
+            {{ item.title }}{% if item.subtitle %}:{% endif %}
           </h5>
-          <h6 class="car-subtitle mb-2 text-muted">{{ session.subtitle }}</h6>
-          <h6 class="fst-italic">by
-            {% assign authors = session.authors | map: 'name' %}
+          <h6 class="car-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+          <h6 class="fst-italic">
+            by
+            {% assign authors = item.authors | map: 'name' %}
             {% assign authors_count = authors | size %}
             {% assign authors_count_minus1 = authors_count | minus: 1 %}
             {% assign authors_count_minus2 = authors_count | minus: 2 %}
-
             {% if authors_count == 1 %}
               {{ authors[0] }}
             {% elsif authors_count == 2 %}
               {{ authors[0] }} and {{ authors[1] }}
             {% else %}
               {% for i in (0..authors_count_minus2) %}
-                {{ authors[i] }},
+                {{ authors[i] }}
+                ,
               {% endfor %}
               and {{ authors[authors_count_minus1] }}
             {% endif %}
           </h6>
-          <p class="card-text text-small">{{ session.abstract.short }}</p>
-          {% if session.learning-outcomes %}
+          <p class="card-text text-small">{{ item.abstract.short }}</p>
+          {% if item.learning-outcomes %}
             {% assign outcomes = 
-             session.learning-outcomes %}
+             item.learning-outcomes %}
             <h4>
               <button
                 class="btn btn-light btn-sm"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapse-{{ session.title | slugify }}"
+                data-bs-target="#collapse-{{ item.title | slugify }}"
                 aria-expanded="false"
                 aria-controls="collapseOne">
                 Learning Outcomes
               </button>
             </h4>
             <div
-              id="collapse-{{ session.title | slugify }}"
+              id="collapse-{{ item.title | slugify }}"
               class="collapse"
               data-bs-parent=".card">
               <ul class="list-group list-group-flush">
@@ -89,14 +86,14 @@ title: Sessions
           {% endif %}
           <p>
             Tags:
-            {% for tag in session.tags %}
+            {% for tag in item.tags %}
               <a href="/tag/{{ tag | slugify }}">{{ tag }}</a>
               {% unless forloop.last %},
               {% endunless %}
             {% endfor %}
           </p>
-          <a href="{{ session.url | relative_url}}" class="btn btn-primary">
-            Go to this session
+          <a href="{{ item.url | relative_url}}" class="btn btn-primary">
+            Learn More!
           </a>
         </div>
       </div>

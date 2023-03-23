@@ -1,5 +1,5 @@
 ---
-layout: session
+layout: resource
 published: true
 permalink:
 date: 2022-07-18
@@ -34,7 +34,7 @@ authors:
           - title: "Researcher, PhD Candidate"
 
 video_link: "https://www.youtube.com/watch?v=MsRgfYs10TI"
-main_image: "/assets/images/003_Session_Online.jpg"
+main_image: "/assets/images/2022-07-18-online-collaboration-technologies/main.jpg"
 main_image_alt: "Image of Canada"
 
 abstract:

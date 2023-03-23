@@ -6,15 +6,32 @@ layout: page
   <h2>{{ page.title }}:
     <span>{{ page.subtitle }}</span>
   </h2>
-  <h6>by {{ page.authors[0].name }}</h2>
+  <h6 class="fst-italic">
+    by
+    {% assign authors = page.authors | map: 'name' %}
+    {% assign authors_count = authors | size %}
+    {% assign authors_count_minus1 = authors_count | minus: 1 %}
+    {% assign authors_count_minus2 = authors_count | minus: 2 %}
+    {% if authors_count == 1 %}
+      {{ authors[0] }}
+    {% elsif authors_count == 2 %}
+      {{ authors[0] }} and {{ authors[1] }}
+    {% else %}
+      {% for i in (0..authors_count_minus2) %}
+        {{ authors[i] }}
+        ,
+      {% endfor %}
+      and {{ authors[authors_count_minus1] }}
+    {% endif %}
+  </h6>
 </div>
 
 <div class="container">{{ content }}</div>
 
-<a href="{{ site.url }}{{ site.baseurl }}/sessions.html">Back to all sessions</a>
+<a href="{{ site.url }}{{ site.baseurl }}/resources.html">Back to all resources</a>
 
 
-<div class="relatedSession">
+<div class="relatedResource">
 
   <h4>You May Also Enjoy</h4>
 
@@ -22,13 +39,13 @@ layout: page
   {% assign minCommonTags = 2 %}
   {% assign maxRelatedCounter = 0 %}
 
-  {% for session in site.sessions %}
+  {% for resource in site.resources %}
 
     {% assign sameTagCount = 0 %}
     {% assign commonTags = '' %}
 
-    {% for tag in session.tags %}
-      {% if session.url != page.url %}
+    {% for tag in resource.tags %}
+      {% if resource.url != page.url %}
         {% if page.tags contains tag %}
           {% assign sameTagCount = sameTagCount | plus: 1 %}
           {% capture tagmarkup %}
@@ -44,7 +61,7 @@ layout: page
 
       <div>
         <h5>
-          <a href="{{ site.baseurl }}{{ session.url }}">{{ session.title }}</a>
+          <a href="{{ site.baseurl }}{{ resource.url }}">{{ resource.title }}</a>
         </h5>
       </div>
       {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
