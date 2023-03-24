@@ -24,13 +24,13 @@
 </div>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
   {% for item in collection} limit: 12 %}
-    <div class="col post {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}">
+    <div class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}">
       <div class="card" style="margin: 8px">
         <div class="card-header">{{ item.content-type }}</div>
         <a href="{{ item.url | relative_url}}">
           {% assign file_name = item.url | split: '/' | last | split: '.' | first %}
           <img
-            src="{{site.baseurl}}/assets/images/{{ file_name }}/main.jpg"
+            src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name | append: '_main' }}.jpg"
             class="card-img-top"
             alt="{{ item.main_image_alt}}" />
         </a>
@@ -85,9 +85,9 @@
             <p class="lst-italic text-muted">No learning outcomes provided.</p>
           {% endif %}
           <p>
-            Tags:
+            Key Terms:
             {% for tag in item.tags %}
-              <a href="/tag/{{ tag | slugify }}">{{ tag }}</a>
+              <a href="{{site.url}}{{site.baseurl}}/ideas/#{{ tag | slugify }}">{{ tag }}</a>
               {% unless forloop.last %},
               {% endunless %}
             {% endfor %}
@@ -103,19 +103,19 @@
 
 <script>
   const tagButtons = document.querySelectorAll(".tag-button");
-  const postElements = document.querySelectorAll(".post");
+  const itemElements = document.querySelectorAll(".item");
 
   tagButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const clickedTag = event.target.dataset.tag;
 
-      postElements.forEach((post) => {
-        const tags = post.classList;
+      itemElements.forEach((item) => {
+        const tags = item.classList;
 
         if (clickedTag === "all" || tags.contains(clickedTag)) {
-          post.style.display = "";
+          item.style.display = "";
         } else {
-          post.style.display = "none";
+          item.style.display = "none";
         }
       });
 

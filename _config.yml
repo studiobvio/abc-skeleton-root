@@ -36,3 +36,9 @@ collections:
   resources:
     output: true
     label: "Resource"
+  ideas:
+    output: true
+    label: "Ideas"
+  collaborators:
+    output: true
+    label: "Collaborators"

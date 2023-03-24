@@ -1,0 +1,12 @@
+---
+layout: page
+title: Ideas
+permalink: ideas
+---
+
+<div class="container">
+  {% for idea in site.ideas %}
+  <h4 id="{{idea.title | slugify}}">{{idea.title}}:</h4>
+  <p>{{idea.content}}</p>
+  {% endfor %}
+</div>

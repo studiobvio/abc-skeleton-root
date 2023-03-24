@@ -10,31 +10,17 @@ categories:
   - "Workshop"
   - "Theoretical Proposal"
 tags:
-  - "Social Technologies"
   - "Commoning"
   - "Solidarity"
   - "Organizing"
+  - "Futuring"
 
 description:
 
 authors:
   - name: "Manju Adikesavan"
-    personal-website: "https://cuny547-my.sharepoint.com/personal/madikesavan_gradcenter_cuny_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fmadikesavan%5Fgradcenter%5Fcuny%5Fedu%2FDocuments%2FJob%20Search%2FCV%2FManju%20Adikesavan%5FCV%5FOct%2021%5F2022%2Epdf&parent=%2Fpersonal%2Fmadikesavan%5Fgradcenter%5Fcuny%5Fedu%2FDocuments%2FJob%20Search%2FCV&ga=1"
-    social:
-      - name: "Twitter"
-        handle: "ManjuAdikesavan"
-        link: "https://twitter.com/ManjuAdikesavan"
-      - name: "LinkedIn"
-        handle: "manju-adikesavan-021601b"
-        link: "https://www.linkedin.com/in/manju-adikesavan-021601b/"
-    affiliations:
-      - name: "The Graduate Center, City University of New York"
-        location: New York City, New York
-        titles:
-          - title: "Researcher, PhD Candidate"
 
 video_link: "https://www.youtube.com/watch?v=MsRgfYs10TI"
-main_image: "/assets/images/2022-07-18-online-collaboration-technologies/main.jpg"
 main_image_alt: "Image of Canada"
 
 abstract:
