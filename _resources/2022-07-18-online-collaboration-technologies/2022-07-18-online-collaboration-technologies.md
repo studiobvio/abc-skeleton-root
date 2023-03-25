@@ -2,6 +2,7 @@
 layout: resource
 published: true
 permalink:
+name-slug: "2022-07-18-online-collaboration-technologies"
 date: 2022-07-18
 title: "Online Collaboration Technologies"
 subtitle: "Implications for Post-Pandemic Studio Learning and Teaching Practices"

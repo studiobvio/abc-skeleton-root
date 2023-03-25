@@ -30,7 +30,7 @@
         <a href="{{ item.url | relative_url}}">
           {% assign file_name = item.url | split: '/' | last | split: '.' | first %}
           <img
-            src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name | append: '_main' }}.jpg"
+            src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name | append: "_main"}}.jpg"
             class="card-img-top"
             alt="{{ item.main_image_alt}}" />
         </a>
