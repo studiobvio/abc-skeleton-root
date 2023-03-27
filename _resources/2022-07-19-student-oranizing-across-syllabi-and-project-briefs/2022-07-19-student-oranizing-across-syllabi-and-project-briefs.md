@@ -17,20 +17,7 @@ description:
 
 authors:
   - name: "Federico Garcia Lammers"
-    personal-website: "https://www.lab-or.com/"
-    social:
-      - name: "Instagram"
-        handle: "federicogarcialammers"
-        link: "https://www.instagram.com/federicogarcialammers/?hl=en"
-      - name: "LinkedIn"
-        handle: "federico-garcia-lammers-05778724"
-        link: "https://www.linkedin.com/in/federico-garcia-lammers-05778724/"
-    affiliations:
-      - name: "University of Minnesota, College of Design"
-        location: Minneapolis , Minnesota
-        titles:
-          - title: "Associate Professor, Architecture"
-          - title: "Director of Graduate Studies, Architecture"
+    name-slug: "garcia-lammers-gederico-03-24"
 
 video_link: "https://www.youtube.com/watch?v=vH6LN0O6fy4"
 video_image:

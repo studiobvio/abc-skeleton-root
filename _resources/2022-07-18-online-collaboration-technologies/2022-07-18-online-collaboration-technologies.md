@@ -20,6 +20,7 @@ description:
 
 authors:
   - name: "Manju Adikesavan"
+    name-slug: "adikesavan-manju-03-24"
 
 video_link: "https://www.youtube.com/watch?v=MsRgfYs10TI"
 main_image_alt: "Image of Canada"
