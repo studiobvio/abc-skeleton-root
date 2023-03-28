@@ -7,18 +7,16 @@ layout: page
 </div>
 {% for affiliation in page.affiliations %}
 
-
-  <h6>
-    {% for title in affiliation.titles %}
-      {{ title }} -
-    {% endfor %}
-    {{ affiliation.name }}
-    {% if affiliation.location %}
-      ; {{ affiliation.location }}
-    {% endif %}
-  </h6>
+<h6>
+  {% for title in affiliation.titles %} {{ title }} - {% endfor %} {{
+  affiliation.name }} {% if affiliation.location %} ; {{ affiliation.location }}
+  {% endif %}
+</h6>
 
 {% endfor %}
 <div class="container">{{ content }}</div>
 
-<a href="{{ site.url }}{{ site.baseurl }}/collaborators.html">Back to collaborators</a>
+<a href="{{ site.url }}{{ site.baseurl }}/collaborators.html"
+  >Back to collaborators</a
+>
+{% include social.html %}

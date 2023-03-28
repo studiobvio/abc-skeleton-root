@@ -1,0 +1,21 @@
+
+<div class="social-media">
+  {% if page.social %}
+  <ul class="social-media-list">
+    {% for social_account in page.social %}
+    {% if social_account.link %}
+      <li>
+        <a href="{{ social_account.link }}" target="_blank">
+          <img
+            class="social-media-icon"
+            src="{{ '/assets/images/icons/' | append: social_account.name | sluggify | downcase | append: '.svg' | relative_url }}"
+            alt="{{ social_account.name }}"
+          />
+        </a>
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+{% endif %}
+</div>
+

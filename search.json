@@ -1,0 +1,15 @@
+---
+---
+[
+  {% for collection in site.collections %}
+    {%for item in collection.docs %}
+    {
+      "title"    : "{{ item.title }}",
+      "url"      : "{{ site.baseurl }}{{ item.url }}",
+      "date"     : "{{ item.date | date_to_string }}",
+      "description" : "{{ item.description | strip_html | strip_newlines | escape }}"
+    } {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  {% endfor %}
+]
+
