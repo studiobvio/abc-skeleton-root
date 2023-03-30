@@ -11515,3 +11515,9 @@ ul#results-container {
 span.post-meta {
   font-size: 1rem;
 }
+
+#navbar_top {
+  position: -webkit-sticky;
+  position: sticky !important;
+  top: 0;
+}

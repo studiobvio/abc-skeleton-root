@@ -1,12 +1,38 @@
 ---
-layout: page
+layout: "default"
 title: Ideas
 permalink: ideas
 ---
 
-<div class="container">
-  {% for idea in site.ideas %}
-  <h4 id="{{idea.title | slugify}}">{{idea.title}}:</h4>
-  <p>{{idea.content}}</p>
-  {% endfor %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3">
+      <div id="sidebar-nav" class="navbar navbar-expand-lg navbar-light sticky-top">
+        <ul class="list-unstyled">
+          {% for idea in site.ideas %}
+          <li>
+            <a href="{{site.baseurl}}/ideas#{{ idea.title }}"
+              >{{ idea.title }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="row">
+        {% for idea in site.ideas %}
+        <div class="col-lg-4">
+          <h3 id="{{ idea.title }}">{{ idea.title }}</h3>
+        </div>
+        <div class="col-lg-8">
+          <p>{{ idea.content }}</p>
+          <div class="d-block d-lg-none pb-5">
+            <a href="#sidebar-nav">Back to list of ideas</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
