@@ -26,7 +26,7 @@ video_link: "https://www.youtube.com/watch?v=MsRgfYs10TI"
 main_image_alt: "Image of Canada"
 
 abstract:
-  short: "Online collaboration software such as Miro, Concept Board, Zoom, and Skype replaced face-to-face studio teaching and learning during the COVID-19 pandemic. This workshop draws on participants' lived experience of remote studio learning and/or teaching during the pandemic to:"
+  short: "Online collaboration software such as Miro, Concept Board, Zoom, and Skype replaced face-to-face studio teaching and learning during the COVID-19 pandemic. This workshop draws on participants' lived experience of remote studio learning and/or teaching during the pandemic"
   long:
 
 learning-outcomes:
