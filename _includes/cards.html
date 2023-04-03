@@ -1,148 +1,192 @@
-<div class="container my-5">
+<!-- my code -->
+<div class="container my-5 filter-buttons">
   {% assign collection_name = page.title | downcase %}
-  <h2>{{ collection_name | capitalize }}</h2>
-  <br />
   {% assign collection = site[collection_name] %}
-  <!-- buttons for filtering cards -->
-  <button
-    type="button"
-    class="btn btn-outline-primary tag-button active"
-    data-tag="all"
-  >
-    All
-  </button>
+  <div class="filter-title">Categories</div>
+  <!-- buttons for filtering cards by categories -->
+  <div class="filter-buttons-categories">
+    <button
+      type="button"
+      class="btn btn-outline-primary category-button active"
+      data-category="all"
+      id="all-category-button">
+      All
+    </button>
 
-  {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq |
-  sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
-  <button
-    type="button"
-    class="btn btn-outline-primary tag-button"
-    data-tag="{{ tagSlug }}"
-  >
-    {{ tag }}
-  </button>
-  {% endfor %}
+    {% assign categories = collection | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+    {% for category in categories %}
+      {% assign categorySlug = category | slugify %}
+      <button
+        type="button"
+        class="btn btn-outline-primary category-button"
+        data-category="{{ categorySlug }}">
+        {{ category }}
+      </button>
+    {% endfor %}
+  </div>
+  <div class="filter-title">Categories</div>
+  <!-- buttons for filtering cards by tags -->
+  <div class="fitler-buttons-tags">
+
+
+    <button
+      type="button"
+      class="btn btn-outline-primary tag-button active"
+      data-tag="all"
+      id="all-tag-button">
+      All
+    </button>
+
+    {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+    {% for tag in tags %}
+      {% assign tagSlug = tag | slugify %}
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button"
+        data-tag="{{ tagSlug }}">
+        {{ tag }}
+      </button>
+    {% endfor %}
+  </div>
 </div>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5">
   {% for item in collection limit: 12 %}
-  <div
-    class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}"
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">{{ item.content-type }}</div>
-      <a href="{{ item.url | relative_url}}">
-        {% assign file_name = item.url | split: '/' | last | split: '.' | first
-        %}
-        <img
-          src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name}}.jpg"
-          class="card-img-top"
-          alt="{{ item.main_image_alt}}"
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          {{ item.title }}{% if item.subtitle %}:{% endif %}
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
-        <h6 class="fst-italic">
-          by {% assign authors = item.authors | map: 'name' %} {% assign
-          authors_slug = item.authors | map: 'name-slug' %} {% assign
-          authors_count = authors | size %} {% assign authors_count_minus1 =
-          authors_count | minus: 1 %} {% assign authors_count_minus2 =
-          authors_count | minus: 2 %} {% if authors_count == 1 %}
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[0]}}/{{authors_slug[0]}}.html"
-            >{{ authors[0] }}</a
-          >
-          {% elsif authors_count == 2 %}
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[0]}}/{{authors_slug[0]}}.html"
-            >{{ authors[0] }}</a
-          >
-          and
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[1]}}/{{authors_slug[1]}}.html"
-            >{{ authors[1] }}</a
-          >
-          {% else %} {% for i in (0..authors_count_minus2) %}
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[i]}}/{{authors_slug[i]}}.html"
-            >{{ authors[i] }}</a
-          >
-          , {% endfor %} and
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[authors_count_minus1]}}/{{authors_slug[authors_count_minus1]}}.html"
-            >{{ authors[authors_count_minus1] }}</a
-          >
-          {% endif %}
-        </h6>
-        <p class="card-text text-small">
-          {{ item.abstract.short | truncatewords: 75, '...' }}
-        </p>
-        {% if item.learning-outcomes %} {% assign outcomes =
-        item.learning-outcomes %}
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-{{ item.title | slugify }}"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-{{ item.title | slugify }}"
-          class="collapse"
-          data-bs-parent=".card"
-        >
-          <ul class="list-group list-group-flush">
-            {% for outcome in outcomes %}
-            <li class="list-group-item text-small text-muted">{{ outcome }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% else %}
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        {% endif %}
-        <p>
-          Key Terms: {% for tag in item.tags %}
-          <a href="{{site.baseurl}}/ideas#{{ tag | slugify }}">{{ tag }}</a>
-          {% unless forloop.last %}, {% endunless %} {% endfor %}
-        </p>
-        <a href="{{ item.url | relative_url}}" class="btn btn-primary">
-          Learn More!
+    <div class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}">
+      <div class="card h-100" style="margin: 8px">
+        <div class="card-header">{{ item.content-type }}</div>
+        <a href="{{ item.url | relative_url}}">
+          {% assign file_name = item.url | split: '/' | last | split: '.' | first %}
+          <img
+            src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name}}.jpg"
+            class="card-img-top"
+            alt="{{ item.main_image_alt}}" />
         </a>
+        <div class="card-body">
+          <h5 class="card-title fw-bolder">
+            {{ item.title }}{% if item.subtitle %}:{% endif %}
+          </h5>
+          <h6 class="car-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+          <h6 class="fst-italic">
+            by {% assign authors = item.authors | map: 'name' %} {% assign 
+ authors_slug = item.authors | map: 'name-slug' %} {% assign 
+ authors_count = authors | size %} {% assign authors_count_minus1 = 
+ authors_count | minus: 1 %} {% assign authors_count_minus2 = 
+ authors_count | minus: 2 %}
+            {% if authors_count == 1 %}
+              <a href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[0]}}/{{authors_slug[0]}}.html">{{ authors[0] }}</a>
+            {% elsif authors_count == 2 %}
+              <a href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[0]}}/{{authors_slug[0]}}.html">{{ authors[0] }}</a>
+              and
+              <a href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[1]}}/{{authors_slug[1]}}.html">{{ authors[1] }}</a>
+            {% else %}
+              {% for i in (0..authors_count_minus2) %}
+                <a href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[i]}}/{{authors_slug[i]}}.html">{{ authors[i] }}</a>
+                ,
+              {% endfor %}
+              and
+              <a href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[authors_count_minus1]}}/{{authors_slug[authors_count_minus1]}}.html">{{ authors[authors_count_minus1] }}</a>
+            {% endif %}
+          </h6>
+          <p class="card-text text-small">
+            {{ item.abstract.short | truncatewords: 75, '...' }}
+          </p>
+          {% if item.learning-outcomes %}
+            {% assign outcomes = 
+             item.learning-outcomes %}
+            <h4>
+              <button
+                class="btn btn-light btn-sm"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-{{ item.title | slugify }}"
+                aria-expanded="false"
+                aria-controls="collapseOne">
+                Learning Outcomes
+              </button>
+            </h4>
+            <div
+              id="collapse-{{ item.title | slugify }}"
+              class="collapse"
+              data-bs-parent=".card">
+              <ul class="list-group list-group-flush">
+                {% for outcome in outcomes %}
+                  <li class="list-group-item text-small text-muted">{{ outcome }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% else %}
+            <p class="lst-italic text-muted">No learning outcomes provided.</p>
+          {% endif %}
+          <p>
+            Key Terms:
+            {% for tag in item.tags %}
+              <a href="{{site.baseurl}}/ideas#{{ tag | slugify }}">{{ tag }}</a>
+              {% unless forloop.last %},
+              {% endunless %}
+            {% endfor %}
+          </p>
+          <a href="{{ item.url | relative_url}}" class="btn btn-primary">
+            Learn More!
+          </a>
+        </div>
       </div>
     </div>
-  </div>
   {% endfor %}
 </div>
 
 <script>
   const tagButtons = document.querySelectorAll(".tag-button");
   const itemElements = document.querySelectorAll(".item");
+  const allButton = document.querySelector("#all-tag-button");
 
   tagButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const clickedTag = event.target.dataset.tag;
 
+// Toggle the active state of the clicked button
+      event.target.classList.toggle("active");
+
+// Clear the "All" button if any other button is selected
+      if (button !== allButton) {
+        allButton.classList.remove("active");
+      }
+
+// Create an array of active tags
+      const activeTags = [];
+      tagButtons.forEach((button) => {
+        if (button.classList.contains("active")) {
+          activeTags.push(button.dataset.tag);
+        }
+      });
+
       itemElements.forEach((item) => {
         const tags = item.classList;
 
-        if (clickedTag === "all" || tags.contains(clickedTag)) {
+// If no tags are active, show all items
+        if (activeTags.length === 0) {
+          item.style.display = "";
+          return;
+        }
+
+// Check if item contains all of the active tags
+        const hasActiveTags = activeTags.every((tag) => tags.contains(tag));
+
+        if (hasActiveTags) {
           item.style.display = "";
         } else {
           item.style.display = "none";
         }
       });
+    });
+  });
 
-      tagButtons.forEach((button) => {
-        button.classList.remove("active");
-      });
-
-      event.target.classList.add("active");
+// Clear all active tags and show all items when the "All" button is clicked
+  allButton.addEventListener("click", () => {
+    tagButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
+    allButton.classList.add("active");
+    itemElements.forEach((item) => {
+      item.style.display = "";
     });
   });
 </script>
