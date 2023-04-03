@@ -18,10 +18,6 @@ description:
 authors:
   - name: "Will Martin"
     name-slug: "martin-will-10-09"
-  - name: "Tessa Forde"
-    name-slug: "forde-tessa-03-24"
-  - name: "Manju Adikesavan"
-    name-slug: "adikesavan-manju-03-24"
 
 video_link: "https://youtu.be/BLcO-2K165U"
 main_image: "/assets/images/002_Session_OpenSource.jpg"
