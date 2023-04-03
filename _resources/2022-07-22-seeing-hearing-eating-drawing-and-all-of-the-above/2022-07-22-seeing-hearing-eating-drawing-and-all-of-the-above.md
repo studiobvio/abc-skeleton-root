@@ -9,7 +9,7 @@ subtitle:
 content-type: "Workshop"
 categories:
   - "Workshop"
-  - "ABC 2023"
+  - "ABC School 2022"
 tags:
   - "Futuring"
   - "Representation"

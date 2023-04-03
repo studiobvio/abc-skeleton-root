@@ -9,6 +9,7 @@ subtitle: " Perspectives on Remaking Studio"
 content-type: "Workshop"
 categories:
   - "Workshop"
+  - "ABC School 2022"
 tags:
   - "Labor"
 

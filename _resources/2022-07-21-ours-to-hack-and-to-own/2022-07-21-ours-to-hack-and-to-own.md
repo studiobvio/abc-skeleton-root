@@ -8,7 +8,7 @@ subtitle: "Open-source Strategies and the Pedagogy of Potential"
 content-type: "Workshop"
 categories:
   - "Workshop"
-  - "Theoretical Proposal"
+  - "ABC School 2022"
 tags:
   - "Futuring"
   - "Commoning"

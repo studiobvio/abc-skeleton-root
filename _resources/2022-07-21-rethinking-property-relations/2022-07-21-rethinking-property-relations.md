@@ -9,7 +9,7 @@ subtitle: "Politicizing Site Analysis"
 content-type: "Panel Discussion"
 categories:
   - "Panel Discussion"
-  - "ABC 2023"
+  - "ABC School 2022"
 tags:
   - "Commoning"
   - "Property"

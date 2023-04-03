@@ -9,7 +9,7 @@ subtitle: "Implications for Post-Pandemic Studio Learning and Teaching Practices
 content-type: "Lecture"
 categories:
   - "Workshop"
-  - "Theoretical Proposal"
+  - "ABC School 2022"
 tags:
   - "Commoning"
   - "Solidarity"

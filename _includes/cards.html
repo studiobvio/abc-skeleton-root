@@ -2,40 +2,34 @@
 <div class="container my-5 filter-buttons">
   {% assign collection_name = page.title | downcase %}
   {% assign collection = site[collection_name] %}
-  <div class="filter-title">Categories</div>
-  <!-- buttons for filtering cards by categories -->
-  <div class="filter-buttons-categories">
+  <div class="all-button">
     <button
       type="button"
       class="btn btn-outline-primary category-button active"
-      data-category="all"
-      id="all-category-button">
+      data-tag="all"
+      id="all-tag-button">
       All
     </button>
-
+  </div>
+  <div class="filter-title">Categories</div>
+  <!-- buttons for filtering cards by categories -->
+  <div class="filter-buttons-categories">
     {% assign categories = collection | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
     {% for category in categories %}
       {% assign categorySlug = category | slugify %}
       <button
         type="button"
-        class="btn btn-outline-primary category-button"
-        data-category="{{ categorySlug }}">
+        class="btn btn-outline-primary tag-button"
+        data-tag="{{ categorySlug }}">
         {{ category }}
       </button>
     {% endfor %}
   </div>
-  <div class="filter-title">Categories</div>
+
   <!-- buttons for filtering cards by tags -->
+  <div class="filter-title">Tags</div>
+
   <div class="fitler-buttons-tags">
-
-
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button active"
-      data-tag="all"
-      id="all-tag-button">
-      All
-    </button>
 
     {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
     {% for tag in tags %}
@@ -51,7 +45,7 @@
 </div>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5">
   {% for item in collection limit: 12 %}
-    <div class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}">
+    <div class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %} {% for category in item.categories %}{{ category | slugify }} {% endfor %}">
       <div class="card h-100" style="margin: 8px">
         <div class="card-header">{{ item.content-type }}</div>
         <a href="{{ item.url | relative_url}}">

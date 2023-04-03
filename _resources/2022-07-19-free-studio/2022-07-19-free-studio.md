@@ -9,7 +9,7 @@ subtitle: "Liberation as Praxis"
 content-type: "Lecture"
 categories:
   - "Workshop"
-  - "ABC 2023"
+  - "ABC School 2022"
 tags:
   - "Commoning"
   - "Solidarity"

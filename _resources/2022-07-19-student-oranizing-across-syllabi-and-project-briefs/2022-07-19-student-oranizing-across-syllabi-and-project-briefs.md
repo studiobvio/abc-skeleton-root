@@ -8,7 +8,7 @@ subtitle:
 content-type: "Session"
 categories:
   - "Workshop"
-  - "Theoretical Proposal"
+  - "ABC School 2022"
 tags:
   - "Solidarity"
   - "Organizing"
