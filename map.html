@@ -1,0 +1,69 @@
+---
+layout: default
+---
+
+<!-- Add your map container here -->
+<div id="map"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<script>
+  // Define an empty array to store the city data
+  var cityData = [];
+
+  // Loop through each collaborator and extract their location
+  {% for collaborator in site.collaborators %}
+    {% if collaborator.location %}
+      var location = "{{ collaborator.location }}";
+      cityData.push(location);
+    {% endif %}
+  {% endfor %}
+
+  // Create an empty object to store the city counts
+  var cityCounts = {};
+
+  // Loop through the city data and count the number of occurrences of each city
+  for (var i = 0; i < cityData.length; i++) {
+    var city = cityData[i];
+    if (city in cityCounts) {
+      cityCounts[city] += 1;
+    } else {
+      cityCounts[city] = 1;
+    }
+  }
+
+  // Define a function to assign latitude and longitude to each city
+  function getCityLatLng(city) {
+    // You will need to implement this function to assign the correct latitude and longitude to each city
+    // You can use an external API or library to do this, or you can build it internally using a lookup table or database
+    // For the purposes of this example, we will just return some sample coordinates
+    if (city == "New York") {
+      return [40.7128, -74.0060];
+    } else if (city == "San Francisco") {
+      return [37.7749, -122.4194];
+    } else if (city == "Los Angeles") {
+      return [34.0522, -118.2437];
+    } else if (city == "Chicago") {
+      return [41.8781, -87.6298];
+    } else {
+      return [0, 0];
+    }
+  }
+
+  // Create an empty array to store the markers
+  var markers = [];
+
+  // Loop through the city counts and create a marker for each city
+  for (var city in cityCounts) {
+    var count = cityCounts[city];
+    var latlng = getCityLatLng(city);
+    var radius = Math.sqrt(count) * 1000;
+    var marker = L.circleMarker(latlng, {radius: radius});
+    marker.bindPopup(city + ": " + count + " collaborators");
+    markers.push(marker);
+  }
+
+  // Create a Leaflet map and add the markers to it
+  var map = L.map('map').setView([37.8, -96], 4);
+  var layerGroup = L.layerGroup(markers).addTo(map);
+</script>
