@@ -1,0 +1,32 @@
+---
+layout: page
+---
+
+<body>
+  <div class="container mt-3">
+      <h1>New Post Form</h1>
+      <form>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author:</label>
+          <input type="text" class="form-control" id="author" name="author">
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date:</label>
+          <input type="date" class="form-control" id="date" name="date">
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category:</label>
+          <input type="text" class="form-control" id="category" name="category">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="generateMarkdown()">Generate Markdown</button>
+        <button type="button" class="btn btn-primary" onclick="downloadMarkdown()">Download Markdown</button>
+      </form>
+      <pre><code id="markdown-code"></code></pre>
+    </div>
+    <script src="{{site.url}}{{site.baseurl}}/assets/js/generateMarkdown.js"></script>
+  </body>
+  </html>
