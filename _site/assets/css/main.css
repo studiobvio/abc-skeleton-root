@@ -11525,3 +11525,18 @@ span.post-meta {
 .nav-link.active {
   color: red;
 }
+
+pre {
+  background-color: #000000;
+}
+
+code {
+  display: block;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#markdown-code {
+  color: white;
+}
