@@ -7,6 +7,10 @@
     <title>Jekyll with Bootstrap 5 Sass</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
     {% include custom-head.html %} {% seo %}
+    <script>
+      var siteUrl = "{{ site.url }}";
+      var siteBaseUrl = "{{ site.baseurl }}";
+    </script>
   </head>
   <header>{% include nav.html %}</header>
   <body>

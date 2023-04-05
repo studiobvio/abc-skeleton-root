@@ -5,7 +5,9 @@ permalink:
 date: 2023-03-22
 content-type: "Bio"
 categories:
-  -
+  - "Contributor"
+  - "Maintainer"
+  - "
 tags:
   - "Commoning"
   - "Solidarity"
