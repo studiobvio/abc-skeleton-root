@@ -29,7 +29,16 @@ category: ${category}\n`;
     if (xhr.readyState === 4 && xhr.status === 200) {
       const template = xhr.responseText;
       const fullMarkdown = `${frontMatter}${template}`;
+
+      // Render the Markdown text to HTML using Marked.js
+      const htmlOutput = marked.parse(fullMarkdown);
+
+      // Sanitize the HTML output using DOMPurify
+      const sanitizedHtmlOutput = DOMPurify.sanitize(htmlOutput);
+
+      // Display the Markdown text and sanitized HTML output
       document.getElementById("markdown-code").textContent = fullMarkdown;
+      document.getElementById("markdown-html").innerHTML = sanitizedHtmlOutput;
       document.getElementById("code-display").classList.remove("d-none");
     }
   };

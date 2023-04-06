@@ -7,7 +7,6 @@ content-type: "Bio"
 categories:
   - "Contributor"
   - "Maintainer"
-  - "
 tags:
   - "Commoning"
   - "Solidarity"

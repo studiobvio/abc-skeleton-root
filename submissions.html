@@ -27,6 +27,24 @@ layout: page
         <input type="text" class="form-control" id="tags" name="tags" />
         <small class="form-text text-muted">Separate tags with commas (e.g. tag1, tag2, tag3)</small>
       </div>
+      <div id = "output-headmatter">
+
+      </div>
+
+  <!-- code display area -->
+  <div class="my-4 d-none" id="code-display">
+    <div class="row mb-2">
+      <div class="col-11">
+        <h6 class="m-0">Front Matter</h6>
+      </div>
+      <div class="col-1 text-end">
+        <button type="button" class="btn btn-sm btn-light" onclick="copyToClipboard()">Copy</button>
+      </div>
+    </div>
+    <pre class="p-3 mb-0 rounded"><code id="output-frontmatter"></code></pre>
+  </div>
+
+
       <button
         type="button"
         class="btn btn-primary"
@@ -43,16 +61,52 @@ layout: page
       </button>
     </form>
   <!-- code display area -->
-  <div class="my-4 d-none" id="code-display">
-    <div class="row mb-2">
-      <div class="col-11">
-        <h6 class="m-0">Markdown:</h6>
+  <div class="container my-5" id="code-display">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Raw Markdown</h2>
+        <div class="col-1 text-end">
+            <button type="button" class="btn btn-sm btn-light" onclick="copyCodeToClipboard()">Copy</button>
+          </div>
+        <pre class="p-3 mb-0 rounded"><code id="markdown-code" class="text-break"></code></pre>
       </div>
-      <div class="col-1 text-end">
-        <button type="button" class="btn btn-sm btn-light" onclick="copyToClipboard()">Copy</button>
+      <div class="col-md-6">
+        <h2>Rendered HTML</h2>
+        <div id="markdown-html"></div>
       </div>
     </div>
-    <pre class="p-3 mb-0 rounded"><code id="markdown-code"></code></pre>
   </div>
-  <script src="{{site.url}}{{site.baseurl}}/assets/js/generateMarkdown.js"></script>
+ 
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/marked.min.js" async></script>
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/purify.min.js"></script>
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatter.js"></script>
+  <script>// get references to form input elements
+    const titleInput = document.getElementById("title");
+    const authorInput = document.getElementById("author");
+    const dateInput = document.getElementById("date");
+    const categoryInput = document.getElementById("category");
+    const tagsInput = document.getElementById("tags");
+    
+    // add event listener to each form input
+    titleInput.addEventListener("input", generateFrontmatter);
+    authorInput.addEventListener("input", generateFrontmatter);
+    dateInput.addEventListener("input", generateFrontmatter);
+    categoryInput.addEventListener("input", generateFrontmatter);
+    tagsInput.addEventListener("input", generateFrontmatter);</script>
+<script>
+    function copyCodeToClipboard() {
+      const codeElement = document.getElementById("output-frontmatter");
+      const text = codeElement.textContent;
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          console.log("Code copied to clipboard.");
+        })
+        .catch((error) => {
+          console.error(`Error copying code to clipboard: ${error}`);
+        });
+    }
+    </script>
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateMarkdown.js"></script>
+
 </body>
