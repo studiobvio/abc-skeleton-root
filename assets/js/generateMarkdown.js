@@ -1,23 +1,50 @@
 function generateMarkdown() {
   // get values from form inputs
   const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
+  const subtitle = document.getElementById("subtitle").value;
+  const contenttype = document.getElementById("content-type").value;
+  const authorfirst = document.getElementById("author-first").value;
+  const authorlast = document.getElementById("author-last").value;
+  const authordate = document.getElementById("author-date").value;
   const date = document.getElementById("date").value;
-  const category = document.getElementById("category").value;
+  const categories = document.getElementById("categories").value.split(",");
   const tags = document.getElementById("tags").value.split(",");
+  const hashes = document.getElementById("hashes").value.split(",");
 
   // build front matter string with YAML syntax
   let frontMatter = `---
-title: ${title}
-author: ${author}
-date: ${date}
-category: ${category}\n`;
+  layout: resource
+  published: false
+  permalink:
+  title: ${title}
+  subtitle: ${subtitle}
+  content-type: ${contenttype}
+  authors:
+    - name: ${authorfirst} ${authorlast}
+      name-slug: ${authorlast}-${authorfirst}-${authordate}
+  date: ${date}\n`;
+
+  // add categories to front matter string
+  if (categories.length > 0) {
+    frontMatter += "categories:\n";
+    categories.forEach((category) => {
+      frontMatter += `  - "${category.trim()}"\n`;
+    });
+  }
 
   // add tags to front matter string
   if (tags.length > 0) {
     frontMatter += "tags:\n";
     tags.forEach((tag) => {
       frontMatter += `  - "${tag.trim()}"\n`;
+    });
+  }
+
+  // add hashes to front matter string
+  if (hashes.length > 0) {
+    frontMatter += "hashes:\n";
+    hashes.forEach((hash) => {
+      frontMatter += `  - "${hash.trim()}"\n`;
     });
   }
 

@@ -28,6 +28,7 @@ social:
 affiliations:
   - name: "University of Colorado Denver, College of Architecture and Planning"
     location: Denver, Colorado
+    link:
     titles:
       - "Lecturer, Studio Instructor"
   - name: "The Architecture Lobby"

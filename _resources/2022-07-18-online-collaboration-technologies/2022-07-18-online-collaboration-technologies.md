@@ -8,13 +8,16 @@ title: "Online Collaboration Technologies"
 subtitle: "Implications for Post-Pandemic Studio Learning and Teaching Practices"
 content-type: "Lecture"
 categories:
-  - "Workshop"
   - "ABC School 2022"
 tags:
   - "Commoning"
   - "Solidarity"
   - "Organizing"
   - "Futuring"
+
+hashes:
+  - "ABCrepo"
+  -
 
 description:
 
