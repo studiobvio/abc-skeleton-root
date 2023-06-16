@@ -11547,3 +11547,7 @@ pre code {
 #output-frontmatter {
   color: white;
 }
+
+#markdown-code {
+  color: #f8f8f2;
+}

@@ -21,8 +21,7 @@ plugins:
 sass:
   sass_dir: _sass
   style: expanded
-
-# destination: ./site
+#  destination: ./site
 
 autoprefixer:
   browsers:

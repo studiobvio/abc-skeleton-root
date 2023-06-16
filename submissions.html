@@ -6,166 +6,314 @@ layout: page
   <div class="container mt-3">
     <h1>Resource Submission Process</h1>
     <p>
-      To make resources in the ABC Repository as widely accessible and extensible as possible to our community, we require all resources conform to the strict formatting guidelines outline below.
-     For each resource you will upload a single folder with a primary text file and any supplemental media files in ato our open-source repository which is hosted on GitHub. The repository content will be rendered as a searchable website.
-      While you may draft your resource material an any format you wish, your final submission will be a MarkDown document (learn more about Markdown <a href="https://www.markdownguide.org/">here</a>). A key strength of Markdown documents is there ability to 
+      To make resources in the ABC Repository as widely accessible and
+      extensible as possible to our community, we require all resources conform
+      to the strict formatting guidelines outline below. For each resource you
+      will upload a single folder with a primary text file and any supplemental
+      media files in ato our open-source repository which is hosted on GitHub.
+      The repository content will be rendered as a searchable website. While you
+      may draft your resource material an any format you wish, your final
+      submission will be a MarkDown document (learn more about Markdown
+      <a href="https://www.markdownguide.org/">here</a>). A key strength of
+      Markdown documents is there ability to
     </p>
-    <form>
-      <div class="mb-3">
-        <label for="title" class="form-label">Title:</label>
-        <input type="text" class="form-control" id="title" name="title" />
-        <small class="form-text text-muted">Keep it short, descriptive, and sweet. (7 words max) </small>
-      </div>
-      <div class="mb-3">
-        <label for="subtitle" class="form-label">Sub-Title:</label>
-        <input type="text" class="form-control" id="subtitle" name="subtitle" />
-        <small class="form-text text-muted">Add additional context (not required)</small>
-      </div>
-      <div class="mb-3">
-        <label for="content-type" class="form-label">Resource Content Type:</label>
-        <input type="text" class="form-control" id="content-type" name="content-type" />
-        <small class="form-text text-muted">What type of resource is this ("How-to Kit", "Lecture", "Workshop"</small>
-      </div>
-      <div class="mb-3">
-        <label for="author-first" class="form-label">Contributor First Name:</label>
-        <input type="text" class="form-control" id="author-first" name="author-first" />
-        <small class="form-text text-muted">This should be the first name of the submitting contributor.If your resource has multiple authors you will add them manually to your submission .md file </small>
-      </div>
-      <div class="mb-3">
-        <label for="author-last" class="form-label">Contributor Last Name:</label>
-        <input type="text" class="form-control" id="author-last" name="author-last" />
-        <small class="form-text text-muted">This should be the last name of the submitting contributor. If your resource has multiple authors you will add them manually to your submission .md file </small>
-      </div>
-      <div class="mb-3">
-        <label for="author-date" class="form-label">Contributor Birth Date:</label>
-        <input type="text" class="form-control" id="author-date" name="author-date" />
-        <small class="form-text text-muted">Provide in 'mm-dd' format (ie 10-09 for October 9th), this will be used to make a unique submission name. </small>
-      </div>
-      <div class="mb-3">
-        <label for="author-github" class="form-label">Submitting Contributor GitHub handle:</label>
-        <input type="text" class="form-control" id="author-github" name="author-github" />
-        <small class="form-text text-muted">If you plan to submit your content via a gitHub account (strongly recommend), please provide your GitHub account handle<br>
-          If you do not have a GitHub account, please set up a free account following the instructions (<a href="https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account" target="_blank">here</a>)
-        </small>
-      </div>
-      <div class="mb-3">
-        <label for="date" class="form-label">Submission Date:</label>
-        <input type="date" class="form-control" id="date" name="date" />
-      </div>
-      <div class="mb-3">
-        <label for="categories" class="form-label">Categories:</label>
-        <input type="text" class="form-control" id="categories" name="categories" />
-        <small class="form-text text-muted">Separate categories with commas (e.g. category1, category2, category3)</small>
-      </div>
-      <div class="mb-3">
-        <label for="tags" class="form-label">Tags:</label>
-        <input type="text" class="form-control" id="tags" name="tags" />
-        <small class="form-text text-muted">Separate tags with commas (e.g. tag1, tag2, tag3)</small>
-      </div>
-      <div class="mb-3">
-        <label for="hashes" class="form-label">Social Media Hashes:</label>
-        <input type="text" class="form-control" id="hashes" name="hashes" />
-        <small class="form-text text-muted">Add social media campaigns associated with this resource, add multiples separated by commas, do not include "#"</small>
-      </div>
-      <div class="mb-3">
-        <label for="abstract-short" class="form-label">Short Abstract:</label>
-        <textarea type="text" class="form-control" id="abstract-short" name="abstract-short" rows="3" cols="50" maxlength="500"></textarea>
-        <small class="form-text text-muted">A short abstract of your resource (no longer than 500 characters, roughly 75 words)</small>
-      </div>
-      <div class="mb-3">
-        <label for="abstract-long" class="form-label">Long Abstract:</label>
-        <textarea type="text" class="form-control" id="abstract-long" name="abstract-long" rows="5" cols="50" maxlength="1500"></textarea>
-        <small class="form-text text-muted">A short abstract of your resource (no longer than 1500 characters, roughly 225 words)</small>
-      </div>
-      <div id = "output-headmatter">
-
-      </div>
-
-  <!-- code display area -->
-  <div class="my-4 d-none" id="code-display">
-    <div class="row mb-2">
-      <div class="col-11">
-        <h6 class="m-0">Front Matter</h6>
-      </div>
-      <div class="col-1 text-end">
-        <button type="button" class="btn btn-sm btn-light" onclick="copyToClipboard()">Copy</button>
-      </div>
-    </div>
-    <pre class="p-3 mb-0 rounded"><code id="output-frontmatter"></code></pre>
-  </div>
-
-
-      <button
-        type="button"
-        class="btn btn-primary"
-        onclick="generateMarkdown()"
-      >
-        Generate Markdown
-      </button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        onclick="downloadMarkdown()"
-      >
-        Download Markdown
-      </button>
-    </form>
-  <!-- code display area -->
-  <div class="container my-5" id="code-display">
     <div class="row">
       <div class="col-md-6">
-        <h2>Raw Markdown</h2>
-        <div class="col-1 text-end">
-            <button type="button" class="btn btn-sm btn-light" onclick="copyCodeToClipboard()">Copy</button>
+        <p>
+          Fill out the fields below and it will be immediately translated into
+          the appropriate metadata (called "Frontmatter") for the file you will
+          upload when you submit your resource.
+        </p>
+        <form>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" />
+            <small class="form-text text-muted"
+              >Keep it short, descriptive, and sweet. (7 words max)
+            </small>
           </div>
-        <pre class="p-3 mb-0 rounded"><code id="markdown-code" class="text-break"></code></pre>
+          <div class="mb-3">
+            <label for="subtitle" class="form-label">Sub-Title:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="subtitle"
+              name="subtitle"
+            />
+            <small class="form-text text-muted"
+              >Add additional context (not required)</small
+            >
+          </div>
+          <div class="mb-3">
+            <label for="content-type" class="form-label"
+              >Resource Content Type:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="content-type"
+              name="content-type"
+            />
+            <small class="form-text text-muted"
+              >What type of resource is this ("How-to Kit", "Lecture",
+              "Workshop"</small
+            >
+          </div>
+          <div class="mb-3">
+            <label for="author-first" class="form-label"
+              >Contributor First Name:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="author-first"
+              name="author-first"
+            />
+            <small class="form-text text-muted"
+              >This should be the first name of the submitting contributor.If
+              your resource has multiple authors you will add them manually to
+              your submission .md file
+            </small>
+          </div>
+          <div class="mb-3">
+            <label for="author-last" class="form-label"
+              >Contributor Last Name:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="author-last"
+              name="author-last"
+            />
+            <small class="form-text text-muted"
+              >This should be the last name of the submitting contributor. If
+              your resource has multiple authors you will add them manually to
+              your submission .md file
+            </small>
+          </div>
+          <div class="mb-3">
+            <label for="author-date" class="form-label"
+              >Contributor Birth Date:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="author-date"
+              name="author-date"
+            />
+            <small class="form-text text-muted"
+              >Provide in 'mm-dd' format (ie 10-09 for October 9th), this will
+              be used to make a unique submission name.
+            </small>
+          </div>
+          <div class="mb-3">
+            <label for="author-github" class="form-label"
+              >Submitting Contributor GitHub handle:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="author-github"
+              name="author-github"
+            />
+            <small class="form-text text-muted"
+              >If you plan to submit your content via a gitHub account (strongly
+              recommend), please provide your GitHub account handle<br />
+              If you do not have a GitHub account, please set up a free account
+              following the instructions (<a
+                href="https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account"
+                target="_blank"
+                >here</a
+              >)
+            </small>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Submission Date:</label>
+            <input type="date" class="form-control" id="date" name="date" />
+          </div>
+          <div class="mb-3">
+            <label for="categories" class="form-label">Categories:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="categories"
+              name="categories"
+            />
+            <small class="form-text text-muted"
+              >Separate categories with commas (e.g. category1, category2,
+              category3)</small
+            >
+          </div>
+          <div class="mb-3">
+            <label for="tags" class="form-label">Tags:</label>
+            <input type="text" class="form-control" id="tags" name="tags" />
+            <small class="form-text text-muted"
+              >Separate tags with commas (e.g. tag1, tag2, tag3)</small
+            >
+          </div>
+          <div class="mb-3">
+            <label for="hashes" class="form-label">Social Media Hashes:</label>
+            <input type="text" class="form-control" id="hashes" name="hashes" />
+            <small class="form-text text-muted"
+              >Add social media campaigns associated with this resource, add
+              multiples separated by commas, do not include "#"</small
+            >
+          </div>
+          <div class="mb-3">
+            <label for="abstract-short" class="form-label"
+              >Short Abstract:</label
+            >
+            <textarea
+              type="text"
+              class="form-control"
+              id="abstract-short"
+              name="abstract-short"
+              rows="3"
+              cols="50"
+              maxlength="500"
+            ></textarea>
+            <small class="form-text text-muted"
+              >A short abstract of your resource (no longer than 500 characters,
+              roughly 75 words)</small
+            >
+          </div>
+          <div class="mb-3">
+            <label for="abstract-long" class="form-label">Long Abstract:</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="abstract-long"
+              name="abstract-long"
+              rows="5"
+              cols="50"
+              maxlength="1500"
+            ></textarea>
+            <small class="form-text text-muted"
+              >A short abstract of your resource (no longer than 1500
+              characters, roughly 225 words)</small
+            >
+          </div>
+        </form>
       </div>
       <div class="col-md-6">
-        <h2>Rendered HTML</h2>
-        <div id="markdown-html"></div>
+        <h4>
+          You will download prepopulated markdown document or copy and past it
+          into your own document
+        </h4>
+        <!-- code display area -->
+        <div class="my-4" id="code-display">
+          <div class="row mb-2">
+            <div class="col-12 text-end">
+              <button
+                type="button"
+                class="btn btn-sm btn-light"
+                onclick="copyToClipboard()"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+          <pre
+            class="p-3 mb-0 rounded"
+          ><code id="output-frontmatter"></code></pre>
+          <div class="mt-3">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="downloadMarkdown()"
+            >
+              Download Markdown
+            </button>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="generateCard()"
+        >
+          Generate Format Example
+        </button>
+        <div class="my-4" id="output-htmlCard"></div>
       </div>
     </div>
-  </div>
- 
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/marked.min.js" async></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/purify.min.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatter.js"></script>
-  <script>// get references to form input elements
-    const titleInput = document.getElementById("title");
-    const subtitleInput = document.getElementById("subtitle");
-    const contenttypeInput = document.getElementById("content-type");
-    const authorfirstInput = document.getElementById("author-first");
-    const authorlastInput = document.getElementById("author-last");
-    const authordateInput = document.getElementById("author-date");
-    const dateInput = document.getElementById("date");
-    const categoriesInput = document.getElementById("categories");
-    const tagsInput = document.getElementById("tags");
-    const hashesInput = document.getElementById("hashes");
-    
-    // add event listener to each form input
-    titleInput.addEventListener("input", generateFrontmatter);
-    subtitleInput.addEventListener("input", generateFrontmatter);
-    contenttypeInput.addEventListener("input", generateFrontmatter);
-    authorfirstInput.addEventListener("input", generateFrontmatter);
-    authorlastInput.addEventListener("input", generateFrontmatter);
-    dateInput.addEventListener("input", generateFrontmatter);
-    categoriesInput.addEventListener("input", generateFrontmatter);
-    tagsInput.addEventListener("input", generateFrontmatter);
-    hashesInput.addEventListener("input", generateFrontmatter);</script>
-<script>
-    function copyCodeToClipboard() {
-      const codeElement = document.getElementById("output-frontmatter");
-      const text = codeElement.textContent;
-      navigator.clipboard
-        .writeText(text)
-        .then(() => {
-          console.log("Code copied to clipboard.");
-        })
-        .catch((error) => {
-          console.error(`Error copying code to clipboard: ${error}`);
-        });
-    }
-    </script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateMarkdown.js"></script>
 
+    <button type="button" class="btn btn-primary" onclick="generateMarkdown()">
+      Generate Markdown
+    </button>
+
+    <!-- code display area -->
+    <div class="container my-5" id="code-display">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Raw Markdown</h2>
+          <div class="col-1 text-end">
+            <button
+              type="button"
+              class="btn btn-sm btn-light"
+              onclick="copyCodeToClipboard()"
+            >
+              Copy
+            </button>
+          </div>
+          <pre
+            class="p-3 mb-0 rounded"
+          ><code id="markdown-code" class="text-break markdown-code"></code></pre>
+        </div>
+        <div class="col-md-6">
+          <h2>Rendered HTML</h2>
+          <div id="markdown-html"></div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="{{ site.url }}{{ site.baseurl }}/assets/js/marked.min.js"
+      async
+    ></script>
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/purify.min.js"></script>
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatter.js"></script>
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCard.js"></script>
+    <script>
+      // get references to form input elements
+      const titleInput = document.getElementById("title");
+      const subtitleInput = document.getElementById("subtitle");
+      const contenttypeInput = document.getElementById("content-type");
+      const authorfirstInput = document.getElementById("author-first");
+      const authorlastInput = document.getElementById("author-last");
+      const authordateInput = document.getElementById("author-date");
+      const dateInput = document.getElementById("date");
+      const categoriesInput = document.getElementById("categories");
+      const tagsInput = document.getElementById("tags");
+      const hashesInput = document.getElementById("hashes");
+      const abstractshortInput = document.getElementById("abstract-short");
+      const abstractlongInput = document.getElementById("abstract-long");
+      // add event listener to each form input
+      titleInput.addEventListener("input", generateFrontmatter);
+      subtitleInput.addEventListener("input", generateFrontmatter);
+      contenttypeInput.addEventListener("input", generateFrontmatter);
+      authorfirstInput.addEventListener("input", generateFrontmatter);
+      authorlastInput.addEventListener("input", generateFrontmatter);
+      dateInput.addEventListener("input", generateFrontmatter);
+      categoriesInput.addEventListener("input", generateFrontmatter);
+      tagsInput.addEventListener("input", generateFrontmatter);
+      hashesInput.addEventListener("input", generateFrontmatter);
+      abstractshortInput.addEventListener("input", generateFrontmatter);
+      abstractlongInput.addEventListener("input", generateFrontmatter);
+    </script>
+    <script>
+      function copyCodeToClipboard() {
+        const codeElement = document.getElementById("output-frontmatter");
+        const text = codeElement.textContent;
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            console.log("Code copied to clipboard.");
+          })
+          .catch((error) => {
+            console.error(`Error copying code to clipboard: ${error}`);
+          });
+      }
+    </script>
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateMarkdown.js"></script>
+  </div>
 </body>
