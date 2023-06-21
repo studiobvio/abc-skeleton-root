@@ -11551,3 +11551,32 @@ pre code {
 #markdown-code {
   color: #f8f8f2;
 }
+
+#autofill-list {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+}
+
+#autofill-list li {
+  cursor: pointer;
+  padding: 5px;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+#autofill-list li:hover {
+  background-color: lightgray;
+}
+
+#map-container {
+  width: 100%;
+  height: 400px; /* Adjust the height as needed */
+  margin-top: 20px;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}

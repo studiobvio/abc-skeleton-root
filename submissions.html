@@ -97,17 +97,36 @@ layout: page
             <label for="content-type" class="form-label"
               >Resource Content Type:</label
             >
+            <select
+              id="content-type"
+              class="form-control"
+              onchange="handleSelection()"
+            >
+              <option value="default" selected>
+                Select the most relevant option
+              </option>
+              <option value="Workshop">Workshop</option>
+              <option value="Lecture">Lecture</option>
+              <option value="Interview">Interview</option>
+              <option value="Panel Discussion">Panel Discussion</option>
+              <option value="Tutorial">Tutorial</option>
+              <option value="Review">Review</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="place-input">Place Name:</label>
             <input
               type="text"
-              class="form-control"
-              id="content-type"
-              name="content-type"
+              id="place-input"
+              name="place-input"
+              placeholder="Enter a place"
+              oninput="autofillPlace()"
             />
-            <small class="form-text text-muted"
-              >What type of resource is this ("How-to Kit", "Lecture",
-              "Workshop"</small
-            >
+
+            <ul id="autofill-list"></ul>
           </div>
+          <div id="map" class="mb-3"></div>
           <div class="mb-3">
             <label for="author-first" class="form-label"
               >Contributor First Name:</label
@@ -322,6 +341,8 @@ layout: page
     <script src="{{ site.url }}{{ site.baseurl }}/assets/js/purify.min.js"></script>
     <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatter.js"></script>
     <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCard.js"></script>
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/autofillPlace.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
       // get references to form input elements
       const titleInput = document.getElementById("title");
@@ -350,6 +371,14 @@ layout: page
       abstractlongInput.addEventListener("input", generateFrontmatter);
     </script>
     <script>
+      function handleSelection() {
+        var dropdown = document.getElementById("content-type");
+        var selectedValue = dropdown.value;
+        // Perform actions based on the selected value
+        console.log("Selected value:", selectedValue);
+      }
+    </script>
+    <script>
       function copyCodeToClipboard() {
         const codeElement = document.getElementById("output-frontmatter");
         const text = codeElement.textContent;
@@ -363,6 +392,7 @@ layout: page
           });
       }
     </script>
+
     <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateMarkdown.js"></script>
   </div>
 </body>

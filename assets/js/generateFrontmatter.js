@@ -21,7 +21,7 @@ published: false
 permalink:
 title: "${title}"
 subtitle: "${subtitle}"
-content-type: ${contenttype}
+content-type: "${contenttype}"
 authors:
   - name: ${authorfirst} ${authorlast}
     name-slug: ${authorlast}-${authorfirst}-${authordate}
