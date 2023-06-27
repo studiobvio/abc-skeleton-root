@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-21-engaging-communities-in-the-design-studio"
+title-slug: "2022-07-21-engaging-communities-in-the-design-studio"
 date: 2022-07-21
 title: "Engaging Communities in the Design Studio"
 subtitle: "Considerations for Accountability from Five Case Studies"

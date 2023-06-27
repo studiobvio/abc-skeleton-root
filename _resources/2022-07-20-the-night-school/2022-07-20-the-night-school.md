@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-20-the-night-school"
+title-slug: "2022-07-20-the-night-school"
 date: 2022-07-20
 title: "The Night School"
 subtitle: "Community After Collapse"

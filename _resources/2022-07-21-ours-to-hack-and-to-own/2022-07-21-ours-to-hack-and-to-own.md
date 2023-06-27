@@ -3,7 +3,7 @@ layout: resource
 published: true
 permalink:
 date: 2022-07-21
-title: "Ours to hack and to own"
+title-slug: "2022-07-21-20
 subtitle: "Open-source Strategies and the Pedagogy of Potential"
 content-type: "Workshop"
 categories:

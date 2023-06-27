@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-23-together-we-dream"
+title-slug: "2022-07-23-together-we-dream"
 date: 2022-07-23
 title: "Together We Dream"
 subtitle:

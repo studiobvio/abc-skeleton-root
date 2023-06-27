@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-22-seeing-hearing-eating-drawing-and-all-of-the-above"
+title-slug: "2022-07-22-seeing-hearing-eating-drawing-and-all-of-the-above"
 date: 2022-07-22
 title: "Seeing, Hearing, Eating, Drawing, and All of the Above"
 subtitle:

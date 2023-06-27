@@ -4,6 +4,7 @@ published: true
 permalink:
 date: 2022-07-19
 title: "Student Organizing Across Syllabi and Project Briefs"
+title-slug: "2022-07-19-student-organizing-across-syllabi-and-project-briefs"
 subtitle:
 content-type: "Session"
 categories:

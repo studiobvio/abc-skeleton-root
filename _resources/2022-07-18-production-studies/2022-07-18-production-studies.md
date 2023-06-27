@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-18-production-studies"
+title-slug: "2022-07-18-production-studies"
 date: 2022-07-18
 title: "'Production Studies'"
 subtitle: " Perspectives on Remaking Studio"

@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-22-decentre-deconstruct-design"
+title-slug: "2022-07-22-decentre-deconstruct-design"
 date: 2022-07-22
 title: "Decentre, Deconstruct, Design"
 subtitle:

@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-22-community-after-collapse"
+title-slug: "2022-07-22-community-after-collapse"
 date: 2022-07-21
 title: "Community After Collapse"
 subtitle:

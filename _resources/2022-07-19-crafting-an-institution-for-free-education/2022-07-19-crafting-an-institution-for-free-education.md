@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-19-crafting-an-institution-for-free-education"
+title-slug: "2022-07-19-crafting-an-institution-for-free-education"
 date: 2022-07-19
 title: "Crafting an Institution for Free Education"
 subtitle: "A San Diego Case Study"

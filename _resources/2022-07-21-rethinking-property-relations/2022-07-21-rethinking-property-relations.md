@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-21-rethinking-property-relations"
+title-slug: "2022-07-21-rethinking-property-relations"
 date: 2022-07-21
 title: "Rethinking Property Relations"
 subtitle: "Politicizing Site Analysis"

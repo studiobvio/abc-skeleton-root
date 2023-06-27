@@ -2,7 +2,7 @@
 layout: resource
 published: true
 permalink:
-name-slug: "2022-07-19-free-studio"
+title-slug: "2022-07-19-free-studio"
 date: 2022-07-18
 title: "FREE STUDIO"
 subtitle: "Liberation as Praxis"
