@@ -45,7 +45,7 @@
   </div>
 </div>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5">
-  {% for item in collection limit: 12 %}
+  {% for item in collection limit: 20 %}
   <div
     class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %} {% for category in item.categories %}{{ category | slugify }} {% endfor %}"
   >
@@ -65,38 +65,7 @@
           {{ item.title }}{% if item.subtitle %}:{% endif %}
         </h5>
         <h6 class="car-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
-        <h6 class="fst-italic">
-          by {% assign authors = item.authors | map: 'name' %} {% assign
-          authors_slug = item.authors | map: 'name-slug' %} {% assign
-          authors_count = authors | size %} {% assign authors_count_minus1 =
-          authors_count | minus: 1 %} {% assign authors_count_minus2 =
-          authors_count | minus: 2 %} {% if authors_count == 1 %}
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[0]}}/{{authors_slug[0]}}.html"
-            >{{ authors[0] }}</a
-          >
-          {% elsif authors_count == 2 %}
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[0]}}/{{authors_slug[0]}}.html"
-            >{{ authors[0] }}</a
-          >
-          and
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[1]}}/{{authors_slug[1]}}.html"
-            >{{ authors[1] }}</a
-          >
-          {% else %} {% for i in (0..authors_count_minus2) %}
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[i]}}/{{authors_slug[i]}}.html"
-            >{{ authors[i] }}</a
-          >
-          , {% endfor %} and
-          <a
-            href="{{site.url}}{{site.baseurl}}/collaborators/{{ authors_slug[authors_count_minus1]}}/{{authors_slug[authors_count_minus1]}}.html"
-            >{{ authors[authors_count_minus1] }}</a
-          >
-          {% endif %}
-        </h6>
+        {% include author-links-card.html %}
         <p>
           Key Terms: {% for tag in item.tags %}
           <a href="{{site.baseurl}}/ideas#{{ tag | slugify }}">{{ tag }}</a>

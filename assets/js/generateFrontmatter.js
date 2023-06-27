@@ -27,8 +27,8 @@ authors:
     name-slug: ${authorlast}-${authorfirst}-${authordate}
 date: ${date}
 abstract:
-  - short: "${abstractshort}"
-  - long: "${abstractlong}"\n`;
+  short: "${abstractshort}"
+  long: "${abstractlong}"\n`;
 
   // add categories to front matter string
   if (categories.length > 0) {

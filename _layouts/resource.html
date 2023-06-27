@@ -2,74 +2,77 @@
 layout: page
 ---
 
-<div class="container">
-  <h2>{{ page.title }}:
-    <span>{{ page.subtitle }}</span>
+<div
+  class="container content-title col-md-8 offset-md-2 col-lg-10 offset-lg-1 mb-5 border-bottom"
+>
+  <img
+    src="{{site.baseurl}}/{{ page.collection }}/{{ page.title-slug }}/{{ page.title-slug }}.jpg"
+    class="page-img-top mb-3 mt-4"
+    alt="{{ page.main_image_alt }}"
+  />
+  <h2>
+    {{ page.title }}:
+    <span class="subtitle">{{ page.subtitle }}</span>
   </h2>
-  <h6 class="fst-italic">
-    by
-    {% assign authors = page.authors | map: 'name' %}
-    {% assign authors_count = authors | size %}
-    {% assign authors_count_minus1 = authors_count | minus: 1 %}
-    {% assign authors_count_minus2 = authors_count | minus: 2 %}
-    {% if authors_count == 1 %}
-      {{ authors[0] }}
-    {% elsif authors_count == 2 %}
-      {{ authors[0] }} and {{ authors[1] }}
-    {% else %}
-      {% for i in (0..authors_count_minus2) %}
-        {{ authors[i] }}
-        ,
+  {% include author-links-page.html %}
+  <h4 class="mt-4">Abstract</h4>
+  <p class="mb-4">{{ page.abstract.long }}</p>
+  {% if page.learning-outcomes %} {% assign outcomes = page.learning-outcomes %}
+  <h4>Learning Outcomes</h4>
+  <div>
+    <ul class="list-group list-group-flush">
+      {% for outcome in outcomes %}
+      <li class="list-group-item text-small text-muted">{{ outcome }}</li>
       {% endfor %}
-      and {{ authors[authors_count_minus1] }}
-    {% endif %}
-  </h6>
+    </ul>
+  </div>
+  {% else %}
+  <p class="lst-italic text-muted">No learning outcomes provided.</p>
+  {% endif %}
+  <p>
+    Tags: {% for tag in page.tags %}
+    <a href="{{site.url}}{{site.baseurl}}/ideas/{{ tag | slugify }}"
+      >{{ tag }}</a
+    >
+    {% unless forloop.last %}, {% endunless %} {% endfor %}
+  </p>
 </div>
 
-<div class="container">{{ content }}</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <article>
+        <div class="content">
+          <!-- Blog post content here -->
+          {{ content }}
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
 
-<a href="{{ site.url }}{{ site.baseurl }}/resources.html">Back to all resources</a>
-
+<a href="{{ site.url }}{{ site.baseurl }}/resources.html"
+  >Back to all resources</a
+>
 
 <div class="relatedResource">
-
   <h4>You May Also Enjoy</h4>
 
-  {% assign maxRelated = 4 %}
-  {% assign minCommonTags = 2 %}
-  {% assign maxRelatedCounter = 0 %}
+  {% assign maxRelated = 4 %} {% assign minCommonTags = 2 %} {% assign
+  maxRelatedCounter = 0 %} {% for resource in site.resources %} {% assign
+  sameTagCount = 0 %} {% assign commonTags = '' %} {% for tag in resource.tags
+  %} {% if resource.url != page.url %} {% if page.tags contains tag %} {% assign
+  sameTagCount = sameTagCount | plus: 1 %} {% capture tagmarkup %}
+  <span class="label label-default">{{ tag }}</span>
+  {% endcapture %} {% assign commonTags = commonTags | append: tagmarkup %} {%
+  endif %} {% endif %} {% endfor %} {% if sameTagCount >= minCommonTags %}
 
-  {% for resource in site.resources %}
-
-    {% assign sameTagCount = 0 %}
-    {% assign commonTags = '' %}
-
-    {% for tag in resource.tags %}
-      {% if resource.url != page.url %}
-        {% if page.tags contains tag %}
-          {% assign sameTagCount = sameTagCount | plus: 1 %}
-          {% capture tagmarkup %}
-            <span class="label label-default">{{ tag }}</span>
-          {% endcapture %}
-          {% assign commonTags = commonTags | append: tagmarkup %}
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% if sameTagCount >= minCommonTags %}
-
-
-      <div>
-        <h5>
-          <a href="{{ site.baseurl }}{{ resource.url }}">{{ resource.title }}</a>
-        </h5>
-      </div>
-      {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
-      {% if maxRelatedCounter >= maxRelated %}
-        {% break %}
-      {% endif %}
-    {% endif %}
-
-  {% endfor %}
-
+  <div>
+    <h5>
+      <a href="{{ site.baseurl }}{{ resource.url }}">{{ resource.title }}</a>
+    </h5>
+  </div>
+  {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %} {% if
+  maxRelatedCounter >= maxRelated %} {% break %} {% endif %} {% endif %} {%
+  endfor %}
 </div>

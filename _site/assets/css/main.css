@@ -11498,6 +11498,24 @@ textarea.form-control-lg {
   opacity: 1;
 }
 
+img {
+  width: 100%;
+}
+
+#subtitle {
+  font-weight: 200;
+}
+
+#content h1, #content .h1 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#content h2, #content .h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .social-media-icon {
   height: 50px;
   width: 50px;
