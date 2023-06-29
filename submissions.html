@@ -2,6 +2,7 @@
 layout: page
 ---
 
+<div id="base-url" data-base-url="{{site.url}}{{site.baseurl}}"></div>
 <div class="container mt-3">
   <h1>Resource Submission Process</h1>
   <p>
@@ -314,33 +315,15 @@ layout: page
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary" onclick="generateMarkdown()">
-    Generate Markdown
-  </button>
-
-  <!-- code display area -->
-  <div class="container my-5" id="code-display">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Raw Markdown</h2>
-        <div class="col-1 text-end">
-          <button
-            type="button"
-            class="btn btn-sm btn-light"
-            onclick="copyCodeToClipboard()"
-          >
-            Copy
-          </button>
-        </div>
-        <pre
-          class="p-3 mb-0 rounded"
-        ><code id="markdown-code" class="text-break markdown-code"></code></pre>
-      </div>
-      <div class="col-md-6">
-        <h2>Rendered HTML</h2>
-        <div id="markdown-html"></div>
-      </div>
-    </div>
+  <div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      id="generate-zip-btn"
+      onclick="generateZip()"
+    >
+      Download Zip Files and Begin Editing
+    </button>
   </div>
 
   <script
@@ -350,8 +333,13 @@ layout: page
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/purify.min.js"></script>
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatter.js"></script>
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCard.js"></script>
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateZip.js"></script>
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/autofillPlace.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <!-- library for zipping files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+
   <script>
     // get references to form input elements
     const titleInput = document.getElementById("title");
