@@ -2,9 +2,7 @@
 layout: page
 ---
 
-<div
-  class="container content-title col-md-8 offset-md-2 col-lg-10 offset-lg-1 mb-5 border-bottom"
->
+<div class="container content-title">
   <img
     src="{{site.baseurl}}/{{ page.collection }}/{{ page.title-slug }}/{{ page.title-slug }}.jpg"
     class="page-img-top mb-3 mt-4"
@@ -38,11 +36,11 @@ layout: page
   </p>
 </div>
 
-<div class="container">
+<div class="container content">
   <div class="row">
-    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <article>
-        <div class="content">
+        <div>
           <!-- Blog post content here -->
           {{ content }}
         </div>

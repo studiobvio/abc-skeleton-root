@@ -1,3 +1,13 @@
+function slugify(text) {
+  return text
+    .toString() // Convert to string in case of a number or other type
+    .toLowerCase() // Convert to lowercase
+    .trim() // Remove leading and trailing spaces
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/[^\w-]+/g, "") // Remove non-word characters (except hyphens)
+    .replace(/--+/g, "-"); // Replace consecutive hyphens with a single hyphen
+}
+
 function generateFrontmatter() {
   // get values from form inputs
   const title = document.getElementById("title").value;
@@ -6,12 +16,21 @@ function generateFrontmatter() {
   const authorfirst = document.getElementById("author-first").value;
   const authorlast = document.getElementById("author-last").value;
   const authordate = document.getElementById("author-date").value;
-  const date = document.getElementById("date").value;
+  const submissionyear = document.getElementById("submission-year").value;
   const categories = document.getElementById("categories").value.split(",");
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
   const abstractshort = document.getElementById("abstract-short").value;
   const abstractlong = document.getElementById("abstract-long").value;
+  const learning1 = document.getElementById("learning1").value;
+  const learning2 = document.getElementById("learning2").value;
+  const learning3 = document.getElementById("learning3").value;
+
+  // create custome variables
+
+  var titleslug = slugify(title);
+  var authorlastslug = slugify(authorlast);
+  var authorfirstslug = slugify(authorfirst);
 
   // build front matter string with YAML syntax
   //  add code to for lowercase and slug-ify for inputs
@@ -20,15 +39,18 @@ layout: resource
 published: false
 permalink:
 title: "${title}"
+title-slug: "${submissionyear}-${titleslug}"
 subtitle: "${subtitle}"
 content-type: "${contenttype}"
 authors:
   - name: ${authorfirst} ${authorlast}
-    name-slug: ${authorlast}-${authorfirst}-${authordate}
-date: ${date}
-abstract:
-  short: "${abstractshort}"
-  long: "${abstractlong}"\n`;
+    name-slug: ${authorlastslug}-${authorfirstslug}-${authordate}
+date: #to be added when submission is published
+submission-year: ${submissionyear}
+learning-outcomes: 
+  - "${learning1}"
+  - "${learning2}"
+  - "${learning3}"\n`;
 
   // add categories to front matter string
   if (categories.length > 0) {
@@ -53,6 +75,12 @@ abstract:
       frontMatter += `  - "#${hash.trim()}"\n`;
     });
   }
+
+  // add longer text blocks
+  frontMatter += `
+abstract:
+  short: "${abstractshort}"
+  long: "${abstractlong}"\n`;
 
   // close front matter section
   frontMatter += `---\n\n`;

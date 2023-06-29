@@ -1,0 +1,18 @@
+@media print {
+  /* Add your custom styles for printing here */
+
+  h1 {
+    page-break-after: always;
+  }
+}
+
+/* Add your custom styles for printing here */
+body {
+  font-size: 11pt;
+  margin: 0;
+}
+
+/* Example: Hide the navigation menu when printing */
+.navbar {
+  display: none;
+}

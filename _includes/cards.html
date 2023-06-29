@@ -67,7 +67,7 @@
         <h6 class="car-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
         {% include author-links-card.html %}
         <p>
-          Key Terms: {% for tag in item.tags %}
+          Tags: {% for tag in item.tags %}
           <a href="{{site.baseurl}}/ideas#{{ tag | slugify }}">{{ tag }}</a>
           {% unless forloop.last %}, {% endunless %} {% endfor %}
         </p>
