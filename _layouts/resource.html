@@ -8,10 +8,8 @@ layout: page
     class="page-img-top mb-3 mt-4"
     alt="{{ page.main_image_alt }}"
   />
-  <h2>
-    {{ page.title }}:
-    <span class="subtitle">{{ page.subtitle }}</span>
-  </h2>
+  <h2>{{ page.title }}:</h2>
+  <h3 style="font-weight: lighter">{{ page.subtitle }}</h3>
   {% include author-links-page.html %}
   <h4 class="mt-4">Abstract</h4>
   <p class="mb-4">{{ page.abstract.long }}</p>
@@ -27,10 +25,20 @@ layout: page
   {% else %}
   <p class="lst-italic text-muted">No learning outcomes provided.</p>
   {% endif %}
+  <h4>Tags:</h4>
   <p>
-    Tags: {% for tag in page.tags %}
+    {% for tag in page.tags %}
     <a href="{{site.url}}{{site.baseurl}}/ideas/{{ tag | slugify }}"
       >{{ tag }}</a
+    >
+    {% unless forloop.last %}, {% endunless %} {% endfor %}
+  </p>
+  <h4>Categories:</h4>
+  <p>
+    {% for category in page.categories %}
+    <a
+      href="{{site.url}}{{site.baseurl}}/resources/#{{ category | slugify }}.html"
+      >{{ category }}</a
     >
     {% unless forloop.last %}, {% endunless %} {% endfor %}
   </p>
@@ -49,10 +57,6 @@ layout: page
   </div>
 </div>
 
-<a href="{{ site.url }}{{ site.baseurl }}/resources.html"
-  >Back to all resources</a
->
-
 <div class="relatedResource">
   <h4>You May Also Enjoy</h4>
 
@@ -66,11 +70,17 @@ layout: page
   endif %} {% endif %} {% endfor %} {% if sameTagCount >= minCommonTags %}
 
   <div>
-    <h5>
-      <a href="{{ site.baseurl }}{{ resource.url }}">{{ resource.title }}</a>
-    </h5>
+    <ul>
+      <li>
+        <a href="{{ site.baseurl }}{{ resource.url }}">{{ resource.title }}</a>
+      </li>
+    </ul>
   </div>
   {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %} {% if
   maxRelatedCounter >= maxRelated %} {% break %} {% endif %} {% endif %} {%
   endfor %}
+
+  <a href="{{ site.url }}{{ site.baseurl }}/resources.html"
+    >Back to all resources</a
+  >
 </div>

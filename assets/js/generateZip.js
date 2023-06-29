@@ -10,7 +10,7 @@ function generateZip() {
   var zip = new JSZip();
 
   // Fetch the .md file
-  fetch(baseUrl + "/assets/md/2023-example-resource.md")
+  fetch("/assets/md/2023-example-resource.md")
     .then((response) => response.text())
     .then((data) => {
       zip
