@@ -14,6 +14,7 @@ tags:
 
 name: "Will Martin"
 name-slug: "martin-will-10-09"
+name-date: "09"
 location: "Denver, Colorado"
 role: "Neighbor"
 statement: "Doing awesome stuff across the globe"

@@ -40,3 +40,29 @@ We recommend [Zettlr](https://www.zettlr.com) because it is a free and
 open-source software with an active community of contributors and it has
 an academic focus, availability on most operating system (Windows, Mac,
 Linux, etc). Zettlr has robust [documentation](https://docs.zettlr.com/) as well as [videos](https://www.youtube.com/watch?v=dQ_tpVtLX8k&list=PL2ydvDwV-1u5ncnkxQWZhbHQdwpY2fx5f)
+
+To make resources in the ABC Repository as widely accessible and extensible as
+possible to our community, we require all resources conform to the submission
+guidelines outline below. For each resource you will upload a single folder
+with a primary text file and any supplemental media files in ato our
+open-source repository which is hosted on GitHub. The repository content will
+be rendered as a searchable website. While you may draft your resource
+material an any format you wish, your final submission will be a MarkDown
+document. We understand that there may be a learning curve for most
+contributors who typically use other proprietary or add-funded tools like
+Microsoft Word, Mac Pages, or Google Docs. We do not want to constrain your
+creative process in any way, however you will be required to convert
+non-Markdown documents into a text Markdown file with appropriate formatting
+to submit your resource for inclusion in the ABC repository. We believe that
+the extra effort to make this translation into a lightweight, structured
+format will greatly increase the accessibility of your contributions and
+increase our collective power to make change. To simplify this translation
+process, we recommend drafting your submission directly in a Markdown editor
+(there are many paid and free options available).You can also download a zip file with the required folder
+structure and an example submission included below. A key feature of Markdown
+documents is the ability to store metadata about the document (call YAML
+Frontmatter) at the beginning of the document that can be used to provide
+additional content about the document in a structured manner. To ensure that
+all submisisons include this vital metadata, we have provided a form below
+that will automatically generate most of the essential Frontmatter to be
+included at the beginning of the Markdown file you will submit.
