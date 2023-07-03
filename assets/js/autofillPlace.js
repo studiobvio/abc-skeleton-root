@@ -21,7 +21,7 @@ function debounce(func, delay) {
 const debouncedAutofillPlace = debounce(autofillPlace, 300); // Adjust the delay as needed
 
 function autofillPlace() {
-  var input = document.getElementById("place-input").value;
+  var input = document.getElementById("place").value;
   var autofillList = document.getElementById("autofill-list");
   autofillList.innerHTML = "";
 
@@ -40,8 +40,7 @@ function autofillPlace() {
         listItem.textContent =
           place.city_country_name + " (" + place.lat + ", " + place.lng + ")";
         listItem.addEventListener("click", function () {
-          document.getElementById("place-input").value =
-            place.city_country_name;
+          document.getElementById("place").value = place.city_country_name;
           autofillList.innerHTML = "";
         });
         autofillList.appendChild(listItem);
