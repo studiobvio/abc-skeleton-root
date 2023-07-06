@@ -14,13 +14,14 @@ function generateFrontmatterProfile() {
   const authorfirst = document.getElementById("author-first").value;
   const authorlast = document.getElementById("author-last").value;
   const authordate = document.getElementById("author-date").value;
+  const pronouns = document.getElementById("pronouns").value;
   const submissionyear = document.getElementById("submission-year").value;
   const categories = document.getElementById("categories").value.split(",");
   const categoriesother = document.getElementById("categories-other").value;
   const role = document.getElementById("role").value;
   const roleother = document.getElementById("role-other").value;
   const place = document.getElementById("place").value;
-  const authorgithub = document.getElementById("author-github").value;
+  const github = document.getElementById("github").value;
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
   const statement = document.getElementById("statement").value;
@@ -33,6 +34,16 @@ function generateFrontmatterProfile() {
   const social2handle = document.getElementById("social-2-handle").value;
   const social3 = document.getElementById("social-3").value;
   const social3handle = document.getElementById("social-3-handle").value;
+  const affiliation1 = document.getElementById("affiliation-1").value;
+  const affiliation1title = document.getElementById(
+    "affiliation-1-title"
+  ).value;
+  const affiliation1link = document.getElementById("affiliation-1-link").value;
+  const affiliation2 = document.getElementById("affiliation-2").value;
+  const affiliation2title = document.getElementById(
+    "affiliation-2-title"
+  ).value;
+  const affiliation2link = document.getElementById("affiliation-2-link").value;
 
   // create custome variables
 
@@ -48,10 +59,11 @@ function generateFrontmatterProfile() {
   content-type: "${contenttype}"
   name: ${authorfirst} ${authorlast}
   name-slug: ${authorlastslug}-${authorfirstslug}-${authordate}
+  pronouns: ${pronouns}
   date: #to be added when submission is published
   submission-year: ${submissionyear}
   location: ${place}
-  author-github: ${authorgithub}
+  github: ${github}
   role: ${role}
   role-other: ${roleother}
   statement: ${statement}
@@ -64,7 +76,14 @@ function generateFrontmatterProfile() {
   - name: ${social2}
     handle: ${social2handle}
   - name: ${social3}
-    handle: ${social3handle}\n`;
+    handle: ${social3handle}
+  affiliations:
+  - name: ${affiliation1}
+    title: ${affiliation1title}
+    link: ${affiliation1link}
+  - name: ${affiliation2}
+    title: ${affiliation2title}
+    link: ${affiliation2link}\n`;
 
   // add categories to front matter string
   if (categories.length > 0) {
@@ -96,7 +115,7 @@ function generateFrontmatterProfile() {
   // close front matter section
   frontMatter += `---\n\n`;
   // build markdown template string
-  const template = `<--your context here -->`;
+  const template = `<--your custom Markdown content here -->`;
 
   // combine front matter and template strings into full markdown string
   const fullMarkdown = `${frontMatter}${template}`;

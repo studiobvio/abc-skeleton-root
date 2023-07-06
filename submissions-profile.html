@@ -34,12 +34,8 @@ layout: page
           class="form-control"
           id="author-first"
           name="author-first"
+          placeholder="For non-individuals, add full title here without special characters."
         />
-        <small class="form-text text-muted"
-          >This should be the first name of the submitting contributor.If your
-          resource has multiple authors you will add them manually to your
-          submission .md file
-        </small>
       </div>
       <div class="mb-3">
         <label for="author-last" class="form-label"
@@ -50,15 +46,11 @@ layout: page
           class="form-control"
           id="author-last"
           name="author-last"
+          placeholder="For non-individuals, add 'Non-Profit' etc here"
         />
-        <small class="form-text text-muted"
-          >This should be the last name of the submitting contributor. If your
-          resource has multiple authors you will add them manually to your
-          submission .md file
-        </small>
       </div>
       <div class="mb-3">
-        <label for="author-date" class="form-label">Author Date ID:</label>
+        <label for="author-date" class="form-label">Unique Number:</label>
         <input
           type="text"
           class="form-control"
@@ -66,10 +58,15 @@ layout: page
           name="author-date"
         />
         <small class="form-text text-muted"
-          >Provide in your the day of the month you were born in "dd" format.
-          The number will be appended to you names to generate your unique
-          author ID (name-slug).
+          >Provide a unique two digit number that you won't forget. We recommend
+          the day of the month you were born in "dd" format. The number will be
+          appended to you names to generate your unique author ID (name-slug) to
+          avoid profile confusion among community members with same names.
         </small>
+      </div>
+      <div class="mb-3">
+        <label for="pronouns" class="form-label">Preferred Pronouns:</label>
+        <input type="text" class="form-control" id="pronouns" name="pronouns" />
       </div>
       <div class="mb-3">
         <label for="content-type" class="form-label"
@@ -115,21 +112,20 @@ layout: page
         </select>
       </div>
       <div class="mb-3">
-        <label for="categories-other" class="form-label"
-          >If other, provide a category title that best suites you.:</label
-        >
+        <label for="categories-other" class="form-label">Optional:</label>
         <input
           type="text"
           class="form-control"
           id="categories-other"
           name="categories-other"
+          placeholder="If other, provide a category that best suites you here."
         />
       </div>
       <div class="mb-3">
         <label for="role" class="form-label">Role:</label>
         <select id="role" class="form-control" onchange="handleSelection()">
           <option value="default" selected>
-            What role do you feel called to play in this movement.
+            What role do you feel called to play in this movement?
           </option>
           <option value="Organizer">Organizer</option>
           <option value="Theoritician">Theoritician</option>
@@ -142,14 +138,13 @@ layout: page
         </select>
       </div>
       <div class="mb-3">
-        <label for="role-other" class="form-label"
-          >If other, provide your preferred role (one or two words):</label
-        >
+        <label for="role-other" class="form-label">Optional</label>
         <input
           type="text"
           class="form-control"
           id="role-other"
           name="role-other"
+          placeholder="If other, add a preferred role here"
         />
       </div>
       <div class="mb-3">
@@ -158,7 +153,7 @@ layout: page
           type="text"
           id="place"
           name="place"
-          placeholder="Enter a place"
+          placeholder="Start typing the name of place (nearest town or city) and select from the auto-fill dropdown"
           oninput="autofillPlace()"
         />
 
@@ -167,20 +162,17 @@ layout: page
       <div id="map" class="mb-3"></div>
 
       <div class="mb-3">
-        <label for="author-github" class="form-label"
-          >Submitting Contributor GitHub handle:</label
-        >
+        <label for="github" class="form-label">GitHub handle:</label>
         <input
           type="text"
           class="form-control"
-          id="author-github"
-          name="author-github"
+          id="github"
+          name="github"
+          placeholder="Add your profile handle here"
         />
         <small class="form-text text-muted"
-          >If you plan to submit your content via a gitHub account (strongly
-          recommend), please provide your GitHub account handle<br />
-          If you do not have a GitHub account, please set up a free account
-          following the instructions (<a
+          >If you have yet to set up a GitHub account please do so by following
+          the directions<a
             href="https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account"
             target="_blank"
             >here</a
@@ -194,25 +186,40 @@ layout: page
           class="form-control"
           id="submission-year"
           name="submission-year"
+          placeholder="Add the year you are submtting in YYYY format"
         />
-        <small class="form-text text-muted"
-          >Provide the year you are submitting your profile.
-        </small>
       </div>
       <div class="mb-3">
         <label for="tags" class="form-label">Tags:</label>
-        <input type="text" class="form-control" id="tags" name="tags" />
+        <input
+          type="text"
+          class="form-control"
+          id="tags"
+          name="tags"
+          placeholder="Provide a list of ideas (tags) each separated by a comma."
+        />
         <small class="form-text text-muted"
-          >Provide a list of ideas (tags) each separated by a comma, that you
-          are particularly interested in.</small
+          >For a unexaustive list of ideas currenlty associated with the Hub go
+          to the
+          <a href="{{site.url}}{{site.baseurl}}/ideas"
+            >the Hub ideas reference page</a
+          ></small
         >
       </div>
       <div class="mb-3">
-        <label for="hashes" class="form-label">Social Media Hashes:</label>
-        <input type="text" class="form-control" id="hashes" name="hashes" />
+        <label for="hashes" class="form-label"
+          >Social Media Movement Hashes:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="hashes"
+          name="hashes"
+          placeholder="Add hash-tags without '#' and separate multiple hashtags with commas (no spaces)"
+        />
         <small class="form-text text-muted"
           >Add social media campaigns that you are associated, support, or
-          follow, add multiples separated by commas, do not include "#"</small
+          follow</small
         >
       </div>
       <div class="mb-3">
@@ -272,15 +279,12 @@ layout: page
         </select>
       </div>
       <div class="mb-3">
-        <label for="social-1-handle" class="form-label"
-          >Add your social media handle without any extra character (ie @
-          etc)</label
-        >
         <input
           type="text"
           class="form-control"
           id="social-1-handle"
           name="social-1-handle"
+          placeholder="Handle without extra characters (ie @)"
         />
       </div>
       <div class="mb-3">
@@ -298,19 +302,16 @@ layout: page
         </select>
       </div>
       <div class="mb-3">
-        <label for="social-2-handle" class="form-label"
-          >Add your social media handle without any extra character (ie @
-          etc)</label
-        >
         <input
           type="text"
           class="form-control"
           id="social-2-handle"
           name="social-2-handle"
+          placeholder="Handle without extra characters (ie @)"
         />
       </div>
       <div class="mb-3">
-        <label for="social-3" class="form-label">Social Medial 3:</label>
+        <label for="social-3" class="form-label">Social Media 3:</label>
         <select id="social-3" class="form-control" onchange="handleSelection()">
           <option value="default" selected></option>
           <option value="LinkedIn">LinkedIn</option>
@@ -324,16 +325,68 @@ layout: page
         </select>
       </div>
       <div class="mb-3">
-        <label for="social-3-handle" class="form-label"
-          >Add your social media handle without any extra character (ie @
-          etc)</label
-        >
         <input
           type="text"
           class="form-control"
           id="social-3-handle"
           name="social-3-handle"
+          placeholder="Handle without extra characters (ie @)"
         />
+      </div>
+      <div class="mb-3">
+        <label for="affiliation-1" class="form-label">Affiliation 1:"</label>
+        <input
+          type="text"
+          class="form-control"
+          id="affiliation-1"
+          name="affiliation-1"
+          placeholder="Add the name of the affiliation"
+        />
+        <label for="affiliation-1-title" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="affiliation-1-title"
+          name="affiliation-1-title"
+          placeholder="Add your title or role if applicable"
+        />
+        <label for="affiliation-1-link" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="affiliation-1-link"
+          name="affiliation-1-link"
+          placeholder="Add a preferred website link (including http etc) if applicable"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="affiliation-2" class="form-label">Affiliation 2:"</label>
+        <input
+          type="text"
+          class="form-control"
+          id="affiliation-2"
+          name="affiliation-2"
+          placeholder="Add the name of the affiliation"
+        />
+        <label for="affiliation-2-title" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="affiliation-2-title"
+          name="affiliation-2-title"
+          placeholder="Add your title or role if applicable"
+        />
+        <label for="affiliation-2-link" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="affiliation-2-link"
+          name="affiliation-2-link"
+          placeholder="Add a preferred website link (including http etc) if applicable"
+        />
+        <small class="form-text text-muted"
+          >You can add more affiliations manually before you submit</small
+        >
       </div>
     </form>
   </div>
@@ -403,6 +456,7 @@ layout: page
   const authorfirstInput = document.getElementById("author-first");
   const authorlastInput = document.getElementById("author-last");
   const authordateInput = document.getElementById("author-date");
+  const pronounsInput = document.getElementById("pronouns");
   const categoriesInput = document.getElementById("categories");
   const tagsInput = document.getElementById("tags");
   const hashesInput = document.getElementById("hashes");
@@ -410,21 +464,28 @@ layout: page
   const roleInput = document.getElementById("role");
   const roleotherInput = document.getElementById("role-other");
   const placeInput = document.getElementById("place");
-  const authorgithubInput = document.getElementById("author-github");
+  const githubInput = document.getElementById("github");
   const websiteInput = document.getElementById("website");
   const emialInput = document.getElementById("email");
   const emailpublicationInput = document.getElementById("email-publication");
-  const socail1Input = document.getElementById("social-1");
-  const socail1handleInput = document.getElementById("social-1-handle");
-  const socail2Input = document.getElementById("social-2");
-  const socail2handleInput = document.getElementById("social-2-handle");
-  const socail3Input = document.getElementById("social-3");
-  const socail3handleInput = document.getElementById("social-3-handle");
+  const social1Input = document.getElementById("social-1");
+  const social1handleInput = document.getElementById("social-1-handle");
+  const social2Input = document.getElementById("social-2");
+  const social2handleInput = document.getElementById("social-2-handle");
+  const social3Input = document.getElementById("social-3");
+  const social3handleInput = document.getElementById("social-3-handle");
+  const affiliation1Input = document.getElementById("affiliation-1");
+  const affiliation1titleInput = document.getElementById("affiliation-1-title");
+  const affiliation1linkInput = document.getElementById("affiliation-1-link");
+  const affiliation2Input = document.getElementById("affiliation-2");
+  const affiliation2titleInput = document.getElementById("affiliation-2-title");
+  const affiliation2linkInput = document.getElementById("affiliation-2-link");
   // add event listener to each form input
   contenttypeInput.addEventListener("input", generateFrontmatterProfile);
   authorfirstInput.addEventListener("input", generateFrontmatterProfile);
   authorlastInput.addEventListener("input", generateFrontmatterProfile);
   authordateInput.addEventListener("input", generateFrontmatterProfile);
+  pronounsInput.addEventListener("input", generateFrontmatterProfile);
   categoriesInput.addEventListener("input", generateFrontmatterProfile);
   tagsInput.addEventListener("input", generateFrontmatterProfile);
   hashesInput.addEventListener("input", generateFrontmatterProfile);
@@ -432,16 +493,22 @@ layout: page
   roleInput.addEventListener("input", generateFrontmatterProfile);
   roleotherInput.addEventListener("input", generateFrontmatterProfile);
   placeInput.addEventListener("input", generateFrontmatterProfile);
-  authorgithubInput.addEventListener("input", generateFrontmatterProfile);
+  githubInput.addEventListener("input", generateFrontmatterProfile);
   websiteInput.addEventListener("input", generateFrontmatterProfile);
   emialInput.addEventListener("input", generateFrontmatterProfile);
   emailpublicationInput.addEventListener("input", generateFrontmatterProfile);
-  socail1Input.addEventListener("input", generateFrontmatterProfile);
-  socail1handleInput.addEventListener("input", generateFrontmatterProfile);
-  socail2Input.addEventListener("input", generateFrontmatterProfile);
-  socail2handleInput.addEventListener("input", generateFrontmatterProfile);
-  socail3Input.addEventListener("input", generateFrontmatterProfile);
-  socail3handleInput.addEventListener("input", generateFrontmatterProfile);
+  social1Input.addEventListener("input", generateFrontmatterProfile);
+  social1handleInput.addEventListener("input", generateFrontmatterProfile);
+  social2Input.addEventListener("input", generateFrontmatterProfile);
+  social2handleInput.addEventListener("input", generateFrontmatterProfile);
+  social3Input.addEventListener("input", generateFrontmatterProfile);
+  social3handleInput.addEventListener("input", generateFrontmatterProfile);
+  affiliation1Input.addEventListener("input", generateFrontmatterProfile);
+  affiliation1titleInput.addEventListener("input", generateFrontmatterProfile);
+  affiliation1linkInput.addEventListener("input", generateFrontmatterProfile);
+  affiliation2Input.addEventListener("input", generateFrontmatterProfile);
+  affiliation2titleInput.addEventListener("input", generateFrontmatterProfile);
+  affiliation2linkInput.addEventListener("input", generateFrontmatterProfile);
 </script>
 <script>
   function handleSelection() {

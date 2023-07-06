@@ -29,6 +29,9 @@ autoprefixer:
 #    - Safari > 2
 
 collections:
+  profiles:
+    output: true
+    label: "Profiles"
   posts:
     output: true
     label: "Post"
