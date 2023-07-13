@@ -15,7 +15,7 @@ function generateCard() {
     <div class="card h-100" style="margin: 8px">
       <div class="card-header"> ${contenttype}</div>
       <img
-        src="{{site.baseurl}}/assets/images/tal_logo.jpg"
+        src="https://loremflickr.com/320/240"
         class="card-img-top"
         alt="You will add your own key image when you submit"
       />

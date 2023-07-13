@@ -1,5 +1,5 @@
 ---
-layout: ideas
+layout: idea
 title: futuring
 permalink:
 description:

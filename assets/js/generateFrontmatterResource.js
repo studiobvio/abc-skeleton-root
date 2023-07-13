@@ -8,7 +8,10 @@ function slugify(text) {
     .replace(/--+/g, "-"); // Replace consecutive hyphens with a single hyphen
 }
 
-function generateFrontmatter() {
+// Declare a global variable for frontMatter
+window.frontMatter = "";
+
+function generateFrontmatterResource() {
   // get values from form inputs
   const title = document.getElementById("title").value;
   const subtitle = document.getElementById("subtitle").value;
@@ -46,9 +49,9 @@ content-type: "${contenttype}"
 authors:
   - name: ${authorfirst} ${authorlast}
     name-slug: ${authorlastslug}-${authorfirstslug}-${authordate}
-date: #to be added when submission is published
+date: "# to be added when submission is published"
 submission-year: ${submissionyear}
-image:
+image: "${submissionyear}-${titleslug}.jpg"
 image-alt-text: ${imagealttext}
 learning-outcomes: 
   - "${learning1}"
@@ -96,4 +99,10 @@ abstract:
 
   // show code display area
   document.getElementById("code-display").classList.remove("d-none");
+
+  window.frontMatter = `${frontMatter}`;
+
+  return frontMatter;
 }
+
+document.addEventListener("DOMContentLoaded", generateFrontmatterResource);
