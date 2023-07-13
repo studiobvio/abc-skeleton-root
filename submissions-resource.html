@@ -162,11 +162,34 @@ layout: page
             category3)</small
           >
         </div>
+        You will include a "main image" for your resource. It is required to be
+        named the same as your title-slug and have a ".jpg" file extension. We
+        will automatically add this to your document, so be sure that your main
+        image is renamed accordingly.
+        <div class="mb-3">
+          <label for="image-alt-text" class="form-label"
+            >"Alt-Text" for your main image:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="image-alt-text"
+            name="image-alt-text"
+          />
+          <small class="form-text text-muted"
+            >Provide a short description of your main image for our community
+            members who use screen readers</small
+          >
+        </div>
         <div class="mb-3">
           <label for="tags" class="form-label">Tags:</label>
           <input type="text" class="form-control" id="tags" name="tags" />
           <small class="form-text text-muted"
-            >Separate tags with commas (e.g. tag1, tag2, tag3)</small
+            >Tags describe the themes or ideas that related to your resource. Go
+            to the
+            <a href="{{ site.url }}{{ site.baseurl }}/resources">Resources</a>
+            page for reference. Please separate tags with commas (e.g. tag1,
+            tag2, tag3)</small
           >
         </div>
         <div class="mb-3">
@@ -309,6 +332,7 @@ layout: page
     const authorfirstInput = document.getElementById("author-first");
     const authorlastInput = document.getElementById("author-last");
     const authordateInput = document.getElementById("author-date");
+    const imagealttextInput = document.getElementById("image-alt-text");
     const categoriesInput = document.getElementById("categories");
     const tagsInput = document.getElementById("tags");
     const hashesInput = document.getElementById("hashes");
@@ -325,6 +349,7 @@ layout: page
     authorfirstInput.addEventListener("input", generateFrontmatter);
     authorlastInput.addEventListener("input", generateFrontmatter);
     authordateInput.addEventListener("input", generateFrontmatter);
+    imagealttextInput.addEventListener("input", generateFrontmatter);
     categoriesInput.addEventListener("input", generateFrontmatter);
     tagsInput.addEventListener("input", generateFrontmatter);
     hashesInput.addEventListener("input", generateFrontmatter);

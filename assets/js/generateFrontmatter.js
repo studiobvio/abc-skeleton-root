@@ -17,6 +17,7 @@ function generateFrontmatter() {
   const authorlast = document.getElementById("author-last").value;
   const authordate = document.getElementById("author-date").value;
   const submissionyear = document.getElementById("submission-year").value;
+  const imagealttext = document.getElementById("image-alt-text").value;
   const categories = document.getElementById("categories").value.split(",");
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
@@ -47,6 +48,8 @@ authors:
     name-slug: ${authorlastslug}-${authorfirstslug}-${authordate}
 date: #to be added when submission is published
 submission-year: ${submissionyear}
+image:
+image-alt-text: ${imagealttext}
 learning-outcomes: 
   - "${learning1}"
   - "${learning2}"
