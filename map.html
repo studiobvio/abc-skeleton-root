@@ -11,10 +11,10 @@ layout: default
   // Define an empty array to store the city data
   var cityData = [];
 
-  // Loop through each collaborator and extract their location
-  {% for collaborator in site.collaborators %}
-    {% if collaborator.location %}
-      var location = "{{ collaborator.location }}";
+  // Loop through each profile and extract their location
+  {% for profile in site.profiles %}
+    {% if profile.location %}
+      var location = "{{ profile.location }}";
       cityData.push(location);
     {% endif %}
   {% endfor %}
@@ -59,7 +59,7 @@ layout: default
     var latlng = getCityLatLng(city);
     var radius = Math.sqrt(count) * 1000;
     var marker = L.circleMarker(latlng, {radius: radius});
-    marker.bindPopup(city + ": " + count + " collaborators");
+    marker.bindPopup(city + ": " + count + " profiles");
     markers.push(marker);
   }
 

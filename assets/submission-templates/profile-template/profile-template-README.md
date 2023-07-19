@@ -44,7 +44,7 @@ To begin creating your own profile page:
 
 ```
 ---
-layout: collaborator
+layout: profile
 published: true
 permalink:
 date: 2023-03-22

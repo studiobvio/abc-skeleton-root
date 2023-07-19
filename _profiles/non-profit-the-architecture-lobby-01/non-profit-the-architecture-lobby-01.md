@@ -1,5 +1,5 @@
 ---
-  layout: resource
+  layout: profile
   published: true
   permalink:
   content-type: "Organization Profile"

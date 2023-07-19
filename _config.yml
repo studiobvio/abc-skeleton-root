@@ -15,6 +15,7 @@ repository: "studiobvio/abc-skeleton"
 plugins:
   - jekyll-feed
   - jekyll-autoprefixer
+  - github-pages
   - jekyll-sitemap
   - jekyll-seo-tag
 
@@ -32,15 +33,12 @@ collections:
   profiles:
     output: true
     label: "Profiles"
-  posts:
-    output: true
-    label: "Post"
   resources:
     output: true
     label: "Resource"
+  posts:
+    output: true
+    label: "Post"
   ideas:
     output: true
     label: "Ideas"
-  collaborators:
-    output: true
-    label: "Collaborators"

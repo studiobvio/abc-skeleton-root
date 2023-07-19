@@ -1,4 +1,12 @@
-import { slugify } from "./slugify.js";
+function slugify(text) {
+  return text
+    .toString() // Convert to string in case of a number or other type
+    .toLowerCase() // Convert to lowercase
+    .trim() // Remove leading and trailing spaces
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/[^\w-]+/g, "") // Remove non-word characters (except hyphens)
+    .replace(/--+/g, "-"); // Replace consecutive hyphens with a single hyphen
+}
 
 function generateFrontmatterProfile() {
   // get values from form inputs
@@ -42,10 +50,64 @@ function generateFrontmatterProfile() {
   var authorlastslug = slugify(authorlast);
   var authorfirstslug = slugify(authorfirst);
 
+  let sociallink1 = "";
+
+  if (social1 === "LinkedIn") {
+    link = `https://www.linkedin.com/in/${social1handle}`;
+  } else if (social1 === "Youtube") {
+    link = `https://youtube.com/${social1handle}`;
+  } else if (social1 === "Instagram") {
+    link = `https://instagram.com/@${social1handle}`;
+  } else if (social1 === "Facebook") {
+    link = `https://facebook.com/${social1handle}`;
+  } else if (social1 === "Twitter") {
+    link = `https://twitter.com/${social1handle}`;
+  } else if (social1 === "TikTok") {
+    link = `https://tiktok.com/@${social1handle}`;
+  } else if (social1 === "Mastodon") {
+    link = `https://mastodon.social/@${social1handle}`;
+  }
+
+  let sociallink2 = "";
+
+  if (social2 === "LinkedIn") {
+    link = `https://www.linkedin.com/in/${social2handle}`;
+  } else if (social1 === "Youtube") {
+    link = `https://youtube.com/${social2handle}`;
+  } else if (social1 === "Instagram") {
+    link = `https://instagram.com/@${social2handle}`;
+  } else if (social1 === "Facebook") {
+    link = `https://facebook.com/${social2handle}`;
+  } else if (social1 === "Twitter") {
+    link = `https://twitter.com/${social2handle}`;
+  } else if (social1 === "TikTok") {
+    link = `https://tiktok.com/@${social2handle}`;
+  } else if (social1 === "Mastodon") {
+    link = `https://mastodon.social/@${social2handle}`;
+  }
+
+  let sociallink3 = "";
+
+  if (social3 === "LinkedIn") {
+    link = `https://www.linkedin.com/in/${social3handle}`;
+  } else if (social1 === "Youtube") {
+    link = `https://youtube.com/${social3handle}`;
+  } else if (social1 === "Instagram") {
+    link = `https://instagram.com/@${social3handle}`;
+  } else if (social1 === "Facebook") {
+    link = `https://facebook.com/${social3handle}`;
+  } else if (social1 === "Twitter") {
+    link = `https://twitter.com/${social3handle}`;
+  } else if (social1 === "TikTok") {
+    link = `https://tiktok.com/@${social3handle}`;
+  } else if (social1 === "Mastodon") {
+    link = `https://mastodon.social/@${social3handle}`;
+  }
+
   // build front matter string with YAML syntax
   //  add code to for lowercase and slug-ify for inputs
   let frontMatter = `---
-  layout: resource
+  layout: profile
   published: false
   permalink:
   content-type: "${contenttype}"
@@ -65,10 +127,13 @@ function generateFrontmatterProfile() {
   social:
   - name: ${social1}
     handle: ${social1handle}
+    link: ${sociallink1}
   - name: ${social2}
     handle: ${social2handle}
+    link: ${sociallink2}
   - name: ${social3}
     handle: ${social3handle}
+    link: ${sociallink3}
   affiliations:
   - name: ${affiliation1}
     title: ${affiliation1title}
@@ -117,5 +182,3 @@ function generateFrontmatterProfile() {
   // show code display area
   document.getElementById("code-display").classList.remove("d-none");
 }
-
-export { generateFrontmatterProfile };
