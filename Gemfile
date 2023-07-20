@@ -24,13 +24,6 @@ gem "execjs", "~> 2.7"
 gem "jekyll-autoprefixer", "~> 1.0"
 
 
-
-
-
-
-
-
-
 gem "github-pages", "228"
 
 # Performance-booster for watching directories on Windows

@@ -91,7 +91,7 @@ abstract:
   // close front matter section
   frontMatter += `---\n\n`;
   // build markdown template string
-  const template = `<--your context here -->`;
+  const template = `<--your custom Markdown here -->`;
 
   // combine front matter and template strings into full markdown string
   const fullMarkdown = `${frontMatter}${template}`;

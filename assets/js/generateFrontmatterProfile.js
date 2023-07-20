@@ -176,9 +176,10 @@ function generateFrontmatterProfile() {
 
   // combine front matter and template strings into full markdown string
   const fullMarkdown = `${frontMatter}${template}`;
-  document.getElementById("output-profile-frontmatter").textContent =
-    fullMarkdown;
+  document.getElementById("output-frontmatter").textContent = fullMarkdown;
 
   // show code display area
   document.getElementById("code-display").classList.remove("d-none");
 }
+
+document.addEventListener("DOMContentLoaded", generateFrontmatterProfile);
