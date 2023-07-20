@@ -269,10 +269,6 @@ title: "Resource Submissions"
       </form>
     </div>
     <div class="col-md-6">
-      <h4>
-        You will download prepopulated markdown document or copy and past it
-        into your own document
-      </h4>
       <!-- code display area -->
       <div class="my-4" id="code-display">
         <div class="row mb-2">
@@ -289,15 +285,6 @@ title: "Resource Submissions"
         <pre
           class="p-3 mb-0 rounded"
         ><code id="output-frontmatter"></code></pre>
-        <div class="mt-3">
-          <button
-            type="button"
-            class="btn btn-primary"
-            onclick="downloadMarkdownResource(frontMatter)"
-          >
-            Download Markdown
-          </button>
-        </div>
       </div>
       <button type="button" class="btn btn-secondary" onclick="generateCard()">
         Generate Format Example
@@ -306,24 +293,11 @@ title: "Resource Submissions"
     </div>
   </div>
 
-  <div>
-    <button
-      type="button"
-      class="btn btn-primary"
-      id="generate-zip-btn"
-      onclick="generateZip()"
-    >
-      Download Zip Files and Begin Editing
-    </button>
-  </div>
-
   <!-- Custom Java Script function importing -->
 
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatterResource.js"></script>
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCard.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateZip.js"></script>
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/autofillPlace.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/downloadMarkdownResource.js"></script>
   <script src="{{ site.url }}{{ site.baseurl }}/assets/js/copyToClipboard.js"></script>
 
   <!--  External Java Script Libraries that are downloaded and in repository -->
