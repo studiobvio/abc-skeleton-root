@@ -4,6 +4,16 @@
 @import "bootstrap/bootstrap";
 @import "base";
 
+label {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+input {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
 img {
   width: 100%;
 }

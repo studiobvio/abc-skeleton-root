@@ -12514,6 +12514,16 @@ textarea.form-control-lg {
   opacity: 1;
 }
 
+label {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+input {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
 img {
   width: 100%;
 }

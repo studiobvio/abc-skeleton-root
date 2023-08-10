@@ -6,376 +6,261 @@ title: "Profile Submissions"
 <div id="base-url" data-base-url="{{site.url}}{{site.baseurl}}"></div>
 <div class="row">
   <h1>Member Profile Submission Form</h1>
-  <div class="col-md-6">
-    <p>
-      Fill out the fields below and it will be immediately translated into the
-      appropriate metadata (called "Frontmatter") for submission You will copy
-      and paste this metadata into the top of your Markdown file (either using
-      one of the templates or starting from scratch.)
-    </p>
+  <p>
+    Fill out the fields below and it will be immediately translated into the
+    appropriate metadata (called "Frontmatter") for submission You will copy and
+    paste this metadata into the top of your Markdown file (either using one of
+    the templates or starting from scratch.)
+  </p>
+  <div class="col-md-12">
     <form>
-      <div class="mb-3">
-        <label for="author-first" class="form-label"
-          >Contributor First Name:</label
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="author-first"
-          name="author-first"
-          placeholder="For non-individuals, add full title here without special characters."
-        />
+      <h4>Basic Info</h4>
+      <p>
+        If creating a profile for an organization of community, add the full
+        name (with not special characters) into the "First Name" input and leave
+        "Last Name" input blank. Asterisks signify required fields. The "Unique
+        ID" should be an easy to remember two digit number that will be appended
+        to your name to form your unique profile name.
+      </p>
+      <div class="row mb-3">
+        <div class="col-md-3 align-items-end">
+          <label for="author-first" class="form-label">*First Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author-first"
+            name="author-first"
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="author-last" class="form-label">Last Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author-last"
+            name="author-last"
+          />
+        </div>
+        <div class="col">
+          <label for="pronouns" class="form-label">Pronouns:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="pronouns"
+            name="pronouns"
+          />
+        </div>
+        <div class="col">
+          <label for="author-date" class="form-label"
+            >*Two Digit Unique ID:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="author-date"
+            name="author-date"
+          />
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="author-last" class="form-label"
-          >Contributor Last Name:</label
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="author-last"
-          name="author-last"
-          placeholder="For non-individuals, add 'Non-Profit' etc here"
-        />
+      <div class="row mb-3">
+        <div class="col">
+          <label for="categories" class="form-label">Profile Type:</label>
+          <select
+            id="categories"
+            class="form-control"
+            onchange="handleSelection()"
+          >
+            <option value="default" selected>Individual</option>
+            <option value="Non-Profit Organization">
+              Non-Profit Organization
+            </option>
+            <option value="Business">Business</option>
+            <option value="Non-Governmental Organization">
+              Non-Governmental Organization
+            </option>
+            <option value="Academic Institution">Academic Institution</option>
+            <option value="Place-Based Community">Place-Based Community</option>
+            <option value="Interest-Based Community">
+              Interest-Based Community
+            </option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="categories-other" class="form-label"
+            >If other, provide a category that best suites you here.</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="categories-other"
+            name="categories-other"
+          />
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="author-date" class="form-label">Unique Number:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="author-date"
-          name="author-date"
-        />
-        <small class="form-text text-muted"
-          >Provide a unique two digit number that you won't forget. We recommend
-          the day of the month you were born in "dd" format. The number will be
-          appended to you names to generate your unique author ID (name-slug) to
-          avoid profile confusion among community members with same names.
-        </small>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <form>
+      <div class="row mb-3 align-items-end">
+        <h4>Role and Interests</h4>
+        <div class="col">
+          <label for="role" class="form-label"
+            >What role do you feel called to play in this movement?</label
+          >
+          <select id="role" class="form-control" onchange="handleSelection()">
+            <option value="default" selected></option>
+            <option value="Organizer">Organizer</option>
+            <option value="Theoritician">Theoritician</option>
+            <option value="Physical Builder">Physical Builder</option>
+            <option value="Digital Builder">Digital Builder</option>
+            <option value="Storyteller">Storyteller</option>
+            <option value="Educator">Educator</option>
+            <option value="Student">Student</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="role-other" class="form-label"
+            >If other, provide a preferred role here.</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="role-other"
+            name="role-other"
+          />
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="pronouns" class="form-label">Preferred Pronouns:</label>
-        <input type="text" class="form-control" id="pronouns" name="pronouns" />
-      </div>
-      <div class="mb-3">
-        <label for="content-type" class="form-label"
-          >Resource Content Type:</label
-        >
-        <select
-          id="content-type"
-          class="form-control"
-          onchange="handleSelection()"
-        >
-          <option value="default" selected>
-            Select the most relevant option
-          </option>
-          <option value="Personal Profile">Personal Profile</option>
-          <option value="Organization Profile">Organization Profile</option>
-          <option value="Community Profile">Community Profile</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="categories" class="form-label">Categories:</label>
-        <select
-          id="categories"
-          class="form-control"
-          onchange="handleSelection()"
-        >
-          <option value="default" selected>
-            Select the most relevant option
-          </option>
-          <option value="Individual">Individual</option>
-          <option value="Non-Profit Organization">
-            Non-Profit Organization
-          </option>
-          <option value="Business">Business</option>
-          <option value="Non-Governmental Organization">
-            Non-Governmental Organization
-          </option>
-          <option value="Academic Institution">Academic Institution</option>
-          <option value="Place-Based Community">Place-Based Community</option>
-          <option value="Interest-Based Community">
-            Interest-Based Community
-          </option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="categories-other" class="form-label">Optional:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="categories-other"
-          name="categories-other"
-          placeholder="If other, provide a category that best suites you here."
-        />
-      </div>
-      <div class="mb-3">
-        <label for="role" class="form-label">Role:</label>
-        <select id="role" class="form-control" onchange="handleSelection()">
-          <option value="default" selected>
-            What role do you feel called to play in this movement?
-          </option>
-          <option value="Organizer">Organizer</option>
-          <option value="Theoritician">Theoritician</option>
-          <option value="Physical Builder">Physical Builder</option>
-          <option value="Digital Builder">Digital Builder</option>
-          <option value="Storyteller">Storyteller</option>
-          <option value="Educator">Educator</option>
-          <option value="Student">Student</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="role-other" class="form-label">Optional</label>
-        <input
-          type="text"
-          class="form-control"
-          id="role-other"
-          name="role-other"
-          placeholder="If other, add a preferred role here"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="place">Place Name:</label>
-        <input
-          type="text"
-          id="place"
-          name="place"
-          placeholder="Start typing the name of place (nearest town or city) and select from the auto-fill dropdown"
-          oninput="autofillPlace()"
-        />
-
-        <ul id="autofill-list"></ul>
-      </div>
-      <div id="map" class="mb-3"></div>
 
       <div class="mb-3">
-        <label for="github" class="form-label">GitHub handle:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="github"
-          name="github"
-          placeholder="Add your profile handle here"
-        />
-        <small class="form-text text-muted"
-          >If you have yet to set up a GitHub account please do so by following
-          the directions<a
-            href="https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account"
-            target="_blank"
-            >here</a
-          >)
-        </small>
-      </div>
-      <div class="mb-3">
-        <label for="submission-year" class="form-label">Submission Year:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="submission-year"
-          name="submission-year"
-          placeholder="Add the year you are submtting in YYYY format"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="tags" class="form-label">Tags:</label>
+        <label for="tags" class="form-label"
+          >Provide a list of ideas that interest you, separating each by a
+          comma.</label
+        >
         <input
           type="text"
           class="form-control"
           id="tags"
           name="tags"
-          placeholder="Provide a list of ideas (tags) each separated by a comma."
+          placeholder=""
         />
         <small class="form-text text-muted"
-          >For a unexaustive list of ideas currenlty associated with the Hub go
-          to the
-          <a href="{{site.url}}{{site.baseurl}}/ideas"
-            >the Hub ideas reference page</a
+          >For idea examples refer to the thematic tags for the
+          <a href="{{site.url}}{{site.baseurl}}/resources"
+            >Resource articles</a
           ></small
         >
       </div>
-      <div class="mb-3">
-        <label for="hashes" class="form-label"
-          >Social Media Movement Hashes:</label
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="hashes"
-          name="hashes"
-          placeholder="Add hash-tags without '#' and separate multiple hashtags with commas (no spaces)"
-        />
-        <small class="form-text text-muted"
-          >Add social media campaigns that you are associated, support, or
-          follow</small
-        >
+      <h4>Contacts and Connections</h4>
+      <p>Help others connect to you, your work, and the work you support.</p>
+      <div class="row mb-3 align-items-end">
+        <div class="col">
+          <label for="email" class="form-label">*Email Address</label>
+          <input type="text" class="form-control" id="email" name="email" />
+        </div>
+        <div class="col">
+          <label for="email-publication" class="form-label"
+            >*Do you want your email to be public?</label
+          >
+          <select
+            id="email-publication"
+            class="form-control"
+            onchange="handleSelection()"
+          >
+            <option value="default" selected>Yes</option>
+            <option value="False">No</option>
+          </select>
+        </div>
       </div>
+
       <div class="mb-3">
-        <label for="statement" class="form-label">Profile Statement:</label>
-        <textarea
-          type="text"
-          class="form-control"
-          id="statement"
-          name="statement"
-          rows="3"
-          cols="50"
-          maxlength="750"
-        ></textarea>
-        <small class="form-text text-muted"
-          >Add a brief statement about your interest and ambition for joining
-          the ABC Hub</small
-        >
-      </div>
-      <div class="mb-3">
-        <label for="website" class="form-label"
-          >Personal or Community Website:</label
-        >
+        <label for="website" class="form-label">Website:</label>
         <input type="text" class="form-control" id="website" name="website" />
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="text" class="form-control" id="email" name="email" />
-      </div>
-      <div class="mb-3">
-        <label for="email-publication" class="form-label"
-          >If you want your email to be published with your profile, write
-          "true", if not, write "false"</label
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="email-publication"
-          name="email-publication"
-        />
+      <div class="row mb-3 align-items-end">
+        <div class="col">
+          <label for="social-1" class="form-label">Social Media Platform</label>
+          <select
+            id="social-1"
+            class="form-control"
+            onchange="handleSelection()"
+          >
+            <option value="default" selected></option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="YouTube">YouTube</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Twitter">Twitter</option>
+            <option value="TikTok">Tiktok</option>
+            <option value="Mastodon">Mastodon</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="social-1-handle" class="form-label"
+            >Platform Handle (do not include @ or other symbols)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="social-1-handle"
+            name="social-1-handle"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="hashes" class="form-label"
+            >Social Media Hashtags (Add hashtags without '#' and separate
+            multiple hashtags with commas and no spaces</label
+          >
+          <input type="text" class="form-control" id="hashes" name="hashes" />
+        </div>
       </div>
       <p>
-        To help others connect to you and your work, provide up to three of your
-        handles. (You can add more later if desired).
+        You may also provide (optionally) links to organizations with whom you
+        are affiated.
       </p>
       <div class="mb-3">
-        <label for="social-1" class="form-label">Social Media 1:</label>
-        <select id="social-1" class="form-control" onchange="handleSelection()">
-          <option value="default" selected></option>
-          <option value="LinkedIn">LinkedIn</option>
-          <option value="YouTube">YouTube</option>
-          <option value="Instagram">Instagram</option>
-          <option value="Facebook">Facebook</option>
-          <option value="Twitter">Twitter</option>
-          <option value="TikTok">Tiktok</option>
-          <option value="Mastodon">Other</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="social-1-handle"
-          name="social-1-handle"
-          placeholder="Handle without extra characters (ie @)"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="social-2" class="form-label">Social Media 2:</label>
-        <select id="social-2" class="form-control" onchange="handleSelection()">
-          <option value="default" selected></option>
-          <option value="LinkedIn">LinkedIn</option>
-          <option value="YouTube">YouTube</option>
-          <option value="Instagram">Instagram</option>
-          <option value="Facebook">Facebook</option>
-          <option value="Twitter">Twitter</option>
-          <option value="TikTok">Tiktok</option>
-          <option value="Mastodon">Other</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="social-2-handle"
-          name="social-2-handle"
-          placeholder="Handle without extra characters (ie @)"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="social-3" class="form-label">Social Media 3:</label>
-        <select id="social-3" class="form-control" onchange="handleSelection()">
-          <option value="default" selected></option>
-          <option value="LinkedIn">LinkedIn</option>
-          <option value="YouTube">YouTube</option>
-          <option value="Instagram">Instagram</option>
-          <option value="Facebook">Facebook</option>
-          <option value="Twitter">Twitter</option>
-          <option value="TikTok">Tiktok</option>
-          <option value="Mastodon">Other</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="social-3-handle"
-          name="social-3-handle"
-          placeholder="Handle without extra characters (ie @)"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="affiliation-1" class="form-label">Affiliation 1:"</label>
+        <label for="affiliation-1" class="form-label">Affiliation name</label>
         <input
           type="text"
           class="form-control"
           id="affiliation-1"
           name="affiliation-1"
-          placeholder="Add the name of the affiliation"
         />
-        <label for="affiliation-1-title" class="form-label"></label>
+        <label for="affiliation-1-title" class="form-label"
+          >Your title (if applicable)</label
+        >
         <input
           type="text"
           class="form-control"
           id="affiliation-1-title"
           name="affiliation-1-title"
-          placeholder="Add your title or role if applicable"
         />
-        <label for="affiliation-1-link" class="form-label"></label>
+        <label for="affiliation-1-link" class="form-label"
+          >Affiliation website (include https:// etc)</label
+        >
         <input
           type="text"
           class="form-control"
           id="affiliation-1-link"
           name="affiliation-1-link"
-          placeholder="Add a preferred website link (including http etc) if applicable"
         />
-      </div>
-      <div class="mb-3">
-        <label for="affiliation-2" class="form-label">Affiliation 2:"</label>
-        <input
-          type="text"
-          class="form-control"
-          id="affiliation-2"
-          name="affiliation-2"
-          placeholder="Add the name of the affiliation"
-        />
-        <label for="affiliation-2-title" class="form-label"></label>
-        <input
-          type="text"
-          class="form-control"
-          id="affiliation-2-title"
-          name="affiliation-2-title"
-          placeholder="Add your title or role if applicable"
-        />
-        <label for="affiliation-2-link" class="form-label"></label>
-        <input
-          type="text"
-          class="form-control"
-          id="affiliation-2-link"
-          name="affiliation-2-link"
-          placeholder="Add a preferred website link (including http etc) if applicable"
-        />
-        <small class="form-text text-muted"
-          >You can add more affiliations manually before you submit</small
-        >
+        <div class="mb-3">
+          <label for="place">Place Name:</label>
+          <input
+            type="text"
+            id="place"
+            name="place"
+            placeholder="Start typing the name of place (nearest town or city) and select from the auto-fill dropdown"
+            oninput="autofillPlace()"
+          />
+
+          <ul id="autofill-list"></ul>
+        </div>
       </div>
     </form>
   </div>
+
   <div class="col-md-6">
     <!-- code display area -->
     <div class="my-4" id="code-display">
@@ -431,7 +316,6 @@ title: "Profile Submissions"
 <script>
   // get references to form input elements
 
-  const contenttypeInput = document.getElementById("content-type");
   const authorfirstInput = document.getElementById("author-first");
   const authorlastInput = document.getElementById("author-last");
   const authordateInput = document.getElementById("author-date");
@@ -439,28 +323,20 @@ title: "Profile Submissions"
   const categoriesInput = document.getElementById("categories");
   const tagsInput = document.getElementById("tags");
   const hashesInput = document.getElementById("hashes");
-  const submissionyearInput = document.getElementById("submission-year");
   const roleInput = document.getElementById("role");
   const roleotherInput = document.getElementById("role-other");
   const placeInput = document.getElementById("place");
   const githubInput = document.getElementById("github");
   const websiteInput = document.getElementById("website");
-  const emialInput = document.getElementById("email");
+  const emailInput = document.getElementById("email");
   const emailpublicationInput = document.getElementById("email-publication");
   const social1Input = document.getElementById("social-1");
   const social1handleInput = document.getElementById("social-1-handle");
-  const social2Input = document.getElementById("social-2");
-  const social2handleInput = document.getElementById("social-2-handle");
-  const social3Input = document.getElementById("social-3");
-  const social3handleInput = document.getElementById("social-3-handle");
   const affiliation1Input = document.getElementById("affiliation-1");
   const affiliation1titleInput = document.getElementById("affiliation-1-title");
   const affiliation1linkInput = document.getElementById("affiliation-1-link");
-  const affiliation2Input = document.getElementById("affiliation-2");
-  const affiliation2titleInput = document.getElementById("affiliation-2-title");
-  const affiliation2linkInput = document.getElementById("affiliation-2-link");
   // add event listener to each form input
-  contenttypeInput.addEventListener("input", generateFrontmatterProfile);
+
   authorfirstInput.addEventListener("input", generateFrontmatterProfile);
   authorlastInput.addEventListener("input", generateFrontmatterProfile);
   authordateInput.addEventListener("input", generateFrontmatterProfile);
@@ -468,26 +344,18 @@ title: "Profile Submissions"
   categoriesInput.addEventListener("input", generateFrontmatterProfile);
   tagsInput.addEventListener("input", generateFrontmatterProfile);
   hashesInput.addEventListener("input", generateFrontmatterProfile);
-  submissionyearInput.addEventListener("input", generateFrontmatterProfile);
   roleInput.addEventListener("input", generateFrontmatterProfile);
   roleotherInput.addEventListener("input", generateFrontmatterProfile);
   placeInput.addEventListener("input", generateFrontmatterProfile);
   githubInput.addEventListener("input", generateFrontmatterProfile);
   websiteInput.addEventListener("input", generateFrontmatterProfile);
-  emialInput.addEventListener("input", generateFrontmatterProfile);
+  emailInput.addEventListener("input", generateFrontmatterProfile);
   emailpublicationInput.addEventListener("input", generateFrontmatterProfile);
   social1Input.addEventListener("input", generateFrontmatterProfile);
   social1handleInput.addEventListener("input", generateFrontmatterProfile);
-  social2Input.addEventListener("input", generateFrontmatterProfile);
-  social2handleInput.addEventListener("input", generateFrontmatterProfile);
-  social3Input.addEventListener("input", generateFrontmatterProfile);
-  social3handleInput.addEventListener("input", generateFrontmatterProfile);
   affiliation1Input.addEventListener("input", generateFrontmatterProfile);
   affiliation1titleInput.addEventListener("input", generateFrontmatterProfile);
   affiliation1linkInput.addEventListener("input", generateFrontmatterProfile);
-  affiliation2Input.addEventListener("input", generateFrontmatterProfile);
-  affiliation2titleInput.addEventListener("input", generateFrontmatterProfile);
-  affiliation2linkInput.addEventListener("input", generateFrontmatterProfile);
 </script>
 <script>
   function handleSelection() {

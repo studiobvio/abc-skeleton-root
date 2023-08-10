@@ -10,40 +10,28 @@ function slugify(text) {
 
 function generateFrontmatterProfile() {
   // get values from form inputs
-  const contenttype = document.getElementById("content-type").value;
+
   const authorfirst = document.getElementById("author-first").value;
   const authorlast = document.getElementById("author-last").value;
   const authordate = document.getElementById("author-date").value;
   const pronouns = document.getElementById("pronouns").value;
-  const submissionyear = document.getElementById("submission-year").value;
   const categories = document.getElementById("categories").value.split(",");
   const categoriesother = document.getElementById("categories-other").value;
   const role = document.getElementById("role").value;
   const roleother = document.getElementById("role-other").value;
   const place = document.getElementById("place").value;
-  const github = document.getElementById("github").value;
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
-  const statement = document.getElementById("statement").value;
   const website = document.getElementById("website").value;
   const email = document.getElementById("email").value;
   const emailpublication = document.getElementById("email-publication").value;
   const social1 = document.getElementById("social-1").value;
   const social1handle = document.getElementById("social-1-handle").value;
-  const social2 = document.getElementById("social-1").value;
-  const social2handle = document.getElementById("social-2-handle").value;
-  const social3 = document.getElementById("social-3").value;
-  const social3handle = document.getElementById("social-3-handle").value;
   const affiliation1 = document.getElementById("affiliation-1").value;
   const affiliation1title = document.getElementById(
     "affiliation-1-title"
   ).value;
   const affiliation1link = document.getElementById("affiliation-1-link").value;
-  const affiliation2 = document.getElementById("affiliation-2").value;
-  const affiliation2title = document.getElementById(
-    "affiliation-2-title"
-  ).value;
-  const affiliation2link = document.getElementById("affiliation-2-link").value;
 
   // create custome variables
 
@@ -68,59 +56,19 @@ function generateFrontmatterProfile() {
     link = `https://mastodon.social/@${social1handle}`;
   }
 
-  let sociallink2 = "";
-
-  if (social2 === "LinkedIn") {
-    link = `https://www.linkedin.com/in/${social2handle}`;
-  } else if (social1 === "Youtube") {
-    link = `https://youtube.com/${social2handle}`;
-  } else if (social1 === "Instagram") {
-    link = `https://instagram.com/@${social2handle}`;
-  } else if (social1 === "Facebook") {
-    link = `https://facebook.com/${social2handle}`;
-  } else if (social1 === "Twitter") {
-    link = `https://twitter.com/${social2handle}`;
-  } else if (social1 === "TikTok") {
-    link = `https://tiktok.com/@${social2handle}`;
-  } else if (social1 === "Mastodon") {
-    link = `https://mastodon.social/@${social2handle}`;
-  }
-
-  let sociallink3 = "";
-
-  if (social3 === "LinkedIn") {
-    link = `https://www.linkedin.com/in/${social3handle}`;
-  } else if (social1 === "Youtube") {
-    link = `https://youtube.com/${social3handle}`;
-  } else if (social1 === "Instagram") {
-    link = `https://instagram.com/@${social3handle}`;
-  } else if (social1 === "Facebook") {
-    link = `https://facebook.com/${social3handle}`;
-  } else if (social1 === "Twitter") {
-    link = `https://twitter.com/${social3handle}`;
-  } else if (social1 === "TikTok") {
-    link = `https://tiktok.com/@${social3handle}`;
-  } else if (social1 === "Mastodon") {
-    link = `https://mastodon.social/@${social3handle}`;
-  }
-
   // build front matter string with YAML syntax
   //  add code to for lowercase and slug-ify for inputs
   let frontMatter = `---
   layout: profile
   published: false
   permalink:
-  content-type: "${contenttype}"
   name: ${authorfirst} ${authorlast}
   name-slug: ${authorlastslug}-${authorfirstslug}-${authordate}
   pronouns: ${pronouns}
   date: #to be added when submission is published
-  submission-year: ${submissionyear}
   location: ${place}
-  github: ${github}
   role: ${role}
   role-other: ${roleother}
-  statement: ${statement}
   website: ${website}
   email: ${email}
   email-publication: ${emailpublication}
@@ -128,19 +76,10 @@ function generateFrontmatterProfile() {
   - name: ${social1}
     handle: ${social1handle}
     link: ${sociallink1}
-  - name: ${social2}
-    handle: ${social2handle}
-    link: ${sociallink2}
-  - name: ${social3}
-    handle: ${social3handle}
-    link: ${sociallink3}
   affiliations:
   - name: ${affiliation1}
     title: ${affiliation1title}
-    link: ${affiliation1link}
-  - name: ${affiliation2}
-    title: ${affiliation2title}
-    link: ${affiliation2link}\n`;
+    link: ${affiliation1link}\n`;
 
   // add categories to front matter string
   if (categories.length > 0) {
