@@ -38,6 +38,18 @@ function generateFrontmatterProfile() {
   var authorlastslug = slugify(authorlast);
   var authorfirstslug = slugify(authorfirst);
 
+  if (authorlast === "") {
+    authorslug = `${authorfirstslug}-${authordate}`;
+  } else {
+    authorslug = `${authorlastslug}-${authorfirstslug}-${authordate}`;
+  }
+
+  if (authorlast === "") {
+    authorname = `${authorfirst}`;
+  } else {
+    authorname = `${authorfirst} ${authorlast}`;
+  }
+
   let sociallink1 = "";
 
   if (social1 === "LinkedIn") {
@@ -62,8 +74,8 @@ function generateFrontmatterProfile() {
   layout: profile
   published: false
   permalink:
-  name: ${authorfirst} ${authorlast}
-  name-slug: ${authorlastslug}-${authorfirstslug}-${authordate}
+  name: ${authorname}
+  name-slug: ${authorslug}
   pronouns: ${pronouns}
   date: #to be added when submission is published
   location: ${place}

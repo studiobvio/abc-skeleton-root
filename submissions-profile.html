@@ -5,13 +5,22 @@ title: "Profile Submissions"
 
 <div id="base-url" data-base-url="{{site.url}}{{site.baseurl}}"></div>
 <div class="row">
-  <h1>Member Profile Submission Form</h1>
+  <h1>Community Profile Submission Form</h1>
   <p>
-    Fill out the fields below and it will be immediately translated into the
-    appropriate metadata (called "Frontmatter") for submission You will copy and
-    paste this metadata into the top of your Markdown file (either using one of
-    the templates or starting from scratch.)
+    Fill out the fields below to generate and format the metadata to be copied
+    and pasted at the the top of your submission markdown file. Download the
+    template markdown files and directory with the button below.
   </p>
+  <div class="my-4">
+    <button
+      type="button"
+      class="btn btn-primary"
+      id="submission-templates"
+      onclick="window.location.href= 'https://drive.google.com/drive/folders/1c7yiG8YXjJZJIwHXgH4sCKIQa-DcZmPP?usp=sharing';"
+    >
+      Get Submission Templates
+    </button>
+  </div>
   <div class="col-md-12">
     <form>
       <h4>Basic Info</h4>
@@ -278,21 +287,6 @@ title: "Profile Submissions"
       <pre class="p-3 mb-0 rounded"><code id="output-frontmatter"></code></pre>
     </div>
   </div>
-  <div class="my-4">
-    Click the button below to navigate to open our Google Drive folder where you
-    can download templates for each submission type. <br />
-    <em>No Google account required to download.</em>
-  </div>
-  <div class="my-4">
-    <button
-      type="button"
-      class="btn btn-primary"
-      id="generate-zip-btn"
-      onclick="window.location.href= 'https://drive.google.com/drive/folders/1c7yiG8YXjJZJIwHXgH4sCKIQa-DcZmPP?usp=sharing';"
-    >
-      Get Submission Templates
-    </button>
-  </div>
 </div>
 
 <script
@@ -326,7 +320,6 @@ title: "Profile Submissions"
   const roleInput = document.getElementById("role");
   const roleotherInput = document.getElementById("role-other");
   const placeInput = document.getElementById("place");
-  const githubInput = document.getElementById("github");
   const websiteInput = document.getElementById("website");
   const emailInput = document.getElementById("email");
   const emailpublicationInput = document.getElementById("email-publication");
@@ -347,7 +340,6 @@ title: "Profile Submissions"
   roleInput.addEventListener("input", generateFrontmatterProfile);
   roleotherInput.addEventListener("input", generateFrontmatterProfile);
   placeInput.addEventListener("input", generateFrontmatterProfile);
-  githubInput.addEventListener("input", generateFrontmatterProfile);
   websiteInput.addEventListener("input", generateFrontmatterProfile);
   emailInput.addEventListener("input", generateFrontmatterProfile);
   emailpublicationInput.addEventListener("input", generateFrontmatterProfile);
