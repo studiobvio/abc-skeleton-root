@@ -79,7 +79,7 @@ title: "Profile Submissions"
             class="form-control"
             onchange="handleSelection()"
           >
-            <option value="default" selected>Individual</option>
+            <option value="Individual" selected>Individual</option>
             <option value="Non-Profit Organization">
               Non-Profit Organization
             </option>
@@ -97,7 +97,7 @@ title: "Profile Submissions"
         </div>
         <div class="col">
           <label for="categories-other" class="form-label"
-            >If other, provide a category that best suites you here.</label
+            >If other, provide a category that best suites you below.</label
           >
           <input
             type="text"
@@ -118,7 +118,7 @@ title: "Profile Submissions"
             >What role do you feel called to play in this movement?</label
           >
           <select id="role" class="form-control" onchange="handleSelection()">
-            <option value="default" selected></option>
+            <option value="Contributor" selected></option>
             <option value="Organizer">Organizer</option>
             <option value="Theoritician">Theoritician</option>
             <option value="Physical Builder">Physical Builder</option>
@@ -131,7 +131,7 @@ title: "Profile Submissions"
         </div>
         <div class="col">
           <label for="role-other" class="form-label"
-            >If other, provide a preferred role here.</label
+            >If other, provide a preferred role below.</label
           >
           <input
             type="text"
@@ -177,7 +177,7 @@ title: "Profile Submissions"
             class="form-control"
             onchange="handleSelection()"
           >
-            <option value="default" selected>Yes</option>
+            <option value="Yes" selected>Yes</option>
             <option value="False">No</option>
           </select>
         </div>
@@ -186,6 +186,18 @@ title: "Profile Submissions"
       <div class="mb-3">
         <label for="website" class="form-label">Website:</label>
         <input type="text" class="form-control" id="website" name="website" />
+      </div>
+      <div class="mb-3">
+        <label for="place">Place where you work most</label>
+        <input
+          type="text"
+          id="place"
+          name="place"
+          placeholder="Start typing then select from the dropdown"
+          oninput="autofillPlace()"
+        />
+
+        <ul id="autofill-list"></ul>
       </div>
       <div class="row mb-3 align-items-end">
         <div class="col">
@@ -207,7 +219,7 @@ title: "Profile Submissions"
         </div>
         <div class="col">
           <label for="social-1-handle" class="form-label"
-            >Platform Handle (do not include @ or other symbols)</label
+            >Handle (do not include "@")</label
           >
           <input
             type="text"
@@ -218,15 +230,15 @@ title: "Profile Submissions"
         </div>
         <div class="mb-3">
           <label for="hashes" class="form-label"
-            >Social Media Hashtags (Add hashtags without '#' and separate
-            multiple hashtags with commas and no spaces</label
+            >Social Media Hashtags (without '#' and separate with commas and no
+            spaces</label
           >
           <input type="text" class="form-control" id="hashes" name="hashes" />
         </div>
       </div>
       <p>
-        You may also provide (optionally) links to organizations with whom you
-        are affiated.
+        You may also provide associate with organizations with whom you are
+        affiliated.
       </p>
       <div class="mb-3">
         <label for="affiliation-1" class="form-label">Affiliation name</label>
@@ -246,7 +258,7 @@ title: "Profile Submissions"
           name="affiliation-1-title"
         />
         <label for="affiliation-1-link" class="form-label"
-          >Affiliation website (include https:// etc)</label
+          >Affiliation website (include https://)</label
         >
         <input
           type="text"
@@ -254,18 +266,6 @@ title: "Profile Submissions"
           id="affiliation-1-link"
           name="affiliation-1-link"
         />
-        <div class="mb-3">
-          <label for="place">Place Name:</label>
-          <input
-            type="text"
-            id="place"
-            name="place"
-            placeholder="Start typing the name of place (nearest town or city) and select from the auto-fill dropdown"
-            oninput="autofillPlace()"
-          />
-
-          <ul id="autofill-list"></ul>
-        </div>
       </div>
     </form>
   </div>

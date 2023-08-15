@@ -16,25 +16,40 @@ function generateFrontmatterResource() {
   const title = document.getElementById("title").value;
   const subtitle = document.getElementById("subtitle").value;
   const contenttype = document.getElementById("content-type").value;
+  const categoriesother = document.getElementById("categories-other").value;
   const authorfirst = document.getElementById("author-first").value;
   const authorlast = document.getElementById("author-last").value;
   const authordate = document.getElementById("author-date").value;
   const submissionyear = document.getElementById("submission-year").value;
-  const imagealttext = document.getElementById("image-alt-text").value;
-  const categories = document.getElementById("categories").value.split(",");
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
   const abstractshort = document.getElementById("abstract-short").value;
   const abstractlong = document.getElementById("abstract-long").value;
   const learning1 = document.getElementById("learning1").value;
-  const learning2 = document.getElementById("learning2").value;
-  const learning3 = document.getElementById("learning3").value;
 
   // create custome variables
 
   var titleslug = slugify(title);
   var authorlastslug = slugify(authorlast);
   var authorfirstslug = slugify(authorfirst);
+
+  if (authorlast === "") {
+    authorslug = `${authorfirstslug}-${authordate}`;
+  } else {
+    authorslug = `${authorlastslug}-${authorfirstslug}-${authordate}`;
+  }
+
+  if (authorlast === "") {
+    authorname = `${authorfirst}`;
+  } else {
+    authorname = `${authorfirst} ${authorlast}`;
+  }
+
+  if (contenttype === "Other") {
+    category = `${categoriesother}`;
+  } else {
+    category = `${contenttype}`;
+  }
 
   // build front matter string with YAML syntax
   //  add code to for lowercase and slug-ify for inputs
@@ -45,26 +60,20 @@ permalink:
 title: "${title}"
 title-slug: "${submissionyear}-${titleslug}"
 subtitle: "${subtitle}"
-content-type: "${contenttype}"
+content-type: "${category}"
+categories:
+  - "${category}"
 authors:
-  - name: ${authorfirst} ${authorlast}
-    name-slug: ${authorlastslug}-${authorfirstslug}-${authordate}
+  - name: "${authorname}"
+    name-slug: "${authorslug}"
 date: "# to be added when submission is published"
 submission-year: ${submissionyear}
 image: "${submissionyear}-${titleslug}.jpg"
-image-alt-text: ${imagealttext}
+image-alt-text: "Add your main image alt-text here"
 learning-outcomes: 
   - "${learning1}"
-  - "${learning2}"
-  - "${learning3}"\n`;
-
-  // add categories to front matter string
-  if (categories.length > 0) {
-    frontMatter += "categories:\n";
-    categories.forEach((category) => {
-      frontMatter += `  - "${category.trim()}"\n`;
-    });
-  }
+  - "Add A second learning outcome here"
+  - "Add a third learning outcome here"\n`;
 
   // add tags to front matter string
   if (tags.length > 0) {

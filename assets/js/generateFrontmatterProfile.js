@@ -17,6 +17,8 @@ function generateFrontmatterProfile() {
   const pronouns = document.getElementById("pronouns").value;
   const categories = document.getElementById("categories").value.split(",");
   const categoriesother = document.getElementById("categories-other").value;
+  var role =
+
   const role = document.getElementById("role").value;
   const roleother = document.getElementById("role-other").value;
   const place = document.getElementById("place").value;
@@ -53,19 +55,19 @@ function generateFrontmatterProfile() {
   let sociallink1 = "";
 
   if (social1 === "LinkedIn") {
-    link = `https://www.linkedin.com/in/${social1handle}`;
+    sociallink1 = `https://www.linkedin.com/in/${social1handle}`;
   } else if (social1 === "Youtube") {
-    link = `https://youtube.com/${social1handle}`;
+    sociallink1 = `https://youtube.com/${social1handle}`;
   } else if (social1 === "Instagram") {
-    link = `https://instagram.com/@${social1handle}`;
+    sociallink1 = `https://instagram.com/@${social1handle}`;
   } else if (social1 === "Facebook") {
-    link = `https://facebook.com/${social1handle}`;
+    sociallink1 = `https://facebook.com/${social1handle}`;
   } else if (social1 === "Twitter") {
-    link = `https://twitter.com/${social1handle}`;
+    sociallink1 = `https://twitter.com/${social1handle}`;
   } else if (social1 === "TikTok") {
-    link = `https://tiktok.com/@${social1handle}`;
+    sociallink1 = `https://tiktok.com/@${social1handle}`;
   } else if (social1 === "Mastodon") {
-    link = `https://mastodon.social/@${social1handle}`;
+    sociallink1 = `https://mastodon.social/@${social1handle}`;
   }
 
   // build front matter string with YAML syntax
@@ -95,7 +97,7 @@ function generateFrontmatterProfile() {
 
   // add categories to front matter string
   if (categories.length > 0) {
-    frontMatter += "categories:\n";
+    frontMatter += " categories:\n";
     categories.forEach((category) => {
       frontMatter += `  - "${category.trim()}"\n`;
     });
@@ -106,7 +108,7 @@ function generateFrontmatterProfile() {
 
   // add tags to front matter string
   if (tags.length > 0) {
-    frontMatter += "tags:\n";
+    frontMatter += " tags:\n";
     tags.forEach((tag) => {
       frontMatter += `  - "${tag.trim()}"\n`;
     });
@@ -114,7 +116,7 @@ function generateFrontmatterProfile() {
 
   // add hashes to front matter string
   if (hashes.length > 0) {
-    frontMatter += "hashes:\n";
+    frontMatter += " hashes:\n";
     hashes.forEach((hash) => {
       frontMatter += `  - "#${hash.trim()}"\n`;
     });

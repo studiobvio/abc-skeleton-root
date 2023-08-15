@@ -5,7 +5,6 @@ function generateCard() {
   const contenttype = document.getElementById("content-type").value;
   const authorfirst = document.getElementById("author-first").value;
   const authorlast = document.getElementById("author-last").value;
-  const categories = document.getElementById("categories").value.split(",");
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
   const abstractshort = document.getElementById("abstract-short").value;
@@ -53,3 +52,5 @@ function generateCard() {
 
   document.getElementById("output-htmlCard").innerHTML = htmlCard;
 }
+
+document.addEventListener("DOMContentLoaded", generateCard);
