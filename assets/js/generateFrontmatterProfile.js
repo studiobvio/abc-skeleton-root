@@ -17,10 +17,15 @@ function generateFrontmatterProfile() {
   const pronouns = document.getElementById("pronouns").value;
   const categories = document.getElementById("categories").value.split(",");
   const categoriesother = document.getElementById("categories-other").value;
-  var role =
-
   const role = document.getElementById("role").value;
   const roleother = document.getElementById("role-other").value;
+
+  if (role === "Other") {
+    roletitle = `${roleother}`;
+  } else {
+    roletitle = `${role}`;
+  }
+
   const place = document.getElementById("place").value;
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
@@ -79,17 +84,34 @@ function generateFrontmatterProfile() {
   name: ${authorname}
   name-slug: ${authorslug}
   pronouns: ${pronouns}
-  date: #to be added when submission is published
+  
+    # The "date" field must be included and in the yyyy-mm-dd
+    # format for the resource article to be published.
+  date: "A date will be added when submission is published"
   location: ${place}
-  role: ${role}
-  role-other: ${roleother}
+  role: ${roletitle}
   website: ${website}
+
+    # Your profile image ("image" below) should be 1:1 aspect ratio and
+    # 540 x 540 px (square).
+    # Be sure to rename your image to match the file name and path below.
+    # Include the .jpg file it in your "assets/images" folder. 
+  image: "${authorslug}.jpg"
   email: ${email}
   email-publication: ${emailpublication}
+
+    # To add more social links copy and paste the format below.
+    # Manually add each value.
+    # Icon buttons are only available for the selectable platforms.
+    # You may any platform, and as many as you wish.
   social:
   - name: ${social1}
     handle: ${social1handle}
     link: ${sociallink1}
+
+    # To add more affiliations, copy and paste the format below.
+    # Manually add each value.
+    # If you wish to include multiple titles, separate them by commas.
   affiliations:
   - name: ${affiliation1}
     title: ${affiliation1title}
@@ -125,7 +147,7 @@ function generateFrontmatterProfile() {
   // close front matter section
   frontMatter += `---\n\n`;
   // build markdown template string
-  const template = `<--your custom Markdown content here -->`;
+  const template = `<--- the body of your community profile will be included here using markdown syntax --->`;
 
   // combine front matter and template strings into full markdown string
   const fullMarkdown = `${frontMatter}${template}`;

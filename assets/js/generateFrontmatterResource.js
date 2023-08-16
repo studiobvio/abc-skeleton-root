@@ -55,6 +55,9 @@ function generateFrontmatterResource() {
   //  add code to for lowercase and slug-ify for inputs
   let frontMatter = `---
 layout: resource
+
+    # The "published" status will be changed to "true" when
+    # your submission has been cleared and is ready for publication.
 published: false
 permalink:
 title: "${title}"
@@ -66,14 +69,22 @@ categories:
 authors:
   - name: "${authorname}"
     name-slug: "${authorslug}"
-date: "# to be added when submission is published"
+
+    # The "date" field must be included and in the yyyy-mm-dd
+    # format for the resource article to be published.
+date: "A date will be added when submission is published"
 submission-year: ${submissionyear}
+
+    # Your main image ("image" below) should be 16:9 aspect ratio and
+    # 1920 x 1080 px (landscape).
+    # Be sure to rename your image to match the file name and path below.
+    # Include the .jpg file in your "assets/images" folder. 
 image: "${submissionyear}-${titleslug}.jpg"
-image-alt-text: "Add your main image alt-text here"
+image-alt-text: "Delete this text and add your main image alt-text here"
 learning-outcomes: 
   - "${learning1}"
-  - "Add A second learning outcome here"
-  - "Add a third learning outcome here"\n`;
+  - "Delate this text and add a second learning outcome here"
+  - "Detlete this text and add a third learning outcome here"\n`;
 
   // add tags to front matter string
   if (tags.length > 0) {
@@ -100,7 +111,7 @@ abstract:
   // close front matter section
   frontMatter += `---\n\n`;
   // build markdown template string
-  const template = `<--your custom Markdown here -->`;
+  const template = `<--- the body of your resource article will be included here using markdown syntax --->`;
 
   // combine front matter and template strings into full markdown string
   const fullMarkdown = `${frontMatter}${template}`;

@@ -36,14 +36,14 @@ title: "Resource Submissions"
         their information to the markdown file. All contributors will need to
         submit profiles to have their profile link to a resource.
       </p>
-      <div class="row mb-3">
-        <div class="col-md-6 align-items-end">
+      <div class="row mb-3 align-items-end">
+        <div class="col-md-6">
           <label for="title" class="form-label">
             Title (Keep it short, descriptive, and sweet (7 words max)
           </label>
           <input type="text" class="form-control" id="title" name="title" />
         </div>
-        <div class="col-md-6 align-items-end">
+        <div class="col-md-6">
           <label for="subtitle" class="form-label"
             >Sub-Title (add additional context)</label
           >
@@ -55,10 +55,10 @@ title: "Resource Submissions"
           />
         </div>
       </div>
-      <div class="row md-3">
-        <div class="col-md-12 align-items-end">
+      <div class="row mb-3 align-items-end">
+        <div class="col-md-12">
           <label for="abstract-short" class="form-label"
-            >Short Description (no longer than 500 characters, roughly 75
+            >Short Description (no longer than 300 characters, roughly 50
             words)</label
           >
           <textarea
@@ -68,12 +68,12 @@ title: "Resource Submissions"
             name="abstract-short"
             rows="2"
             cols="50"
-            maxlength="500"
+            maxlength="300"
           ></textarea>
         </div>
       </div>
-      <div class="row mb-3">
-        <div class="col-md-3 align-items-end">
+      <div class="row mb-3 align-items-end">
+        <div class="col-md-5">
           <label for="author-first" class="form-label"
             >*Contributor First Name:</label
           >
@@ -84,7 +84,7 @@ title: "Resource Submissions"
             name="author-first"
           />
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
           <label for="author-last" class="form-label"
             >Contributor Last Name:</label
           >
@@ -95,7 +95,7 @@ title: "Resource Submissions"
             name="author-last"
           />
         </div>
-        <div class="col">
+        <div class="col-md-2">
           <label for="author-date" class="form-label"
             >*Two Digit Unique ID:</label
           >
@@ -109,10 +109,10 @@ title: "Resource Submissions"
       </div>
     </form>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h4>Resource Description</h4>
     <form>
-      <div class="row md-3 align-items-end">
+      <div class="row mb-3 align-items-end">
         <div class="col">
           <label for="content-type" class="form-label"
             >Resource Content Type:</label
@@ -135,6 +135,8 @@ title: "Resource Submissions"
             <option value="Other">Other</option>
           </select>
         </div>
+      </div>
+      <div class="row mb-3 align-items-end">
         <div class="col">
           <label for="categories-other" class="form-label"
             >If other, provide a preferred role below.</label
@@ -147,7 +149,7 @@ title: "Resource Submissions"
           />
         </div>
       </div>
-      <div class="row md-3 align-items-end">
+      <div class="row mb-3 align-items-end">
         <div class="col">
           <label for="submission-year" class="form-label"
             >Submission Year</label
@@ -172,29 +174,36 @@ title: "Resource Submissions"
         <a href="{{ site.url }}{{ site.baseurl }}/submssion-idea">here</a>
       </p>
       <div class="row mb-3 align-items-end">
-        <label for="tags" class="form-label">Tags (separated by commas)</label>
-        <input type="text" class="form-control" id="tags" name="tags" />
+        <div class="col">
+          <label for="tags" class="form-label"
+            >Tags (separated by commas)</label
+          >
+          <input type="text" class="form-control" id="tags" name="tags" />
+        </div>
       </div>
       <div class="row mb-3 align-items-end">
-        <label for="hashes" class="form-label"
-          >Social Media Hashtags (without '#' and separate with commas and no
-          spaces)</label
-        >
-        <input type="text" class="form-control" id="hashes" name="hashes" />
+        <div class="col">
+          <label for="hashes" class="form-label"
+            >Social Media Hashtags (without '#' and separate with commas and no
+            spaces)</label
+          >
+          <input type="text" class="form-control" id="hashes" name="hashes" />
+        </div>
       </div>
       <div class="row mb-3 align-items-end">
-        <label for="place"
-          >Place associated with Resources (if applicable)</label
-        >
-        <input
-          type="text"
-          id="place"
-          name="place"
-          placeholder="Enter a place"
-          oninput="autofillPlace()"
-        />
-
-        <ul id="autofill-list"></ul>
+        <div class="col">
+          <label for="place"
+            >Place associated with the work (if applicable)</label
+          >
+          <input
+            type="text"
+            id="place"
+            name="place"
+            placeholder="Enter a place"
+            oninput="autofillPlace()"
+          />
+          <ul id="autofill-list"></ul>
+        </div>
       </div>
       <h4>Detailed info</h4>
       <div class="mb-3">
@@ -212,7 +221,7 @@ title: "Resource Submissions"
         ></textarea>
       </div>
       <div class="mb-3">
-        <label for="learning1" class="form-label">Learning Outcome 1:</label>
+        <label for="learning1" class="form-label">Learning Outcome</label>
         <input
           type="text"
           class="form-control"
@@ -222,7 +231,7 @@ title: "Resource Submissions"
       </div>
     </form>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-8">
     <!-- code display area -->
     <div class="my-4" id="code-display">
       <div class="row mb-2">
@@ -244,7 +253,8 @@ title: "Resource Submissions"
       The card below will give you a rough idea as to how your content will
       appear on the
       <a href="{{site.url}}{{site.baseurl}}/resources">resources</a> page. You
-      will provide your own main image with your submission.
+      will provide your own main image with your submission. Please refer to the
+      notes in the copied metadata for more detailed information.
     </p>
     <div class="my-4" id="output-htmlCard"></div>
   </div>
@@ -289,7 +299,7 @@ title: "Resource Submissions"
   const abstractlongInput = document.getElementById("abstract-long");
   const learning1Input = document.getElementById("learning1");
   const submissionyearInput = document.getElementById("submission-year");
-  // add event listener to each form input
+  // add event listener to each form input to generate frontmatter
   titleInput.addEventListener("input", generateFrontmatterResource);
   subtitleInput.addEventListener("input", generateFrontmatterResource);
   contenttypeInput.addEventListener("input", generateFrontmatterResource);
@@ -303,6 +313,21 @@ title: "Resource Submissions"
   abstractlongInput.addEventListener("input", generateFrontmatterResource);
   learning1Input.addEventListener("input", generateFrontmatterResource);
   submissionyearInput.addEventListener("input", generateFrontmatterResource);
+
+  // add event listener to each form input to generate
+  titleInput.addEventListener("input", generateCard);
+  subtitleInput.addEventListener("input", generateCard);
+  contenttypeInput.addEventListener("input", generateCard);
+  authorfirstInput.addEventListener("input", generateCard);
+  authorlastInput.addEventListener("input", generateCard);
+  authordateInput.addEventListener("input", generateCard);
+  categoriesotherInput.addEventListener("input", generateCard);
+  tagsInput.addEventListener("input", generateCard);
+  hashesInput.addEventListener("input", generateCard);
+  abstractshortInput.addEventListener("input", generateCard);
+  abstractlongInput.addEventListener("input", generateCard);
+  learning1Input.addEventListener("input", generateCard);
+  submissionyearInput.addEventListener("input", generateCard);
 </script>
 
 <script>
