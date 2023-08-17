@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "Resource Submissions"
+title: "Blog Post Submissions"
 ---
 
 <div id="base-url" data-base-url="{{site.url}}{{site.baseurl}}"></div>
 
 <div class="row">
-  <h1>Community Resource Submission Form</h1>
+  <h1>Blog Post Submission Form</h1>
   <p>
     Fill out the fields below to generate and format the metadata to be copied
     and pasted at the the top of your submission markdown file. Download the
@@ -27,14 +27,14 @@ title: "Resource Submissions"
       <h4>Basic Info</h4>
       <p>
         The information you provide below will be rendered on the Hub in various
-        formats your resource easier to discover. The primary content of your
-        resource will still be the body of the article you submit. You
+        formats your post easier to discover. The primary content of your
+        post will still be the body of the post you submit. You
         contributor name and unique id should match your community profile. If
         you haven't submitted a community profile, submit that first
         <a href="{{site.url}}{{site.baseurl}}/submissions-profile">here.</a> For
         submissions with multiple contributing authors, you will manually add
         their information to the markdown file. All contributors will need to
-        submit profiles to have their profile link to a resource.
+        submit profiles to have their profile link to a post.
       </p>
       <div class="row mb-3 align-items-end">
         <div class="col-md-6">
@@ -109,150 +109,126 @@ title: "Resource Submissions"
       </div>
     </form>
   </div>
-  <div class="col-md-4">
-    <h4>Resource Description</h4>
-    <form>
-      <div class="row mb-3 align-items-end">
-        <div class="col">
-          <label for="content-type" class="form-label"
-            >Resource Content Type:</label
-          >
-          <select
-            id="content-type"
-            class="form-control"
-            onchange="handleSelection()"
-          >
-            <option value="default" selected>
-              Select the most relevant option
-            </option>
-            <option value="Workshop">Workshop</option>
-            <option value="Lecture">Lecture</option>
-            <option value="Interview">Interview</option>
-            <option value="Panel Discussion">Panel Discussion</option>
-            <option value="Case Study Poster">Case Study Poster</option>
-            <option value="Tutorial">Tutorial</option>
-            <option value="Review">Review</option>
-            <option value="Other">Other</option>
-          </select>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Post Information</h4>
+      <form>
+        <div class="row mb-3 align-items-end">
+          <div class="col">
+            <label for="content-type" class="form-label"
+              >Post Content Type:</label
+            >
+            <select
+              id="content-type"
+              class="form-control"
+              onchange="handleSelection()"
+            >
+              <option value="default" selected>
+                Select the most relevant option
+              </option>
+              <option value="Event">Event</option>
+              <option value="Resource Post Notice">Resource Post Notice</option>
+              <option value="Call to Action">Call to Action</option>
+              <option value="News">News</option>
+              <option value="Reviews">Review</option>
+              <option value="Op-Ed">Op-Ed</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="row mb-3 align-items-end">
-        <div class="col">
-          <label for="categories-other" class="form-label"
-            >If other, provide a preferred role below.</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="categories-other"
-            name="categories-other"
-          />
+        <div class="row mb-3 align-items-end">
+          <div class="col">
+            <label for="categories-other" class="form-label"
+              >If other, provide a preferred role below.</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="categories-other"
+              name="categories-other"
+            />
+          </div>
         </div>
-      </div>
-      <div class="row mb-3 align-items-end">
-        <div class="col">
-          <label for="submission-year" class="form-label"
-            >Submission Year</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="submission-year"
-            name="submission-year"
-          />
+        <div class="row mb-3 align-items-end">
+          <div class="col">
+            <label for="submission-year" class="form-label"
+              >Submission Year</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="submission-year"
+              name="submission-year"
+            />
+          </div>
         </div>
-      </div>
-      <h4>Resources Connections</h4>
-      <p>
-        Connect your resource with other ideas and actions with tags and
-        hashtags. Providing them will help other connect to and benefit from
-        your resource. describe the ideas that related to your resource. See the
-        <a href="{{ site.url }}{{ site.baseurl }}/resources">Resources</a>
-        page for examples. If you create tags that are not currently present, we
-        ask that you also submit an
-        <a href="{{ site.url }}{{ site.baseurl }}/ideas">ideas</a> entry
-        <a href="{{ site.url }}{{ site.baseurl }}/submssion-idea">here</a>
-      </p>
-      <div class="row mb-3 align-items-end">
-        <div class="col">
-          <label for="tags" class="form-label"
-            >Tags (lowercase and separated by commas)</label
-          >
-          <input type="text" class="form-control" id="tags" name="tags" />
+        <h4>Post Connections</h4>
+        <p>
+          Connect your post with other ideas and actions with tags and
+          hashtags. Providing them will help other connect to and benefit from
+          your post. describe the ideas that related to your post. See the
+          <a href="{{ site.url }}{{ site.baseurl }}/resources">Resources</a>
+          page for examples. If you create tags that are not currently present, we
+          ask that you also submit an
+          <a href="{{ site.url }}{{ site.baseurl }}/ideas">ideas</a> entry
+          <a href="{{ site.url }}{{ site.baseurl }}/submssion-idea">here</a>
+        </p>
+        <div class="row mb-3 align-items-end">
+          <div class="col">
+            <label for="tags" class="form-label"
+              >Tags (lowercase and separated by commas)</label
+            >
+            <input type="text" class="form-control" id="tags" name="tags" />
+          </div>
         </div>
-      </div>
-      <div class="row mb-3 align-items-end">
-        <div class="col">
-          <label for="hashes" class="form-label"
-            >Social Media Hashtags (without '#' and separate with commas and no
-            spaces)</label
-          >
-          <input type="text" class="form-control" id="hashes" name="hashes" />
+        <div class="row mb-3 align-items-end">
+          <div class="col">
+            <label for="hashes" class="form-label"
+              >Social Media Hashtags (without '#' and separate with commas and no
+              spaces)</label
+            >
+            <input type="text" class="form-control" id="hashes" name="hashes" />
+          </div>
         </div>
-      </div>
-      <div class="row mb-3 align-items-end">
-        <div class="col">
-          <label for="place"
-            >Place associated with the work (if applicable)</label
-          >
-          <input
-            type="text"
-            id="place"
-            name="place"
-            placeholder="Enter a place"
-            oninput="autofillPlace()"
-          />
-          <ul id="autofill-list"></ul>
+        <div class="row mb-3 align-items-end">
+          <div class="col">
+            <label for="place"
+              >Place associated with the post (if applicable)</label
+            >
+            <input
+              type="text"
+              id="place"
+              name="place"
+              placeholder="Enter a place"
+              oninput="autofillPlace()"
+            />
+            <ul id="autofill-list"></ul>
+          </div>
         </div>
-      </div>
-      <h4>Detailed info</h4>
-      <div class="mb-3">
-        <label for="abstract-long" class="form-label"
-          >Abstract (no longer than 1500 characters, roughly 225 words)
-        </label>
-        <textarea
-          type="text"
-          class="form-control"
-          id="abstract-long"
-          name="abstract-long"
-          rows="5"
-          cols="50"
-          maxlength="1500"
-        ></textarea>
-      </div>
-      <div class="mb-3">
-        <label for="learning1" class="form-label">Learning Outcome</label>
-        <input
-          type="text"
-          class="form-control"
-          id="learning1"
-          name="learning1"
-        />
-      </div>
-    </form>
-  </div>
-  <div class="col-md-8">
-    <!-- code display area -->
-    <div class="my-4" id="code-display">
-      <div class="row mb-2">
-        <div class="col-12 text-end">
-          <button
-            type="button"
-            class="btn btn-sm btn-light"
-            onclick="copyToClipboard()"
-          >
-            Copy
-          </button>
+    <div class="col-md-8">
+      <!-- code display area -->
+      <div class="my-4" id="code-display">
+        <div class="row mb-2">
+          <div class="col-12 text-end">
+            <button
+              type="button"
+              class="btn btn-sm btn-light"
+              onclick="copyToClipboard()"
+            >
+              Copy
+            </button>
+          </div>
         </div>
+        <pre class="p-3 mb-0 rounded"><code id="output-frontmatter"></code></pre>
       </div>
-      <pre class="p-3 mb-0 rounded"><code id="output-frontmatter"></code></pre>
     </div>
   </div>
+  
   <div class="col-md-12">
     <p>
       The card below will give you a rough idea as to how your content will
       appear on the
-      <a href="{{site.url}}{{site.baseurl}}/resources">resources</a> page. You
+      <a href="{{site.url}}{{site.baseurl}}/blog">blog</a> page. You
       will provide your own main image with your submission. Please refer to the
       notes in the copied metadata for more detailed information.
     </p>
@@ -262,8 +238,8 @@ title: "Resource Submissions"
 
 <!-- Custom Java Script function importing -->
 
-<script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatterResource.js"></script>
-<script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCard.js"></script>
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatterBlog.js"></script>
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCardBlog.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/autofillPlace.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/copyToClipboard.js"></script>
 
@@ -279,6 +255,7 @@ title: "Resource Submissions"
 
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
+
 <!-- Form Inputs and Event Listeners-->
 
 <script>
@@ -293,23 +270,21 @@ title: "Resource Submissions"
   const tagsInput = document.getElementById("tags");
   const hashesInput = document.getElementById("hashes");
   const abstractshortInput = document.getElementById("abstract-short");
-  const abstractlongInput = document.getElementById("abstract-long");
   const learning1Input = document.getElementById("learning1");
   const submissionyearInput = document.getElementById("submission-year");
   // add event listener to each form input to generate frontmatter
-  titleInput.addEventListener("input", generateFrontmatterResource);
-  subtitleInput.addEventListener("input", generateFrontmatterResource);
-  contenttypeInput.addEventListener("input", generateFrontmatterResource);
-  authorfirstInput.addEventListener("input", generateFrontmatterResource);
-  authorlastInput.addEventListener("input", generateFrontmatterResource);
-  authordateInput.addEventListener("input", generateFrontmatterResource);
-  categoriesotherInput.addEventListener("input", generateFrontmatterResource);
-  tagsInput.addEventListener("input", generateFrontmatterResource);
-  hashesInput.addEventListener("input", generateFrontmatterResource);
-  abstractshortInput.addEventListener("input", generateFrontmatterResource);
-  abstractlongInput.addEventListener("input", generateFrontmatterResource);
-  learning1Input.addEventListener("input", generateFrontmatterResource);
-  submissionyearInput.addEventListener("input", generateFrontmatterResource);
+  titleInput.addEventListener("input", generateFrontmatterBlog);
+  subtitleInput.addEventListener("input", generateFrontmatterBlog);
+  contenttypeInput.addEventListener("input", generateFrontmatterBlog);
+  authorfirstInput.addEventListener("input", generateFrontmatterBlog);
+  authorlastInput.addEventListener("input", generateFrontmatterBlog);
+  authordateInput.addEventListener("input", generateFrontmatterBlog);
+  categoriesotherInput.addEventListener("input", generateFrontmatterBlog);
+  tagsInput.addEventListener("input", generateFrontmatterBlog);
+  hashesInput.addEventListener("input", generateFrontmatterBlog);
+  abstractshortInput.addEventListener("input", generateFrontmatterBlog);
+  learning1Input.addEventListener("input", generateFrontmatterBlog);
+  submissionyearInput.addEventListener("input", generateFrontmatterBlog);
 
   // add event listener to each form input to generate
   titleInput.addEventListener("input", generateCard);

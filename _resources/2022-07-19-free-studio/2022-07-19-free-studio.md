@@ -11,7 +11,7 @@ categories:
   - "Workshop"
   - "ABC School 2022"
 tags:
-  - "Commoning"
+  - "capitalism"
   - "Solidarity"
   - "Organizing"
   - "Futuring"

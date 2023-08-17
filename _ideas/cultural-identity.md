@@ -1,7 +1,7 @@
 ---
 layout: idea
 permalink:
-title: collectivity
+title: "cultural identity"
 description:
 ---
 

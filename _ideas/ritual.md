@@ -1,7 +1,7 @@
 ---
 layout: idea
 permalink:
-title: collectivity
+title: ritual
 description:
 ---
 
