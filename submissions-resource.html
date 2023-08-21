@@ -8,9 +8,14 @@ title: "Resource Submissions"
 <div class="row">
   <h1>Community Resource Submission Form</h1>
   <p>
-    Fill out the fields below to generate and format the metadata to be copied
-    and pasted at the the top of your submission markdown file. Download the
-    template markdown files and directory with the button below.
+    First, download the
+    <a
+      href="https://drive.google.com/drive/folders/1c7yiG8YXjJZJIwHXgH4sCKIQa-DcZmPP?usp=sharing"
+      >template markdown files and direcoties</a
+    >
+    with the button below. Then fill out the fields below to generate and format
+    metadata. Once finished, copy and paste into the appropriate markdown file
+    from the templates.
   </p>
   <div class="my-4">
     <button
@@ -28,13 +33,7 @@ title: "Resource Submissions"
       <p>
         The information you provide below will be rendered on the Hub in various
         formats your resource easier to discover. The primary content of your
-        resource will still be the body of the article you submit. You
-        contributor name and unique id should match your community profile. If
-        you haven't submitted a community profile, submit that first
-        <a href="{{site.url}}{{site.baseurl}}/submissions-profile">here.</a> For
-        submissions with multiple contributing authors, you will manually add
-        their information to the markdown file. All contributors will need to
-        submit profiles to have their profile link to a resource.
+        resource will still be the body of the article you submit.
       </p>
       <div class="row mb-3 align-items-end">
         <div class="col-md-6">
@@ -72,6 +71,14 @@ title: "Resource Submissions"
           ></textarea>
         </div>
       </div>
+      <p>
+        Your contributor name and unique id should match your community profile.
+        If you haven't submitted a community profile, submit that first
+        <a href="{{site.url}}{{site.baseurl}}/submissions-profile">here.</a> For
+        submissions with multiple contributing authors, you will manually add
+        their information to the markdown file. All contributors will need to
+        submit profiles to have their profile link to a resource.
+      </p>
       <div class="row mb-3 align-items-end">
         <div class="col-md-5">
           <label for="author-first" class="form-label"
@@ -119,12 +126,10 @@ title: "Resource Submissions"
           >
           <select
             id="content-type"
-            class="form-control"
+            class="form-select"
             onchange="handleSelection()"
           >
-            <option value="default" selected>
-              Select the most relevant option
-            </option>
+            <option selected>Select the most relevant option</option>
             <option value="Workshop">Workshop</option>
             <option value="Lecture">Lecture</option>
             <option value="Interview">Interview</option>
@@ -152,7 +157,7 @@ title: "Resource Submissions"
       <div class="row mb-3 align-items-end">
         <div class="col">
           <label for="submission-year" class="form-label"
-            >Submission Year</label
+            >Submission Year (yyyy)</label
           >
           <input
             type="text"
@@ -163,46 +168,55 @@ title: "Resource Submissions"
         </div>
       </div>
       <h4>Resources Connections</h4>
-      <p>
-        Connect your resource with other ideas and actions with tags and
-        hashtags. Providing them will help other connect to and benefit from
-        your resource. describe the ideas that related to your resource. See the
-        <a href="{{ site.url }}{{ site.baseurl }}/resources">Resources</a>
-        page for examples. If you create tags that are not currently present, we
-        ask that you also submit an
-        <a href="{{ site.url }}{{ site.baseurl }}/ideas">ideas</a> entry
-        <a href="{{ site.url }}{{ site.baseurl }}/submssion-idea">here</a>
-      </p>
       <div class="row mb-3 align-items-end">
         <div class="col">
           <label for="tags" class="form-label"
-            >Tags (lowercase and separated by commas)</label
+            >Connect your resource with related resources with tags. See the
+            <a href="{{ site.url }}{{ site.baseurl }}/ideas"
+              >existing glossary of tags</a
+            >
+            or use new tags.</label
           >
           <input type="text" class="form-control" id="tags" name="tags" />
         </div>
       </div>
       <div class="row mb-3 align-items-end">
         <div class="col">
-          <label for="hashes" class="form-label"
-            >Social Media Hashtags (without '#' and separate with commas and no
-            spaces)</label
+          <label for="place" class="form-label"
+            >Geography (Place associated with the work, if applicable)</label
           >
-          <input type="text" class="form-control" id="hashes" name="hashes" />
+          <input type="text" class="form-control" id="place" name="place" />
+        </div>
+      </div>
+      <h4>Shout-Outs</h4>
+      <div class="row mb-3 align-items-end">
+        <div class="col">
+          <label for="hashes" class="form-label"
+            >Connect your resource to topical social movements with social media
+            hashtags (omit '#' and separate with commas and no spaces)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="hashes"
+            name="hashes"
+            placeholder="hashtag1, hashtag2, hashtag3, ..."
+          />
         </div>
       </div>
       <div class="row mb-3 align-items-end">
         <div class="col">
-          <label for="place"
-            >Place associated with the work (if applicable)</label
+          <label for="handles" class="form-label"
+            >Connect your resource to content creators who inspire or inform the
+            resource (omit '@' and separate with commas and no spaces)</label
           >
           <input
             type="text"
-            id="place"
-            name="place"
-            placeholder="Enter a place"
-            oninput="autofillPlace()"
+            class="form-control"
+            id="handles"
+            name="handles"
+            placeholder="handle1, handle2, handle3, ..."
           />
-          <ul id="autofill-list"></ul>
         </div>
       </div>
       <h4>Detailed info</h4>
@@ -248,7 +262,7 @@ title: "Resource Submissions"
       <pre class="p-3 mb-0 rounded"><code id="output-frontmatter"></code></pre>
     </div>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-8 offset-md-4">
     <p>
       The card below will give you a rough idea as to how your content will
       appear on the
@@ -256,7 +270,7 @@ title: "Resource Submissions"
       will provide your own main image with your submission. Please refer to the
       notes in the copied metadata for more detailed information.
     </p>
-    <div class="my-4" id="output-htmlCard"></div>
+    <div id="output-htmlCard"></div>
   </div>
 </div>
 
@@ -264,7 +278,6 @@ title: "Resource Submissions"
 
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatterResource.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCard.js"></script>
-<script src="{{ site.url }}{{ site.baseurl }}/assets/js/autofillPlace.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/copyToClipboard.js"></script>
 
 <!--  External Java Script Libraries that are downloaded and in repository -->
@@ -274,10 +287,6 @@ title: "Resource Submissions"
   async
 ></script>
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/purify.min.js"></script>
-
-<!-- External Java Script Libraries that are referenced directly from the web -->
-
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
 <!-- Form Inputs and Event Listeners-->
 
@@ -292,6 +301,7 @@ title: "Resource Submissions"
   const categoriesotherInput = document.getElementById("categories-other");
   const tagsInput = document.getElementById("tags");
   const hashesInput = document.getElementById("hashes");
+  const handlesInput = document.getElementById("handles");
   const abstractshortInput = document.getElementById("abstract-short");
   const abstractlongInput = document.getElementById("abstract-long");
   const learning1Input = document.getElementById("learning1");
@@ -306,6 +316,7 @@ title: "Resource Submissions"
   categoriesotherInput.addEventListener("input", generateFrontmatterResource);
   tagsInput.addEventListener("input", generateFrontmatterResource);
   hashesInput.addEventListener("input", generateFrontmatterResource);
+  handlesInput.addEventListener("input", generateFrontmatterResource);
   abstractshortInput.addEventListener("input", generateFrontmatterResource);
   abstractlongInput.addEventListener("input", generateFrontmatterResource);
   learning1Input.addEventListener("input", generateFrontmatterResource);

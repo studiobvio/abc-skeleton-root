@@ -23,6 +23,7 @@ function generateFrontmatterResource() {
   const submissionyear = document.getElementById("submission-year").value;
   const tags = document.getElementById("tags").value.split(",");
   const hashes = document.getElementById("hashes").value.split(",");
+  const handles = document.getElementById("handles").value.split(",");
   const abstractshort = document.getElementById("abstract-short").value;
   const abstractlong = document.getElementById("abstract-long").value;
   const learning1 = document.getElementById("learning1").value;
@@ -83,8 +84,8 @@ image: "${submissionyear}-${titleslug}.jpg"
 image-alt-text: "Delete this text and add your main image alt-text here"
 learning-outcomes: 
   - "${learning1}"
-  - "Delate this text and add a second learning outcome here"
-  - "Detlete this text and add a third learning outcome here"\n`;
+  - "Delete this text and add a second learning outcome here"
+  - "Delete this text and add a third learning outcome here"\n`;
 
   // add tags to front matter string
   if (tags.length > 0) {
@@ -99,6 +100,13 @@ learning-outcomes:
     frontMatter += "hashes:\n";
     hashes.forEach((hash) => {
       frontMatter += `  - "#${hash.trim()}"\n`;
+    });
+  }
+  // add handles to front matter string
+  if (handles.length > 0) {
+    frontMatter += "handles:\n";
+    handles.forEach((handle) => {
+      frontMatter += `  - "@${handle.trim()}"\n`;
     });
   }
 

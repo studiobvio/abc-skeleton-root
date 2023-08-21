@@ -13,7 +13,7 @@ function generateCard() {
   var htmlCard = `
   <div class="container">
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-8">
       <div class="card h-100" style="margin: 8px">
         <div class="card-header">${contenttype}</div>
         <div style="position: relative;">

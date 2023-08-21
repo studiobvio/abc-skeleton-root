@@ -7,9 +7,14 @@ title: "Profile Submissions"
 <div class="row">
   <h1>Community Profile Submission Form</h1>
   <p>
-    Fill out the fields below to generate and format the metadata to be copied
-    and pasted at the the top of your submission markdown file. Download the
-    template markdown files and directory with the button below.
+    First, download the
+    <a
+      href="https://drive.google.com/drive/folders/1c7yiG8YXjJZJIwHXgH4sCKIQa-DcZmPP?usp=sharing"
+      >template markdown files and direcoties</a
+    >
+    with the button below. Then fill out the fields below to generate and format
+    metadata. Once finished, copy and paste into the appropriate markdown file
+    from the templates.
   </p>
   <div class="my-4">
     <button
@@ -26,7 +31,7 @@ title: "Profile Submissions"
       <h4>Basic Info</h4>
       <p>
         If creating a profile for an organization of community, add the full
-        name (with not special characters) into the "First Name" input and leave
+        name (without special characters) into the "First Name" input and leave
         "Last Name" input blank. Asterisks signify required fields. The "Unique
         ID" should be an easy to remember two digit number that will be appended
         to your name to form your unique profile name.
@@ -73,12 +78,8 @@ title: "Profile Submissions"
       </div>
       <div class="row mb-3 align-items-end">
         <div class="col">
-          <label for="categories" class="form-label">Profile Type:</label>
-          <select
-            id="categories"
-            class="form-control"
-            onchange="handleSelection()"
-          >
+          <label for="categories" class="form-select">Profile Type:</label>
+          <select id="categories" class="form-control">
             <option value="Individual" selected>Individual</option>
             <option value="Non-Profit Organization">
               Non-Profit Organization
@@ -117,7 +118,7 @@ title: "Profile Submissions"
           <label for="role" class="form-label"
             >What role do you feel called to play in this movement?</label
           >
-          <select id="role" class="form-control" onchange="handleSelection()">
+          <select id="role" class="form-select">
             <option value="Contributor" selected>Contributor</option>
             <option value="Organizer">Organizer</option>
             <option value="Theoritician">Theoritician</option>
@@ -147,25 +148,22 @@ title: "Profile Submissions"
       <div class="row mb-3 align-items-end">
         <div class="col">
           <label for="tags" class="form-label"
-            >Provide a list of ideas that interest you, separating each by a
-            comma.</label
+            >Provide a list of ideas (tags) that interest you, separating each
+            by a comma. For idea examples refer to the thematic tags for the
+            <a href="{{site.url}}{{site.baseurl}}/resources"
+              >Resource articles</a
+            ></label
           >
           <input
             type="text"
             class="form-control"
             id="tags"
             name="tags"
-            placeholder=""
+            placeholder="idea1, idea2, idea3, ..."
           />
-          <small class="form-text text-muted"
-            >For idea examples refer to the thematic tags for the
-            <a href="{{site.url}}{{site.baseurl}}/resources"
-              >Resource articles</a
-            ></small
-          >
         </div>
       </div>
-      <h4>Contacts and Connections</h4>
+      <h4>Contact Information</h4>
       <p>Help others connect to you, your work, and the work you support.</p>
       <div class="row mb-3 align-items-end">
         <div class="col">
@@ -178,11 +176,7 @@ title: "Profile Submissions"
           <label for="email-publication" class="form-label"
             >*Do you want your email to be public?</label
           >
-          <select
-            id="email-publication"
-            class="form-control"
-            onchange="handleSelection()"
-          >
+          <select id="email-publication" class="form-select">
             <option value="Yes" selected>Yes</option>
             <option value="False">No</option>
           </select>
@@ -193,18 +187,6 @@ title: "Profile Submissions"
           <label for="website" class="form-label">Website:</label>
           <input type="text" class="form-control" id="website" name="website" />
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="place">Place where you work most</label>
-        <input
-          type="text"
-          id="place"
-          name="place"
-          placeholder="Start typing then select from the dropdown"
-          oninput="autofillPlace()"
-        />
-
-        <ul id="autofill-list"></ul>
       </div>
       <div class="row mb-3 align-items-end">
         <div class="col">
@@ -238,22 +220,19 @@ title: "Profile Submissions"
           />
         </div>
       </div>
-
+      <h4>Connections</h4>
       <div class="row mb-3 align-items-end">
-        <div class="mb-3">
-          <label for="hashes" class="form-label"
-            >Social Media Hashtags (without '#', separate multiples with commas
-            and no spaces)</label
+        <div class="col">
+          <label for="place" class="form-label"
+            >Geography (Place where you practice/study/live)</label
           >
-          <input type="text" class="form-control" id="hashes" name="hashes" />
+          <input type="text" class="form-control" id="place" name="place" />
         </div>
       </div>
-      <p>
-        You may also provide associate with organizations with whom you are
-        affiliated.
-      </p>
       <div class="mb-3">
-        <label for="affiliation-1" class="form-label">Affiliation name</label>
+        <label for="affiliation-1" class="form-label"
+          >Name of organization you are affiliated with.</label
+        >
         <input
           type="text"
           class="form-control"
@@ -261,7 +240,7 @@ title: "Profile Submissions"
           name="affiliation-1"
         />
         <label for="affiliation-1-title" class="form-label"
-          >Your title (if applicable)</label
+          >Your title within the organization (if applicable)</label
         >
         <input
           type="text"
@@ -270,7 +249,7 @@ title: "Profile Submissions"
           name="affiliation-1-title"
         />
         <label for="affiliation-1-link" class="form-label"
-          >Affiliation website (include https://)</label
+          >The organization's website (include https://)</label
         >
         <input
           type="text"
@@ -278,6 +257,37 @@ title: "Profile Submissions"
           id="affiliation-1-link"
           name="affiliation-1-link"
         />
+      </div>
+      <h4>Shout-Outs</h4>
+      <div class="row mb-3 align-items-end">
+        <div class="col">
+          <label for="hashes" class="form-label"
+            >Share important social movements you follow with social media
+            hashtags (omit '#' and separate with commas and no spaces)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="hashes"
+            name="hashes"
+            placeholder="hashtag1, hashtag2, hashtag3, ..."
+          />
+        </div>
+      </div>
+      <div class="row mb-3 align-items-end">
+        <div class="col">
+          <label for="handles" class="form-label"
+            >Share content creators who inspire or inform your work (omit '@'
+            and separate with commas and no spaces)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="handles"
+            name="handles"
+            placeholder="handle1, handle2, handle3, ..."
+          />
+        </div>
       </div>
     </form>
   </div>
@@ -317,7 +327,6 @@ title: "Profile Submissions"
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/copyToClipboard.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateFrontmatterProfile.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/assets/js/generateCard.js"></script>
-<script src="{{ site.url }}{{ site.baseurl }}/assets/js/autofillPlace.js"></script>
 
 <script>
   // get references to form input elements

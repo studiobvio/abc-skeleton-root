@@ -103,7 +103,7 @@ function generateFrontmatterProfile() {
     # To add more social links copy and paste the format below.
     # Manually add each value.
     # Icon buttons are only available for the selectable platforms.
-    # You may any platform, and as many as you wish.
+    # You may add any platform, and as many as you wish.
   social:
   - name: ${social1}
     handle: ${social1handle}
