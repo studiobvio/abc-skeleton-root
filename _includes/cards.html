@@ -2,17 +2,8 @@
 <div class="container my-5 filter-buttons">
   {% assign collection_name = page.title | downcase %} {% assign collection =
   site[collection_name] %}
-  <div class="all-button">
-    <button
-      type="button"
-      class="btn btn-outline-primary category-button active"
-      data-tag="all"
-      id="all-tag-button"
-    >
-      All
-    </button>
-  </div>
-  <div class="filter-title">Categories</div>
+<div class="row mb-3">
+  <div class="filter-title"><strong>Media Content Type </strong>(select one)</div>
   <!-- buttons for filtering cards by categories -->
   <div class="filter-buttons-categories">
     {% assign categories = collection | map: 'categories' | join: ',' | split:
@@ -27,23 +18,43 @@
     </button>
     {% endfor %}
   </div>
+</div>
+
 
   <!-- buttons for filtering cards by tags -->
-  <div class="filter-title">Tags</div>
+
+<div class="row mb-3">
+  <div class="filter-title"><strong>Glossary terms</strong> (select multiple)</div>
 
   <div class="fitler-buttons-tags">
     {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq |
     sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
     <button
       type="button"
-      class="btn btn-outline-primary tag-button"
+      class="btn btn-outline-primary tag-button mr-1 mb-2"
       data-tag="{{ tagSlug }}"
     >
       {{ tag }}
     </button>
     {% endfor %}
+    <!-- buttons for clearing filters -->
+<div class="all-button">
+  <button
+    type="button"
+    class="btn btn-outline-primary category-button active mb-2 mr-1"
+    data-tag="all"
+    id="all-tag-button"
+  >
+    Clear Filter Selections
+  </button>
+</div>
   </div>
 </div>
+</div>
+</div>
+<div class="row">
+
+
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5">
   {% for item in collection limit: 20 %}
   <div
@@ -67,9 +78,9 @@
         <h6 class="car-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
         {% include author-links-card.html %}
         <p>
-          Tags: {% for tag in item.tags %} {% assign ideaExists = false %} {%
-          for idea in site.ideas %} {% if idea.title == tag %} {% assign
-          ideaExists = true %}
+          <em>Glossary terms:</em> {% for tag in item.tags %} {% assign ideaExists =
+          false %} {% for idea in site.ideas %} {% if idea.title == tag %} {%
+          assign ideaExists = true %}
           <a href="{{ site.baseurl }}/ideas#{{ tag | slugify }}">{{ tag }}</a>
           {% break %} {% endif %} {% endfor %} {% unless ideaExists %} {{ tag }}
           {% endunless %} {% unless forloop.last %}, {% endunless %} {% endfor
