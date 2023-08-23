@@ -6,13 +6,14 @@ title-slug: "2022-crafting-an-institution-for-free-education"
 date: 2022-07-19
 title: "Crafting an Institution for Free Education"
 subtitle: "A San Diego Case Study"
-content-type: "Case Study"
+content-type: "Presentation"
 categories:
-  - "Case Study"
+  - "Presentation"
 
 tags:
   - "commoning"
   - "pedagogy"
+  - "case study"
 
 description:
 

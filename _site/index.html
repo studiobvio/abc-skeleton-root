@@ -136,309 +136,294 @@
   <div class="row"><!-- my code -->
 <div class="container my-5 filter-buttons">
    
-<div class="row mb-3">
-  <div class="filter-title"><strong>Media Content Type </strong>(select one)</div>
-  <!-- buttons for filtering cards by categories -->
-  <div class="filter-buttons-categories">
-      
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button"
-      data-tag="case-study"
-    >
-      Case Study
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button"
-      data-tag="panel-discussion"
-    >
-      Panel Discussion
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button"
-      data-tag="presentation"
-    >
-      Presentation
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button"
-      data-tag="workshop"
-    >
-      Workshop
-    </button>
-    
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div class="filter-title mb-2">
+        <strong>Media Content Type </strong>(select one)
+      </div>
+      <!-- Dropdown menu for filtering cards by categories -->
+      <div class="filter-dropdown-categories">
+        <select
+          class="form-select"
+          id="category-dropdown"
+          onchange="handleCategoryChange(this)"
+        >
+          <option value="all">All Media Types</option>
+           
+          <option value="panel-discussion">Panel Discussion</option>
+          
+          <option value="presentation">Presentation</option>
+          
+          <option value="workshop">Workshop</option>
+          
+        </select>
+      </div>
+    </div>
   </div>
-</div>
-
 
   <!-- buttons for filtering cards by tags -->
 
-<div class="row mb-3">
-  <div class="filter-title"><strong>Glossary terms</strong> (select multiple)</div>
-
-  <div class="fitler-buttons-tags">
-      
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="alternative-practice"
-    >
-      alternative practice
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="authorship"
-    >
-      authorship
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="capitalism"
-    >
-      capitalism
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="class-relations"
-    >
-      class relations
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="collaboration"
-    >
-      collaboration
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="collapse"
-    >
-      collapse
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="collectivity"
-    >
-      collectivity
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="commoning"
-    >
-      commoning
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="community"
-    >
-      community
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="education"
-    >
-      education
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="engagement"
-    >
-      engagement
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="futuring"
-    >
-      futuring
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="ideology"
-    >
-      ideology
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="imaginary"
-    >
-      imaginary
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="indigenous"
-    >
-      indigenous
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="labor"
-    >
-      labor
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="mapping"
-    >
-      mapping
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="organizing"
-    >
-      organizing
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="pedagogy"
-    >
-      pedagogy
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="politics"
-    >
-      politics
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="professionalization"
-    >
-      professionalization
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="property"
-    >
-      property
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="representation"
-    >
-      representation
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="site"
-    >
-      site
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="solidarity"
-    >
-      solidarity
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="technology"
-    >
-      technology
-    </button>
-     
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="utopia"
-    >
-      utopia
-    </button>
-    
-    <!-- buttons for clearing filters -->
-<div class="all-button">
-  <button
-    type="button"
-    class="btn btn-outline-primary category-button active mb-2 mr-1"
-    data-tag="all"
-    id="all-tag-button"
-  >
-    Clear Filter Selections
-  </button>
-</div>
-  </div>
-</div>
-</div>
-</div>
-<div class="row">
-
-
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5">
-  
-  <div
-    class="col item capitalism solidarity organizing futuring  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Lecture</div>
-      <a href="/abc-skeleton-root/resources/2022-free-studio/2022-free-studio.html">
+  <div class="row mb-3">
+    <div class="filter-title mb-2">
+      <strong>Glossary terms</strong> (select multiple)
+    </div>
+    <div class="fitler-buttons-tags">
         
-        <img
-          src="/abc-skeleton-root/resources/2022-free-studio/2022-free-studio.jpg"
-          class="card-img-top"
-          alt="Image of an abstract black graphic over and pink and purple background."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          FREE STUDIO:
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">Liberation as Praxis</h6>
-        <h6 class="fst-italic">
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="alternative-practice"
+      >
+        alternative practice
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="authorship"
+      >
+        authorship
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="capitalism"
+      >
+        capitalism
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="case-study"
+      >
+        case study
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="class-relations"
+      >
+        class relations
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="collaboration"
+      >
+        collaboration
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="collapse"
+      >
+        collapse
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="collectivity"
+      >
+        collectivity
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="commoning"
+      >
+        commoning
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="community"
+      >
+        community
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="education"
+      >
+        education
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="engagement"
+      >
+        engagement
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="futuring"
+      >
+        futuring
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="ideology"
+      >
+        ideology
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="imaginary"
+      >
+        imaginary
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="labor"
+      >
+        labor
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="mapping"
+      >
+        mapping
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="organizing"
+      >
+        organizing
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="pedagogy"
+      >
+        pedagogy
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="politics"
+      >
+        politics
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="professionalization"
+      >
+        professionalization
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="property"
+      >
+        property
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="representation"
+      >
+        representation
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="site"
+      >
+        site
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="solidarity"
+      >
+        solidarity
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="technology"
+      >
+        technology
+      </button>
+       
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="utopia"
+      >
+        utopia
+      </button>
+      
+    </div>
+    <div class="row">
+      <!-- buttons for clearing filters -->
+      <div class="all-button">
+        <button
+          type="button"
+          class="btn btn-outline-secondary category-button active mb-2 mr-1"
+          data-tag="all"
+          id="all-tag-button"
+        >
+          Clear Filter Selections
+        </button>
+      </div>
+    </div>
+    <!-- The Cards -->
+    <div class="row">
+      <div
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5"
+      >
+        
+        <div
+          class="col item capitalism solidarity organizing futuring  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-free-studio/2022-free-studio.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-free-studio/2022-free-studio.jpg"
+                class="card-img-top"
+                alt="Image of an abstract black graphic over and pink and purple background."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                FREE STUDIO:
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Liberation as Praxis</h6>
+              <h6 class="fst-italic">
   by   
     
 
@@ -449,49 +434,60 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>         
-          <a href="/abc-skeleton-root/ideas#capitalism">capitalism</a>
-            ,                                                
-          <a href="/abc-skeleton-root/ideas#solidarity">solidarity</a>
-            ,                                                      organizing
-           ,                          
-          <a href="/abc-skeleton-root/ideas#futuring">futuring</a>
-             
-        </p>
-        <p class="card-text text-small">
-          ​FREE STUDIO envisions the academic design studio setting as an interdisciplinary space that elevates freedom of creative endeavor and a multiplicity of approaches. ​FREE STUDIO envisions the academic design studio setting as an interdisciplinary space that elevates freedom of creative endeavor and a multiplicity of approaches. FREE STUDIO connects the studio with abstract visual art, abolitionist practice, futurism and liberatory music concepts.The work of author/artist Patrisse Cullors, architect Sumayya Vally and Detroit Techno artists Underground...
-        </p>
-        
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        
+              <p>
+                <em>Glossary terms:</em>           
+                <a href="/abc-skeleton-root/ideas#capitalism"
+                  >capitalism</a
+                >
+                  ,                                                                          
+                <a href="/abc-skeleton-root/ideas#solidarity"
+                  >solidarity</a
+                >
+                  ,                                                        
+                <a href="/abc-skeleton-root/ideas#organizing"
+                  >organizing</a
+                >
+                  ,                                
+                <a href="/abc-skeleton-root/ideas#futuring"
+                  >futuring</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                ​FREE STUDIO envisions the academic design studio setting as an interdisciplinary space that elevates freedom of creative endeavor and a multiplicity of approaches. ​FREE STUDIO envisions the academic design studio setting as an interdisciplinary space that elevates freedom of creative endeavor and a multiplicity of approaches. FREE STUDIO connects the studio with abstract visual art, abolitionist practice, futurism and liberatory music concepts.The work of author/artist Patrisse Cullors, architect Sumayya Vally and Detroit Techno artists Underground...
+              </p>
+              
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              
 
-        <a href="/abc-skeleton-root/resources/2022-free-studio/2022-free-studio.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item collaboration technology pedagogy  presentation "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Presentation</div>
-      <a href="/abc-skeleton-root/resources/2022-online-collaboration-technologies/2022-online-collaboration-technologies.html">
+              <a href="/abc-skeleton-root/resources/2022-free-studio/2022-free-studio.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
         
-        <img
-          src="/abc-skeleton-root/resources/2022-online-collaboration-technologies/2022-online-collaboration-technologies.jpg"
-          class="card-img-top"
-          alt=""
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Online Collaboration Technologies:
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">Implications for Post-Pandemic Studio Learning and Teaching Practices</h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item collaboration technology pedagogy  presentation "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Presentation</div>
+            <a href="/abc-skeleton-root/resources/2022-online-collaboration-technologies/2022-online-collaboration-technologies.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-online-collaboration-technologies/2022-online-collaboration-technologies.jpg"
+                class="card-img-top"
+                alt=""
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Online Collaboration Technologies:
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Implications for Post-Pandemic Studio Learning and Teaching Practices</h6>
+              <h6 class="fst-italic">
   by   
     
 
@@ -502,66 +498,77 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                                     collaboration
-           ,                                                      technology
-           ,                                                      pedagogy
-            
-        </p>
-        <p class="card-text text-small">
-          Online collaboration software such as Miro, Concept Board, Zoom, and Skype replaced face-to-face studio teaching and learning during the COVID-19 pandemic. This workshop draws on participants' lived experience of remote studio learning and/or teaching during the pandemic
-        </p>
-         
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-online-collaboration-technologies"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-online-collaboration-technologies"
-          class="collapse"
-          data-bs-parent=".card"
-        >
-          <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item text-small text-muted"></li>
-            
-          </ul>
+              <p>
+                <em>Glossary terms:</em>                 
+                <a href="/abc-skeleton-root/ideas#collaboration"
+                  >collaboration</a
+                >
+                  ,                                                                            
+                <a href="/abc-skeleton-root/ideas#technology"
+                  >technology</a
+                >
+                  ,                                                          
+                <a href="/abc-skeleton-root/ideas#pedagogy"
+                  >pedagogy</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                Online collaboration software such as Miro, Concept Board, Zoom, and Skype replaced face-to-face studio teaching and learning during the COVID-19 pandemic. This workshop draws on participants' lived experience of remote studio learning and/or teaching during the pandemic
+              </p>
+               
+              <h4>
+                <button
+                  class="btn btn-light btn-sm"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-online-collaboration-technologies"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Learning Outcomes
+                </button>
+              </h4>
+              <div
+                id="collapse-online-collaboration-technologies"
+                class="collapse"
+                data-bs-parent=".card"
+              >
+                <ul class="list-group list-group-flush">
+                  
+                  <li class="list-group-item text-small text-muted">
+                    
+                  </li>
+                  
+                </ul>
+              </div>
+              
+
+              <a href="/abc-skeleton-root/resources/2022-online-collaboration-technologies/2022-online-collaboration-technologies.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
         </div>
         
-
-        <a href="/abc-skeleton-root/resources/2022-online-collaboration-technologies/2022-online-collaboration-technologies.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item labor authorship collectivity  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Workshop</div>
-      <a href="/abc-skeleton-root/resources/2022-production-studies/2022-production-studies.html">
-        
-        <img
-          src="/abc-skeleton-root/resources/2022-production-studies/2022-production-studies.jpg"
-          class="card-img-top"
-          alt="Image of workers laying rebar for a concrete slab"
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          'Production Studies':
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted"> Perspectives on Remaking Studio</h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item labor authorship collectivity  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-production-studies/2022-production-studies.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-production-studies/2022-production-studies.jpg"
+                class="card-img-top"
+                alt="Image of workers laying rebar for a concrete slab"
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                'Production Studies':
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted"> Perspectives on Remaking Studio</h6>
+              <h6 class="fst-italic">
   by   
      
   <a
@@ -586,73 +593,89 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                                     labor
-           ,                                                      authorship
-           ,                  
-          <a href="/abc-skeleton-root/ideas#collectivity">collectivity</a>
-             
-        </p>
-        <p class="card-text text-small">
-          This workshop seeks to question the centrality of design in architecture and studio education. Studio typically focuses students’ energy and critical attention towards outputs of the designed object, evaluated in an imagined state of completion—while ignoring the questions of how it would be produced, by whom, and under what conditions. Regardless of whether a design project focuses on achieving formal or functional attributes, it remains in the realm of reception/consumption. Can we instead imagine an...
-        </p>
-         
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-production-studies"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-production-studies"
-          class="collapse"
-          data-bs-parent=".card"
-        >
-          <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item text-small text-muted">What new sets of problems would be possible to address in process-centered studios?</li>
-            
-            <li class="list-group-item text-small text-muted">What reflexive techniques might allow for attention to the production processes to inform design and studio practices?</li>
-            
-            <li class="list-group-item text-small text-muted">How might we rethink underlying ideas of authorship, individual expression, and evaluation?</li>
-            
-            <li class="list-group-item text-small text-muted">What kinds of buildings and spaces may be possible through a reconceived approach to design?</li>
-            
-          </ul>
+              <p>
+                <em>Glossary terms:</em>                                                 
+                <a href="/abc-skeleton-root/ideas#labor"
+                  >labor</a
+                >
+                  ,          
+                <a href="/abc-skeleton-root/ideas#authorship"
+                  >authorship</a
+                >
+                  ,                      
+                <a href="/abc-skeleton-root/ideas#collectivity"
+                  >collectivity</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                This workshop seeks to question the centrality of design in architecture and studio education. Studio typically focuses students’ energy and critical attention towards outputs of the designed object, evaluated in an imagined state of completion—while ignoring the questions of how it would be produced, by whom, and under what conditions. Regardless of whether a design project focuses on achieving formal or functional attributes, it remains in the realm of reception/consumption. Can we instead imagine an...
+              </p>
+               
+              <h4>
+                <button
+                  class="btn btn-light btn-sm"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-production-studies"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Learning Outcomes
+                </button>
+              </h4>
+              <div
+                id="collapse-production-studies"
+                class="collapse"
+                data-bs-parent=".card"
+              >
+                <ul class="list-group list-group-flush">
+                  
+                  <li class="list-group-item text-small text-muted">
+                    What new sets of problems would be possible to address in process-centered studios?
+                  </li>
+                  
+                  <li class="list-group-item text-small text-muted">
+                    What reflexive techniques might allow for attention to the production processes to inform design and studio practices?
+                  </li>
+                  
+                  <li class="list-group-item text-small text-muted">
+                    How might we rethink underlying ideas of authorship, individual expression, and evaluation?
+                  </li>
+                  
+                  <li class="list-group-item text-small text-muted">
+                    What kinds of buildings and spaces may be possible through a reconceived approach to design?
+                  </li>
+                  
+                </ul>
+              </div>
+              
+
+              <a href="/abc-skeleton-root/resources/2022-production-studies/2022-production-studies.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
         </div>
         
-
-        <a href="/abc-skeleton-root/resources/2022-production-studies/2022-production-studies.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item commoning pedagogy  case-study "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Case Study</div>
-      <a href="/abc-skeleton-root/resources/2022-crafting-an-institution-for-free-education/2022-crafting-an-institution-for-free-education.html">
-        
-        <img
-          src="/abc-skeleton-root/resources/2022-crafting-an-institution-for-free-education/2022-crafting-an-institution-for-free-education.jpg"
-          class="card-img-top"
-          alt="Image of an open, academic architecture studio environment during a crit with large posters on the wall and students looking toward the posters"
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Crafting an Institution for Free Education:
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">A San Diego Case Study</h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item commoning pedagogy case-study  presentation "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Presentation</div>
+            <a href="/abc-skeleton-root/resources/2022-crafting-an-institution-for-free-education/2022-crafting-an-institution-for-free-education.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-crafting-an-institution-for-free-education/2022-crafting-an-institution-for-free-education.jpg"
+                class="card-img-top"
+                alt="Image of an open, academic architecture studio environment during a crit with large posters on the wall and students looking toward the posters"
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Crafting an Institution for Free Education:
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">A San Diego Case Study</h6>
+              <h6 class="fst-italic">
   by   
     
   <a
@@ -667,45 +690,56 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                   
-          <a href="/abc-skeleton-root/ideas#commoning">commoning</a>
-            ,                                                      pedagogy
-            
-        </p>
-        <p class="card-text text-small">
-          ​Based in the 2024 closing and general contexts of Woodbury School of Architecture in San Diego, participants will explore how different funding models can be utilized to support and grow a new institution (launching as the Center for Collaborative Design) with the goal of it ultimately offering a free (or almost free) architecture degree.
-        </p>
-        
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        
+              <p>
+                <em>Glossary terms:</em>                       
+                <a href="/abc-skeleton-root/ideas#commoning"
+                  >commoning</a
+                >
+                  ,                                                          
+                <a href="/abc-skeleton-root/ideas#pedagogy"
+                  >pedagogy</a
+                >
+                  ,              
+                <a href="/abc-skeleton-root/ideas#case-study"
+                  >case study</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                ​Based in the 2024 closing and general contexts of Woodbury School of Architecture in San Diego, participants will explore how different funding models can be utilized to support and grow a new institution (launching as the Center for Collaborative Design) with the goal of it ultimately offering a free (or almost free) architecture degree.
+              </p>
+              
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              
 
-        <a href="/abc-skeleton-root/resources/2022-crafting-an-institution-for-free-education/2022-crafting-an-institution-for-free-education.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item solidarity pedagogy  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Session</div>
-      <a href="/abc-skeleton-root/resources/2022-student-oranizing-across-syllabi-and-project-briefs/2022-student-oranizing-across-syllabi-and-project-briefs.html">
+              <a href="/abc-skeleton-root/resources/2022-crafting-an-institution-for-free-education/2022-crafting-an-institution-for-free-education.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
         
-        <img
-          src="/abc-skeleton-root/resources/2022-student-oranizing-across-syllabi-and-project-briefs/2022-student-oranizing-across-syllabi-and-project-briefs.jpg"
-          class="card-img-top"
-          alt="Picture of a network."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Student Organizing Across Syllabi and Project Briefs
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted"></h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item solidarity pedagogy  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-student-oranizing-across-syllabi-and-project-briefs/2022-student-oranizing-across-syllabi-and-project-briefs.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-student-oranizing-across-syllabi-and-project-briefs/2022-student-oranizing-across-syllabi-and-project-briefs.jpg"
+                class="card-img-top"
+                alt="Picture of a network."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Student Organizing Across Syllabi and Project Briefs
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <h6 class="fst-italic">
   by   
     
 
@@ -716,45 +750,52 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                               
-          <a href="/abc-skeleton-root/ideas#solidarity">solidarity</a>
-            ,                                                      pedagogy
-            
-        </p>
-        <p class="card-text text-small">
-          Beyond their pedagogical and theoretical goals, syllabi operate as institutional contracts that are used to explain (and enforce) the scope of a studio. Project briefs offer the footprint for the power dynamics of the studio. This workshop investigates the influences on and implications of syllabi and project briefs and opens their development to student consideration and involvement.
-        </p>
-        
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        
+              <p>
+                <em>Glossary terms:</em>                                                                         
+                <a href="/abc-skeleton-root/ideas#solidarity"
+                  >solidarity</a
+                >
+                  ,                                                          
+                <a href="/abc-skeleton-root/ideas#pedagogy"
+                  >pedagogy</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                Beyond their pedagogical and theoretical goals, syllabi operate as institutional contracts that are used to explain (and enforce) the scope of a studio. Project briefs offer the footprint for the power dynamics of the studio. This workshop investigates the influences on and implications of syllabi and project briefs and opens their development to student consideration and involvement.
+              </p>
+              
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              
 
-        <a href="/abc-skeleton-root/resources/2022-student-oranizing-across-syllabi-and-project-briefs/2022-student-oranizing-across-syllabi-and-project-briefs.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item organizing futuring representation  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Workshop</div>
-      <a href="/abc-skeleton-root/resources/2022-the-night-school/2022-the-night-school.html">
+              <a href="/abc-skeleton-root/resources/2022-student-oranizing-across-syllabi-and-project-briefs/2022-student-oranizing-across-syllabi-and-project-briefs.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
         
-        <img
-          src="/abc-skeleton-root/resources/2022-the-night-school/2022-the-night-school.jpg"
-          class="card-img-top"
-          alt="Image of an abstract black graphic over and pink and purple background."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          The Night School:
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">Community After Collapse</h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item organizing futuring representation  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-the-night-school/2022-the-night-school.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-the-night-school/2022-the-night-school.jpg"
+                class="card-img-top"
+                alt="Image of an abstract black graphic over and pink and purple background."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                The Night School:
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Community After Collapse</h6>
+              <h6 class="fst-italic">
   by   
     
   <a
@@ -769,46 +810,56 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                                     organizing
-           ,                          
-          <a href="/abc-skeleton-root/ideas#futuring">futuring</a>
-            ,                                                      representation
-            
-        </p>
-        <p class="card-text text-small">
-          ​The Night School (TNS) is running two live, in person events as part of The Architecture Lobby's online ABC 2022. This event, Community After Collapse will take an online workshop developed by Sadia Mounata in Berlin, and adapt it to Tāmaki Makaurau. Participants will be asked to consider in groups a community they feel is is on the verge of of collapsing or is vulnerable to any kind of climatic, environmental, political, social or technological...
-        </p>
-        
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        
+              <p>
+                <em>Glossary terms:</em>                                                       
+                <a href="/abc-skeleton-root/ideas#organizing"
+                  >organizing</a
+                >
+                  ,                                
+                <a href="/abc-skeleton-root/ideas#futuring"
+                  >futuring</a
+                >
+                  ,                                                                  
+                <a href="/abc-skeleton-root/ideas#representation"
+                  >representation</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                ​The Night School (TNS) is running two live, in person events as part of The Architecture Lobby's online ABC 2022. This event, Community After Collapse will take an online workshop developed by Sadia Mounata in Berlin, and adapt it to Tāmaki Makaurau. Participants will be asked to consider in groups a community they feel is is on the verge of of collapsing or is vulnerable to any kind of climatic, environmental, political, social or technological...
+              </p>
+              
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              
 
-        <a href="/abc-skeleton-root/resources/2022-the-night-school/2022-the-night-school.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item mapping collapse representation  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Workshop</div>
-      <a href="/abc-skeleton-root/resources/2022-community-after-collapse/2022-community-after-collapse.html">
+              <a href="/abc-skeleton-root/resources/2022-the-night-school/2022-the-night-school.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
         
-        <img
-          src="/abc-skeleton-root/resources/2022-community-after-collapse/2022-community-after-collapse.jpg"
-          class="card-img-top"
-          alt="Image of a building facade with 'TIAFI COMMUNITY CENTER' painted on the side, design elements on the roof, and people standing in front."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Community After Collapse
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted"></h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item mapping collapse representation  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-community-after-collapse/2022-community-after-collapse.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-community-after-collapse/2022-community-after-collapse.jpg"
+                class="card-img-top"
+                alt="Image of a building facade with 'TIAFI COMMUNITY CENTER' painted on the side, design elements on the roof, and people standing in front."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Community After Collapse
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <h6 class="fst-italic">
   by   
     
 
@@ -819,45 +870,52 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                                     mapping
-           ,                                                      collapse
-           ,                                                      representation
-            
-        </p>
-        <p class="card-text text-small">
-          ​Participants will be asked to consider in groups a community they feel is is on the verge of of collapsing or is vulnerable to any kind of climatic, environmental, political, social or technological threats or dissonance. They will then strategies and propose through graphs, patterns, maps and drawings their response as professionals through who, what, where, and how analyses.
-        </p>
-        
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        
+              <p>
+                <em>Glossary terms:</em>                                                   
+                <a href="/abc-skeleton-root/ideas#mapping"
+                  >mapping</a
+                >
+                  ,                                                                                    collapse  ,                                                                  
+                <a href="/abc-skeleton-root/ideas#representation"
+                  >representation</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                ​Participants will be asked to consider in groups a community they feel is is on the verge of of collapsing or is vulnerable to any kind of climatic, environmental, political, social or technological threats or dissonance. They will then strategies and propose through graphs, patterns, maps and drawings their response as professionals through who, what, where, and how analyses.
+              </p>
+              
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              
 
-        <a href="/abc-skeleton-root/resources/2022-community-after-collapse/2022-community-after-collapse.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item organizing futuring community engagement  case-study "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Case Study</div>
-      <a href="/abc-skeleton-root/resources/2022-engaging-communities-in-the-design-studio/2022-engaging-communities-in-the-design-studio.html">
+              <a href="/abc-skeleton-root/resources/2022-community-after-collapse/2022-community-after-collapse.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
         
-        <img
-          src="/abc-skeleton-root/resources/2022-engaging-communities-in-the-design-studio/2022-engaging-communities-in-the-design-studio.jpg"
-          class="card-img-top"
-          alt="Image of an abstract black graphic over and pink and purple background."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Engaging Communities in the Design Studio:
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">Considerations for Accountability from Five Case Studies</h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item organizing futuring community engagement case-study  presentation "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Presentation</div>
+            <a href="/abc-skeleton-root/resources/2022-engaging-communities-in-the-design-studio/2022-engaging-communities-in-the-design-studio.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-engaging-communities-in-the-design-studio/2022-engaging-communities-in-the-design-studio.jpg"
+                class="card-img-top"
+                alt="Image of an abstract black graphic over and pink and purple background."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Engaging Communities in the Design Studio:
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Considerations for Accountability from Five Case Studies</h6>
+              <h6 class="fst-italic">
   by   
      
   <a
@@ -892,70 +950,85 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                                     organizing
-           ,                          
-          <a href="/abc-skeleton-root/ideas#futuring">futuring</a>
-            ,                                                      community
-           ,                                                      engagement
-            
-        </p>
-        <p class="card-text text-small">
-          While many aspiring architects enter the profession with goals of creating better worlds, architecture supports capitalism, an economic system with its effects of environment degradation, growing inequality, and exploitation. A key obstacle to challenging the relationship between architecture and capitalism is the positionality of the architect. The design studio typically presents itself as a simulation of professional practice where the architect is the “author” of the design. Through an exploration of case studies from Ireland,...
-        </p>
-         
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-engaging-communities-in-the-design-studio"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-engaging-communities-in-the-design-studio"
-          class="collapse"
-          data-bs-parent=".card"
-        >
-          <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item text-small text-muted">You will question if design studio can be re-envisaged as a context for fostering relationships with envisioned communities, and what are the responsibilities toward those communities.</li>
-            
-            <li class="list-group-item text-small text-muted">You will evaluate how can greater community relationships can be achieved in the context of short-term (e.g., 13 week) semesters and course credit-grading expectations in the university setting.</li>
-            
-          </ul>
+              <p>
+                <em>Glossary terms:</em>                                                       
+                <a href="/abc-skeleton-root/ideas#organizing"
+                  >organizing</a
+                >
+                  ,                                
+                <a href="/abc-skeleton-root/ideas#futuring"
+                  >futuring</a
+                >
+                  ,                            
+                <a href="/abc-skeleton-root/ideas#community"
+                  >community</a
+                >
+                  ,                                                                                    engagement  ,              
+                <a href="/abc-skeleton-root/ideas#case-study"
+                  >case study</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                While many aspiring architects enter the profession with goals of creating better worlds, architecture supports capitalism, an economic system with its effects of environment degradation, growing inequality, and exploitation. A key obstacle to challenging the relationship between architecture and capitalism is the positionality of the architect. The design studio typically presents itself as a simulation of professional practice where the architect is the “author” of the design. Through an exploration of case studies from Ireland,...
+              </p>
+               
+              <h4>
+                <button
+                  class="btn btn-light btn-sm"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-engaging-communities-in-the-design-studio"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Learning Outcomes
+                </button>
+              </h4>
+              <div
+                id="collapse-engaging-communities-in-the-design-studio"
+                class="collapse"
+                data-bs-parent=".card"
+              >
+                <ul class="list-group list-group-flush">
+                  
+                  <li class="list-group-item text-small text-muted">
+                    You will question if design studio can be re-envisaged as a context for fostering relationships with envisioned communities, and what are the responsibilities toward those communities.
+                  </li>
+                  
+                  <li class="list-group-item text-small text-muted">
+                    You will evaluate how can greater community relationships can be achieved in the context of short-term (e.g., 13 week) semesters and course credit-grading expectations in the university setting.
+                  </li>
+                  
+                </ul>
+              </div>
+              
+
+              <a href="/abc-skeleton-root/resources/2022-engaging-communities-in-the-design-studio/2022-engaging-communities-in-the-design-studio.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
         </div>
         
-
-        <a href="/abc-skeleton-root/resources/2022-engaging-communities-in-the-design-studio/2022-engaging-communities-in-the-design-studio.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item futuring commoning  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Workshop</div>
-      <a href="/abc-skeleton-root/resources/2022-ours-to-hack-and-to-own/2022-ours-to-hack-and-to-own.html">
-        
-        <img
-          src="/abc-skeleton-root/resources/2022-ours-to-hack-and-to-own/2022-ours-to-hack-and-to-own.jpg"
-          class="card-img-top"
-          alt="A picture of my course."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Ours to Hack and to Own:
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">Open-source Strategies and the Pedagogy of Potential</h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item futuring commoning  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-ours-to-hack-and-to-own/2022-ours-to-hack-and-to-own.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-ours-to-hack-and-to-own/2022-ours-to-hack-and-to-own.jpg"
+                class="card-img-top"
+                alt="A picture of my course."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Ours to Hack and to Own:
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Open-source Strategies and the Pedagogy of Potential</h6>
+              <h6 class="fst-italic">
   by   
     
 
@@ -966,67 +1039,73 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                         
-          <a href="/abc-skeleton-root/ideas#futuring">futuring</a>
-            ,                    
-          <a href="/abc-skeleton-root/ideas#commoning">commoning</a>
-             
-        </p>
-        <p class="card-text text-small">
-          As transition designers of a post-capitalist society, we need to be resourced with agile and accessible technologies to facilitate our capacity to rapidly prototype pedagogical systems for structural change. Taking inspiration from open-source software platforms and their communities of builders, in this session participants will be introduced to alternative, radically transparent methods of evolving the incumbent architectural 'studio' and design pedagogy more broadly into an emancipatory technology that can and should be hacked and owned...
-        </p>
-         
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-ours-to-hack-and-to-own"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-ours-to-hack-and-to-own"
-          class="collapse"
-          data-bs-parent=".card"
-        >
-          <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item text-small text-muted">You will be introduced to a provisional conceptual model and applied methods of co-evolving the architectural “studio” into an open-source and emancipatory 'technology' that can and should be hacked and owned and used by everyone.</li>
-            
-          </ul>
+              <p>
+                <em>Glossary terms:</em>                               
+                <a href="/abc-skeleton-root/ideas#futuring"
+                  >futuring</a
+                >
+                  ,                        
+                <a href="/abc-skeleton-root/ideas#commoning"
+                  >commoning</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                As transition designers of a post-capitalist society, we need to be resourced with agile and accessible technologies to facilitate our capacity to rapidly prototype pedagogical systems for structural change. Taking inspiration from open-source software platforms and their communities of builders, in this session participants will be introduced to alternative, radically transparent methods of evolving the incumbent architectural 'studio' and design pedagogy more broadly into an emancipatory technology that can and should be hacked and owned...
+              </p>
+               
+              <h4>
+                <button
+                  class="btn btn-light btn-sm"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-ours-to-hack-and-to-own"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Learning Outcomes
+                </button>
+              </h4>
+              <div
+                id="collapse-ours-to-hack-and-to-own"
+                class="collapse"
+                data-bs-parent=".card"
+              >
+                <ul class="list-group list-group-flush">
+                  
+                  <li class="list-group-item text-small text-muted">
+                    You will be introduced to a provisional conceptual model and applied methods of co-evolving the architectural “studio” into an open-source and emancipatory 'technology' that can and should be hacked and owned and used by everyone.
+                  </li>
+                  
+                </ul>
+              </div>
+              
+
+              <a href="/abc-skeleton-root/resources/2022-ours-to-hack-and-to-own/2022-ours-to-hack-and-to-own.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
         </div>
         
-
-        <a href="/abc-skeleton-root/resources/2022-ours-to-hack-and-to-own/2022-ours-to-hack-and-to-own.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item class-relations property site professionalization  panel-discussion "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Panel Discussion</div>
-      <a href="/abc-skeleton-root/resources/2022-rethinking-property-relations/2022-rethinking-property-relations.html">
-        
-        <img
-          src="/abc-skeleton-root/resources/2022-rethinking-property-relations/2022-rethinking-property-relations.jpg"
-          class="card-img-top"
-          alt="Image of a spreadsheet with property related data in rows and columns."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Rethinking Property Relations:
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">Politicizing Site Analysis</h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item class-relations property site professionalization  panel-discussion "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Panel Discussion</div>
+            <a href="/abc-skeleton-root/resources/2022-rethinking-property-relations/2022-rethinking-property-relations.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-rethinking-property-relations/2022-rethinking-property-relations.jpg"
+                class="card-img-top"
+                alt="Image of a spreadsheet with property related data in rows and columns."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Rethinking Property Relations:
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Politicizing Site Analysis</h6>
+              <h6 class="fst-italic">
   by   
      
   <a
@@ -1056,48 +1135,60 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>             
-          <a href="/abc-skeleton-root/ideas#class-relations">class relations</a>
-            ,                                        
-          <a href="/abc-skeleton-root/ideas#property">property</a>
-            ,                                                      site
-           ,                                                      professionalization
-            
-        </p>
-        <p class="card-text text-small">
-          In this panel, we want to denaturalize the ways in which sites are understood in design studios by engaging with questions of land ownership, histories and theories of property, and class relations between site professionals - such as architects, developers, and planners - and their putative clients and users.
-        </p>
-        
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        
+              <p>
+                <em>Glossary terms:</em>               
+                <a href="/abc-skeleton-root/ideas#class-relations"
+                  >class relations</a
+                >
+                  ,                                                              
+                <a href="/abc-skeleton-root/ideas#property"
+                  >property</a
+                >
+                  ,                                                                        
+                <a href="/abc-skeleton-root/ideas#site"
+                  >site</a
+                >
+                  ,                                                            
+                <a href="/abc-skeleton-root/ideas#professionalization"
+                  >professionalization</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                In this panel, we want to denaturalize the ways in which sites are understood in design studios by engaging with questions of land ownership, histories and theories of property, and class relations between site professionals - such as architects, developers, and planners - and their putative clients and users.
+              </p>
+              
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              
 
-        <a href="/abc-skeleton-root/resources/2022-rethinking-property-relations/2022-rethinking-property-relations.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item commoning property politics indigenous education  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Workshop</div>
-      <a href="/abc-skeleton-root/resources/2022-decentre-deconstruct-design/2022-decentre-deconstruct-design.html">
+              <a href="/abc-skeleton-root/resources/2022-rethinking-property-relations/2022-rethinking-property-relations.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
         
-        <img
-          src="/abc-skeleton-root/resources/2022-decentre-deconstruct-design/2022-decentre-deconstruct-design.jpg"
-          class="card-img-top"
-          alt="An image of an artistic collage of architectural ruins, modern grid forms, and conversing figures from antiquity."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Decentre, Deconstruct, Design
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted"></h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item commoning property politics education  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-decentre-deconstruct-design/2022-decentre-deconstruct-design.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-decentre-deconstruct-design/2022-decentre-deconstruct-design.jpg"
+                class="card-img-top"
+                alt="An image of an artistic collage of architectural ruins, modern grid forms, and conversing figures from antiquity."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Decentre, Deconstruct, Design
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <h6 class="fst-italic">
   by   
      
   <a
@@ -1117,70 +1208,73 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                   
-          <a href="/abc-skeleton-root/ideas#commoning">commoning</a>
-            ,                                        
-          <a href="/abc-skeleton-root/ideas#property">property</a>
-            ,                                                      politics
-           ,                                                      indigenous
-           ,                                                      education
-            
-        </p>
-        <p class="card-text text-small">
-          The workshop Decenter - Deconstruct - Design(?) is divided into three parts each exploring and addressing disciplinary, ideological and spatial questions through the engagement of participants in mapping architectural curricula, collective critical thinking and design-driven strategizing, and aims to assess alternative modes of architectural education and production beyond conventional capitalist constructs.
-        </p>
-         
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-decentre-deconstruct-design"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-decentre-deconstruct-design"
-          class="collapse"
-          data-bs-parent=".card"
-        >
-          <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item text-small text-muted">Question how tracing regimes of ownership, such as settler colonialism or financial capital, challenge and politicize contemporary design pedagogy?</li>
-            
-          </ul>
+              <p>
+                <em>Glossary terms:</em>                       
+                <a href="/abc-skeleton-root/ideas#commoning"
+                  >commoning</a
+                >
+                  ,                                                              
+                <a href="/abc-skeleton-root/ideas#property"
+                  >property</a
+                >
+                  ,                                                                                    politics  ,                                                                                    education   
+              </p>
+              <p class="card-text text-small">
+                The workshop Decenter - Deconstruct - Design(?) is divided into three parts each exploring and addressing disciplinary, ideological and spatial questions through the engagement of participants in mapping architectural curricula, collective critical thinking and design-driven strategizing, and aims to assess alternative modes of architectural education and production beyond conventional capitalist constructs.
+              </p>
+               
+              <h4>
+                <button
+                  class="btn btn-light btn-sm"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-decentre-deconstruct-design"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Learning Outcomes
+                </button>
+              </h4>
+              <div
+                id="collapse-decentre-deconstruct-design"
+                class="collapse"
+                data-bs-parent=".card"
+              >
+                <ul class="list-group list-group-flush">
+                  
+                  <li class="list-group-item text-small text-muted">
+                    Question how tracing regimes of ownership, such as settler colonialism or financial capital, challenge and politicize contemporary design pedagogy?
+                  </li>
+                  
+                </ul>
+              </div>
+              
+
+              <a href="/abc-skeleton-root/resources/2022-decentre-deconstruct-design/2022-decentre-deconstruct-design.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
         </div>
         
-
-        <a href="/abc-skeleton-root/resources/2022-decentre-deconstruct-design/2022-decentre-deconstruct-design.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item imaginary representation ideology pedagogy  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Workshop</div>
-      <a href="/abc-skeleton-root/resources/2022-seeing-hearing-eating-drawing-and-all-of-the-above/2022-seeing-hearing-eating-drawing-and-all-of-the-above.html">
-        
-        <img
-          src="/abc-skeleton-root/resources/2022-seeing-hearing-eating-drawing-and-all-of-the-above/2022-seeing-hearing-eating-drawing-and-all-of-the-above.jpg"
-          class="card-img-top"
-          alt="An image of a collage of graphic novel style drawings and storyboards."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Seeing, Hearing, Eating, Drawing, and All of the Above
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted"></h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item imaginary representation ideology pedagogy  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-seeing-hearing-eating-drawing-and-all-of-the-above/2022-seeing-hearing-eating-drawing-and-all-of-the-above.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-seeing-hearing-eating-drawing-and-all-of-the-above/2022-seeing-hearing-eating-drawing-and-all-of-the-above.jpg"
+                class="card-img-top"
+                alt="An image of a collage of graphic novel style drawings and storyboards."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Seeing, Hearing, Eating, Drawing, and All of the Above
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <h6 class="fst-italic">
   by   
     
 
@@ -1191,67 +1285,81 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                                     imaginary
-           ,                                                      representation
-           ,                                                      ideology
-           ,                                                      pedagogy
-            
-        </p>
-        <p class="card-text text-small">
-          ​This workshop will introduce a survey of methods around embodied design pedagogies on situating sites as a location, as a classroom, a political and lived knowledge through fieldwork, oral storytelling, and making. We will look at guerrilla tactics of telling and maintaining stories through oral traditions, comics, picture books, and artifacts. Attendees will learn and understand how design ways of inquiry, imaginaries, and creative acts come to embody oppressive ideologies.
-        </p>
-         
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-seeing-hearing-eating-drawing-and-all-of-the-above"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-seeing-hearing-eating-drawing-and-all-of-the-above"
-          class="collapse"
-          data-bs-parent=".card"
-        >
-          <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item text-small text-muted">How might tracing regimes of ownership, such as settler colonialism or financial capital, challenge and politicize contemporary design pedagogy?</li>
-            
-          </ul>
+              <p>
+                <em>Glossary terms:</em>                                       
+                <a href="/abc-skeleton-root/ideas#imaginary"
+                  >imaginary</a
+                >
+                  ,                                                                  
+                <a href="/abc-skeleton-root/ideas#representation"
+                  >representation</a
+                >
+                  ,                                      
+                <a href="/abc-skeleton-root/ideas#ideology"
+                  >ideology</a
+                >
+                  ,                                                          
+                <a href="/abc-skeleton-root/ideas#pedagogy"
+                  >pedagogy</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                ​This workshop will introduce a survey of methods around embodied design pedagogies on situating sites as a location, as a classroom, a political and lived knowledge through fieldwork, oral storytelling, and making. We will look at guerrilla tactics of telling and maintaining stories through oral traditions, comics, picture books, and artifacts. Attendees will learn and understand how design ways of inquiry, imaginaries, and creative acts come to embody oppressive ideologies.
+              </p>
+               
+              <h4>
+                <button
+                  class="btn btn-light btn-sm"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-seeing-hearing-eating-drawing-and-all-of-the-above"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Learning Outcomes
+                </button>
+              </h4>
+              <div
+                id="collapse-seeing-hearing-eating-drawing-and-all-of-the-above"
+                class="collapse"
+                data-bs-parent=".card"
+              >
+                <ul class="list-group list-group-flush">
+                  
+                  <li class="list-group-item text-small text-muted">
+                    How might tracing regimes of ownership, such as settler colonialism or financial capital, challenge and politicize contemporary design pedagogy?
+                  </li>
+                  
+                </ul>
+              </div>
+              
+
+              <a href="/abc-skeleton-root/resources/2022-seeing-hearing-eating-drawing-and-all-of-the-above/2022-seeing-hearing-eating-drawing-and-all-of-the-above.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
         </div>
         
-
-        <a href="/abc-skeleton-root/resources/2022-seeing-hearing-eating-drawing-and-all-of-the-above/2022-seeing-hearing-eating-drawing-and-all-of-the-above.html" class="btn btn-primary">
-          Learn More!
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div
-    class="col item utopia alternative-practice  workshop "
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">Workshop</div>
-      <a href="/abc-skeleton-root/resources/2022-together-we-dream/2022-together-we-dream.html">
-        
-        <img
-          src="/abc-skeleton-root/resources/2022-together-we-dream/2022-together-we-dream.jpg"
-          class="card-img-top"
-          alt="Image of a collage of architectural ruins, a new grid infrastructure, and figures from antiquity wearing robes."
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          Together We Dream
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted"></h6>
-        <h6 class="fst-italic">
+        <div
+          class="col item utopia alternative-practice  workshop "
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">Workshop</div>
+            <a href="/abc-skeleton-root/resources/2022-together-we-dream/2022-together-we-dream.html">
+              
+              <img
+                src="/abc-skeleton-root/resources/2022-together-we-dream/2022-together-we-dream.jpg"
+                class="card-img-top"
+                alt="Image of a collage of architectural ruins, a new grid infrastructure, and figures from antiquity wearing robes."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                Together We Dream
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <h6 class="fst-italic">
   by   
     
 
@@ -1262,85 +1370,98 @@
   
 </h6>
 
-        <p>
-          <em>Glossary terms:</em>                                                     utopia
-           ,        
-          <a href="/abc-skeleton-root/ideas#alternative-practice">alternative practice</a>
-             
-        </p>
-        <p class="card-text text-small">
-          ​Our workshop is an act of engaging the self (no, not that Self) where you must design, draw, detail your utopian biography. Our work will explore individual ambitions as we attempt to author our professional lives and explore methods of alternative practice that have existed in the past and today. Prior to meeting, we ask that you complete your biography according to the guiding questions set forth in our workshop assignment plan. Additional, optional readings...
-        </p>
-        
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        
+              <p>
+                <em>Glossary terms:</em>                                                                               
+                <a href="/abc-skeleton-root/ideas#utopia"
+                  >utopia</a
+                >
+                  ,        
+                <a href="/abc-skeleton-root/ideas#alternative-practice"
+                  >alternative practice</a
+                >
+                   
+              </p>
+              <p class="card-text text-small">
+                ​Our workshop is an act of engaging the self (no, not that Self) where you must design, draw, detail your utopian biography. Our work will explore individual ambitions as we attempt to author our professional lives and explore methods of alternative practice that have existed in the past and today. Prior to meeting, we ask that you complete your biography according to the guiding questions set forth in our workshop assignment plan. Additional, optional readings...
+              </p>
+              
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              
 
-        <a href="/abc-skeleton-root/resources/2022-together-we-dream/2022-together-we-dream.html" class="btn btn-primary">
-          Learn More!
-        </a>
+              <a href="/abc-skeleton-root/resources/2022-together-we-dream/2022-together-we-dream.html" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
-  
-</div>
+  <!--Filtering of Tags with buttons -->
 
-<script>
-  const tagButtons = document.querySelectorAll(".tag-button");
-  const itemElements = document.querySelectorAll(".item");
-  const allButton = document.querySelector("#all-tag-button");
+  <script>
+    const tagButtons = document.querySelectorAll(".tag-button");
+    const itemElements = document.querySelectorAll(".item");
+    const allButton = document.querySelector("#all-tag-button");
+    const categoryDropdown = document.querySelector("#category-dropdown");
 
-  tagButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const clickedTag = event.target.dataset.tag;
+    // Keep track of active tags and selected category
+    const activeTags = [];
+    let selectedCategory = "all"; // Default selected category
 
-      // Toggle the active state of the clicked button
-      event.target.classList.toggle("active");
+    // Tag filtering logic
+    tagButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const clickedTag = event.target.dataset.tag;
+        event.target.classList.toggle("active");
 
-      // Clear the "All" button if any other button is selected
-      if (button !== allButton) {
-        allButton.classList.remove("active");
-      }
-
-      // Create an array of active tags
-      const activeTags = [];
-      tagButtons.forEach((button) => {
-        if (button.classList.contains("active")) {
-          activeTags.push(button.dataset.tag);
+        if (activeTags.includes(clickedTag)) {
+          activeTags.splice(activeTags.indexOf(clickedTag), 1);
+        } else {
+          activeTags.push(clickedTag);
         }
-      });
 
+        filterItems();
+      });
+    });
+
+    // Clear all active tags and show all items when the "All" button is clicked
+    allButton.addEventListener("click", () => {
+      tagButtons.forEach((button) => {
+        button.classList.remove("active");
+      });
+      activeTags.splice(0); // Clear active tags array
+      selectedCategory = "all"; // Reset selected category to "All Media Types"
+      categoryDropdown.value = selectedCategory; // Update the dropdown value
+      filterItems();
+    });
+    // Category filtering logic
+    categoryDropdown.addEventListener("change", (event) => {
+      selectedCategory = event.target.value;
+      filterItems();
+    });
+
+    // Filtering function
+    function filterItems() {
       itemElements.forEach((item) => {
         const tags = item.classList;
-
-        // If no tags are active, show all items
-        if (activeTags.length === 0) {
-          item.style.display = "";
-          return;
-        }
-
-        // Check if item contains all of the active tags
+        const categories = item.classList;
         const hasActiveTags = activeTags.every((tag) => tags.contains(tag));
+        const isCategoryMatch =
+          selectedCategory === "all" || categories.contains(selectedCategory);
 
-        if (hasActiveTags) {
+        if (hasActiveTags && isCategoryMatch) {
           item.style.display = "";
         } else {
           item.style.display = "none";
         }
       });
-    });
-  });
-
-  // Clear all active tags and show all items when the "All" button is clicked
-  allButton.addEventListener("click", () => {
-    tagButtons.forEach((button) => {
-      button.classList.remove("active");
-    });
-    allButton.classList.add("active");
-    itemElements.forEach((item) => {
-      item.style.display = "";
-    });
-  });
-</script>
+    }
+  </script>
+</div>
 </div>
 </div>
 

@@ -6,7 +6,7 @@ date: 2022-07-19
 title: "Student Organizing Across Syllabi and Project Briefs"
 title-slug: "2022-student-organizing-across-syllabi-and-project-briefs"
 subtitle:
-content-type: "Session"
+content-type: "Workshop"
 categories:
   - "Workshop"
 tags:

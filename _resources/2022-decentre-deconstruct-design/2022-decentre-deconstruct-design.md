@@ -13,7 +13,6 @@ tags:
   - "commoning"
   - "property"
   - "politics"
-  - "indigenous"
   - "education"
 
 description:

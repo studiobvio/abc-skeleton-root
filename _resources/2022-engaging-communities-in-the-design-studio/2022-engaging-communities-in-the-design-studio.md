@@ -6,14 +6,15 @@ title-slug: "2022-engaging-communities-in-the-design-studio"
 date: 2022-07-21
 title: "Engaging Communities in the Design Studio"
 subtitle: "Considerations for Accountability from Five Case Studies"
-content-type: "Case Study"
+content-type: "Presentation"
 categories:
-  - "Case Study"
+  - "Presentation"
 tags:
   - "organizing"
   - "futuring"
   - "community"
   - "engagement"
+  - "case study"
 
 description:
 

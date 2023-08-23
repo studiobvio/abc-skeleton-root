@@ -2,184 +2,200 @@
 <div class="container my-5 filter-buttons">
   {% assign collection_name = page.title | downcase %} {% assign collection =
   site[collection_name] %}
-<div class="row mb-3">
-  <div class="filter-title"><strong>Media Content Type </strong>(select one)</div>
-  <!-- buttons for filtering cards by categories -->
-  <div class="filter-buttons-categories">
-    {% assign categories = collection | map: 'categories' | join: ',' | split:
-    ',' | uniq | sort %} {% for category in categories %} {% assign categorySlug
-    = category | slugify %}
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button"
-      data-tag="{{ categorySlug }}"
-    >
-      {{ category }}
-    </button>
-    {% endfor %}
-  </div>
-</div>
-
-
-  <!-- buttons for filtering cards by tags -->
-
-<div class="row mb-3">
-  <div class="filter-title"><strong>Glossary terms</strong> (select multiple)</div>
-
-  <div class="fitler-buttons-tags">
-    {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq |
-    sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
-    <button
-      type="button"
-      class="btn btn-outline-primary tag-button mr-1 mb-2"
-      data-tag="{{ tagSlug }}"
-    >
-      {{ tag }}
-    </button>
-    {% endfor %}
-    <!-- buttons for clearing filters -->
-<div class="all-button">
-  <button
-    type="button"
-    class="btn btn-outline-primary category-button active mb-2 mr-1"
-    data-tag="all"
-    id="all-tag-button"
-  >
-    Clear Filter Selections
-  </button>
-</div>
-  </div>
-</div>
-</div>
-</div>
-<div class="row">
-
-
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5">
-  {% for item in collection limit: 20 %}
-  <div
-    class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %} {% for category in item.categories %}{{ category | slugify }} {% endfor %}"
-  >
-    <div class="card h-100" style="margin: 8px">
-      <div class="card-header">{{ item.content-type }}</div>
-      <a href="{{ item.url | relative_url}}">
-        {% assign file_name = item.url | split: '/' | last | split: '.' | first
-        %}
-        <img
-          src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name}}.jpg"
-          class="card-img-top"
-          alt="{{ item.main_image_alt}}"
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">
-          {{ item.title }}{% if item.subtitle %}:{% endif %}
-        </h5>
-        <h6 class="car-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
-        {% include author-links-card.html %}
-        <p>
-          <em>Glossary terms:</em> {% for tag in item.tags %} {% assign ideaExists =
-          false %} {% for idea in site.ideas %} {% if idea.title == tag %} {%
-          assign ideaExists = true %}
-          <a href="{{ site.baseurl }}/ideas#{{ tag | slugify }}">{{ tag }}</a>
-          {% break %} {% endif %} {% endfor %} {% unless ideaExists %} {{ tag }}
-          {% endunless %} {% unless forloop.last %}, {% endunless %} {% endfor
-          %}
-        </p>
-        <p class="card-text text-small">
-          {{ item.abstract.short | truncatewords: 75, '...' }}
-        </p>
-        {% if item.learning-outcomes %} {% assign outcomes =
-        item.learning-outcomes %}
-        <h4>
-          <button
-            class="btn btn-light btn-sm"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-{{ item.title | slugify }}"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            Learning Outcomes
-          </button>
-        </h4>
-        <div
-          id="collapse-{{ item.title | slugify }}"
-          class="collapse"
-          data-bs-parent=".card"
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div class="filter-title mb-2">
+        <strong>Media Content Type </strong>(select one)
+      </div>
+      <!-- Dropdown menu for filtering cards by categories -->
+      <div class="filter-dropdown-categories">
+        <select
+          class="form-select"
+          id="category-dropdown"
+          onchange="handleCategoryChange(this)"
         >
-          <ul class="list-group list-group-flush">
-            {% for outcome in outcomes %}
-            <li class="list-group-item text-small text-muted">{{ outcome }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% else %}
-        <p class="lst-italic text-muted">No learning outcomes provided.</p>
-        {% endif %}
-
-        <a href="{{ item.url | relative_url}}" class="btn btn-primary">
-          Learn More!
-        </a>
+          <option value="all">All Media Types</option>
+          {% assign categories = collection | map: 'categories' | join: ',' |
+          split: ',' | uniq | sort %} {% for category in categories %}
+          <option value="{{ category | slugify }}">{{ category }}</option>
+          {% endfor %}
+        </select>
       </div>
     </div>
   </div>
-  {% endfor %}
-</div>
 
-<script>
-  const tagButtons = document.querySelectorAll(".tag-button");
-  const itemElements = document.querySelectorAll(".item");
-  const allButton = document.querySelector("#all-tag-button");
+  <!-- buttons for filtering cards by tags -->
 
-  tagButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const clickedTag = event.target.dataset.tag;
+  <div class="row mb-3">
+    <div class="filter-title mb-2">
+      <strong>Glossary terms</strong> (select multiple)
+    </div>
+    <div class="fitler-buttons-tags">
+      {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq
+      | sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="{{ tagSlug }}"
+      >
+        {{ tag }}
+      </button>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <!-- buttons for clearing filters -->
+      <div class="all-button">
+        <button
+          type="button"
+          class="btn btn-outline-secondary category-button active mb-2 mr-1"
+          data-tag="all"
+          id="all-tag-button"
+        >
+          Clear Filter Selections
+        </button>
+      </div>
+    </div>
+    <!-- The Cards -->
+    <div class="row">
+      <div
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4 my-5"
+      >
+        {% for item in collection limit: 20 %}
+        <div
+          class="col item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %} {% for category in item.categories %}{{ category | slugify }} {% endfor %}"
+        >
+          <div class="card h-100" style="margin: 8px">
+            <div class="card-header">{{ item.content-type }}</div>
+            <a href="{{ item.url | relative_url}}">
+              {% assign file_name = item.url | split: '/' | last | split: '.' |
+              first %}
+              <img
+                src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name}}.jpg"
+                class="card-img-top"
+                alt="{{ item.main_image_alt}}"
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bolder">
+                {{ item.title }}{% if item.subtitle %}:{% endif %}
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+              {% include author-links-card.html %}
+              <p>
+                <em>Glossary terms:</em> {% for tag in item.tags %} {% assign
+                ideaExists = false %} {% for idea in site.ideas %} {% if
+                idea.title == tag %} {% assign ideaExists = true %}
+                <a href="{{ site.baseurl }}/ideas#{{ tag | slugify }}"
+                  >{{ tag }}</a
+                >
+                {% break %} {% endif %} {% endfor %} {% unless ideaExists %} {{
+                tag }} {% endunless %} {% unless forloop.last %}, {% endunless
+                %} {% endfor %}
+              </p>
+              <p class="card-text text-small">
+                {{ item.abstract.short | truncatewords: 75, '...' }}
+              </p>
+              {% if item.learning-outcomes %} {% assign outcomes =
+              item.learning-outcomes %}
+              <h4>
+                <button
+                  class="btn btn-light btn-sm"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse-{{ item.title | slugify }}"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Learning Outcomes
+                </button>
+              </h4>
+              <div
+                id="collapse-{{ item.title | slugify }}"
+                class="collapse"
+                data-bs-parent=".card"
+              >
+                <ul class="list-group list-group-flush">
+                  {% for outcome in outcomes %}
+                  <li class="list-group-item text-small text-muted">
+                    {{ outcome }}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% else %}
+              <p class="lst-italic text-muted">
+                No learning outcomes provided.
+              </p>
+              {% endif %}
 
-      // Toggle the active state of the clicked button
-      event.target.classList.toggle("active");
+              <a href="{{ item.url | relative_url}}" class="btn btn-primary">
+                Learn More!
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!--Filtering of Tags with buttons -->
 
-      // Clear the "All" button if any other button is selected
-      if (button !== allButton) {
-        allButton.classList.remove("active");
-      }
+  <script>
+    const tagButtons = document.querySelectorAll(".tag-button");
+    const itemElements = document.querySelectorAll(".item");
+    const allButton = document.querySelector("#all-tag-button");
+    const categoryDropdown = document.querySelector("#category-dropdown");
 
-      // Create an array of active tags
-      const activeTags = [];
-      tagButtons.forEach((button) => {
-        if (button.classList.contains("active")) {
-          activeTags.push(button.dataset.tag);
+    // Keep track of active tags and selected category
+    const activeTags = [];
+    let selectedCategory = "all"; // Default selected category
+
+    // Tag filtering logic
+    tagButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const clickedTag = event.target.dataset.tag;
+        event.target.classList.toggle("active");
+
+        if (activeTags.includes(clickedTag)) {
+          activeTags.splice(activeTags.indexOf(clickedTag), 1);
+        } else {
+          activeTags.push(clickedTag);
         }
-      });
 
+        filterItems();
+      });
+    });
+
+    // Clear all active tags and show all items when the "All" button is clicked
+    allButton.addEventListener("click", () => {
+      tagButtons.forEach((button) => {
+        button.classList.remove("active");
+      });
+      activeTags.splice(0); // Clear active tags array
+      selectedCategory = "all"; // Reset selected category to "All Media Types"
+      categoryDropdown.value = selectedCategory; // Update the dropdown value
+      filterItems();
+    });
+    // Category filtering logic
+    categoryDropdown.addEventListener("change", (event) => {
+      selectedCategory = event.target.value;
+      filterItems();
+    });
+
+    // Filtering function
+    function filterItems() {
       itemElements.forEach((item) => {
         const tags = item.classList;
-
-        // If no tags are active, show all items
-        if (activeTags.length === 0) {
-          item.style.display = "";
-          return;
-        }
-
-        // Check if item contains all of the active tags
+        const categories = item.classList;
         const hasActiveTags = activeTags.every((tag) => tags.contains(tag));
+        const isCategoryMatch =
+          selectedCategory === "all" || categories.contains(selectedCategory);
 
-        if (hasActiveTags) {
+        if (hasActiveTags && isCategoryMatch) {
           item.style.display = "";
         } else {
           item.style.display = "none";
         }
       });
-    });
-  });
-
-  // Clear all active tags and show all items when the "All" button is clicked
-  allButton.addEventListener("click", () => {
-    tagButtons.forEach((button) => {
-      button.classList.remove("active");
-    });
-    allButton.classList.add("active");
-    itemElements.forEach((item) => {
-      item.style.display = "";
-    });
-  });
-</script>
+    }
+  </script>
+</div>

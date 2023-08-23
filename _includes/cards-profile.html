@@ -1,86 +1,155 @@
 <div class="container my-5">
-  {% assign collection_name = page.title | downcase %} {{ collection_name }} {%
-  assign collection = site[collection_name] %}
-  <!-- buttons for filtering cards -->
-  <button
-    type="button"
-    class="btn btn-outline-primary tag-button active"
-    data-tag="all"
-  >
-    All
-  </button>
-
-  {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq |
-  sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
-  <button
-    type="button"
-    class="btn btn-outline-primary tag-button"
-    data-tag="{{ tagSlug }}"
-  >
-    {{ tag }}
-  </button>
-  {% endfor %}
-</div>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
-  {% for item in collection} limit: 12 %}
-  <div
-    class="col {{collection_name}} item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}"
-  >
-    <div class="card" style="margin: 8px">
-      <div class="card-header">{{ item.content-type }}</div>
-      <a href="{{ item.url | relative_url}}">
-        {% assign file_name = item.url | split: '/' | last | split: '.' | first
-        %}
-        <img
-          src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name}}.jpg"
-          class="card-img-top"
-          alt="Portrait of {{ item.name }}"
-        />
-      </a>
-      <div class="card-body">
-        <h5 class="card-title fw-bolder">{{ item.name }}</h5>
-        <h6 class="car-subtitle mb-2 text-muted">{{ item.location }}</h6>
-        <p class="card-text text-small">{{ item.role }}</p>
-        <p>
-          Interests: {% for tag in item.tags %}
-          <a
-            href="{{site.url}}{{site.baseurl}}/resources?tag={{ tag | slugify }}"
-            >{{ tag }}</a
-          >
-          {% unless forloop.last %}, {% endunless %} {% endfor %}
-        </p>
-        <a href="{{ item.url | relative_url}}" class="btn btn-primary">
-          Full Profile
-        </a>
+  {% assign collection_name = page.title | downcase %} {% assign collection =
+  site[collection_name] %}
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div class="filter-title mb-2">
+        <strong>Profile Type </strong>(select one)
+      </div>
+      <!-- Dropdown menu for filtering cards by categories -->
+      <div class="filter-dropdown-categories">
+        <select
+          class="form-select"
+          id="category-dropdown"
+          onchange="handleCategoryChange(this)"
+        >
+          <option value="all">All Profile Types</option>
+          {% assign categories = collection | map: 'categories' | join: ',' |
+          split: ',' | uniq | sort %} {% for category in categories %}
+          <option value="{{ category | slugify }}">{{ category }}</option>
+          {% endfor %}
+        </select>
       </div>
     </div>
   </div>
-  {% endfor %}
+
+  <!-- buttons for filtering cards by tags -->
+
+  <div class="row mb-3">
+    <div class="filter-title mb-2">
+      <strong>Interests</strong> (select multiple)
+    </div>
+    <div class="fitler-buttons-tags">
+      {% assign tags = collection | map: 'tags' | join: ',' | split: ',' | uniq
+      | sort %} {% for tag in tags %} {% assign tagSlug = tag | slugify %}
+      <button
+        type="button"
+        class="btn btn-outline-primary tag-button mr-1 mb-2"
+        data-tag="{{ tagSlug }}"
+      >
+        {{ tag }}
+      </button>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <!-- buttons for clearing filters -->
+      <div class="all-button">
+        <button
+          type="button"
+          class="btn btn-outline-secondary category-button active mb-2 mr-1"
+          data-tag="all"
+          id="all-tag-button"
+        >
+          Clear Filter Selections
+        </button>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
+      {% for item in collection} limit: 12 %}
+      <div
+        class="col {{collection_name}} item {% for tag in item.tags %}{{ tag | slugify }} {% endfor %}"
+      >
+        <div class="card" style="margin: 8px">
+          <div class="card-header">{{ item.content-type }}</div>
+          <a href="{{ item.url | relative_url}}">
+            {% assign file_name = item.url | split: '/' | last | split: '.' |
+            first %}
+            <img
+              src="{{site.baseurl}}/{{ collection_name }}/{{ file_name }}/{{file_name}}.jpg"
+              class="card-img-top"
+              alt="Portrait of {{ item.name }}"
+            />
+          </a>
+          <div class="card-body">
+            <h5 class="card-title fw-bolder">{{ item.name }}</h5>
+            <h6 class="car-subtitle mb-2 text-muted">{{ item.location }}</h6>
+            <p class="card-text text-small">{{ item.role }}</p>
+            <p>
+              Interests: {% for tag in item.tags %}
+              <a
+                href="{{site.url}}{{site.baseurl}}/resources?tag={{ tag | slugify }}"
+                >{{ tag }}</a
+              >
+              {% unless forloop.last %}, {% endunless %} {% endfor %}
+            </p>
+            <a href="{{ item.url | relative_url}}" class="btn btn-primary">
+              Full Profile
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
+<!--Filtering of Tags with buttons -->
 
 <script>
   const tagButtons = document.querySelectorAll(".tag-button");
   const itemElements = document.querySelectorAll(".item");
+  const allButton = document.querySelector("#all-tag-button");
+  const categoryDropdown = document.querySelector("#category-dropdown");
 
+  // Keep track of active tags and selected category
+  const activeTags = [];
+  let selectedCategory = "all"; // Default selected category
+
+  // Tag filtering logic
   tagButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const clickedTag = event.target.dataset.tag;
+      event.target.classList.toggle("active");
 
-      itemElements.forEach((item) => {
-        const tags = item.classList;
+      if (activeTags.includes(clickedTag)) {
+        activeTags.splice(activeTags.indexOf(clickedTag), 1);
+      } else {
+        activeTags.push(clickedTag);
+      }
 
-        if (clickedTag === "all" || tags.contains(clickedTag)) {
-          item.style.display = "";
-        } else {
-          item.style.display = "none";
-        }
-      });
-
-      tagButtons.forEach((button) => {
-        button.classList.remove("active");
-      });
-
-      event.target.classList.add("active");
+      filterItems();
     });
   });
+
+  // Clear all active tags and show all items when the "All" button is clicked
+  allButton.addEventListener("click", () => {
+    tagButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
+    activeTags.splice(0); // Clear active tags array
+    selectedCategory = "all"; // Reset selected category to "All Media Types"
+    categoryDropdown.value = selectedCategory; // Update the dropdown value
+    filterItems();
+  });
+  // Category filtering logic
+  categoryDropdown.addEventListener("change", (event) => {
+    selectedCategory = event.target.value;
+    filterItems();
+  });
+
+  // Filtering function
+  function filterItems() {
+    itemElements.forEach((item) => {
+      const tags = item.classList;
+      const categories = item.classList;
+      const hasActiveTags = activeTags.every((tag) => tags.contains(tag));
+      const isCategoryMatch =
+        selectedCategory === "all" || categories.contains(selectedCategory);
+
+      if (hasActiveTags && isCategoryMatch) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
 </script>

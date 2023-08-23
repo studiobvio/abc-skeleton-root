@@ -10,7 +10,7 @@ title: "Profile Submissions"
     First, download the
     <a
       href="https://drive.google.com/drive/folders/1c7yiG8YXjJZJIwHXgH4sCKIQa-DcZmPP?usp=sharing"
-      >template markdown files and direcoties</a
+      >template markdown files and directories</a
     >
     with the button below. Then fill out the fields below to generate and format
     metadata. Once finished, copy and paste into the appropriate markdown file
@@ -78,8 +78,8 @@ title: "Profile Submissions"
       </div>
       <div class="row mb-3 align-items-end">
         <div class="col">
-          <label for="categories" class="form-select">Profile Type:</label>
-          <select id="categories" class="form-control">
+          <label for="categories" class="form-label">Profile Type:</label>
+          <select id="categories" class="form-select">
             <option value="Individual" selected>Individual</option>
             <option value="Non-Profit Organization">
               Non-Profit Organization
@@ -190,13 +190,15 @@ title: "Profile Submissions"
       </div>
       <div class="row mb-3 align-items-end">
         <div class="col">
-          <label for="social-1" class="form-label">Social Media Platform</label>
+          <label for="social-1" class="form-select"
+            >Social Media Platform</label
+          >
           <select
             id="social-1"
             class="form-control"
             onchange="handleSelection()"
           >
-            <option value="default" selected></option>
+            <option selected>Select One</option>
             <option value="LinkedIn">LinkedIn</option>
             <option value="YouTube">YouTube</option>
             <option value="Instagram">Instagram</option>

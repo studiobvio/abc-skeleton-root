@@ -3,30 +3,37 @@ layout: page
 ---
 
 <div class="container">
-  <div class="col-md-6">
-    <div class="profile-image">
-      <img
-        src="{{site.baseurl}}/{{ page.name-slug }}/{{ file_name }}/{{file_name}}.jpg"
-        class="card-img-top"
-        alt="Portrait of {{ page.name }}"
-      />
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="profile-image">
+        <img
+          src="{{site.baseurl}}/{{ page.collection }}/{{ page.name-slug }}/{{ page.name-slug }}.jpg"
+          class="card-img-top"
+          alt="Portrait of {{ page.name }}"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2>{{ page.name }}</h2>
+      <p>{{page.role}}</p>
+      {% for affiliation in page.affiliations %}
+
+      <h6>
+        {% for title in affiliation.titles %} {{ title }} - {% endfor %} {{
+        affiliation.name }} {% if affiliation.location %} ; {{
+        affiliation.location }} {% endif %}
+      </h6>
+
+      {% endfor %}
+      <div class="mt-4">{% include social.html %}</div>
     </div>
   </div>
-
-  <h1>{{ page.name }}</h1>
+  <div class="row col-md-12">
+    <div class="container">{{ content }}</div>
+  </div>
+  <div class="row col-md-12">
+    <a href="{{ site.url }}{{ site.baseurl }}/profiles.html"
+      >Back to community profiles</a
+    >
+  </div>
 </div>
-{% for affiliation in page.affiliations %}
-
-<h6>
-  {% for title in affiliation.titles %} {{ title }} - {% endfor %} {{
-  affiliation.name }} {% if affiliation.location %} ; {{ affiliation.location }}
-  {% endif %}
-</h6>
-
-{% endfor %}
-<div class="container">{{ content }}</div>
-
-<a href="{{ site.url }}{{ site.baseurl }}/profiles.html"
-  >Back to community profiles</a
->
-{% include social.html %}

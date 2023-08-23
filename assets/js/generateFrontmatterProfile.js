@@ -78,59 +78,60 @@ function generateFrontmatterProfile() {
   // build front matter string with YAML syntax
   //  add code to for lowercase and slug-ify for inputs
   let frontMatter = `---
-  layout: profile
-  published: false
-  permalink:
-  name: ${authorname}
-  name-slug: ${authorslug}
-  pronouns: ${pronouns}
-  
-    # The "date" field must be included and in the yyyy-mm-dd
-    # format for the resource article to be published.
-  date: "A date will be added when submission is published"
-  location: ${place}
-  role: ${roletitle}
-  website: ${website}
+layout: profile
+published: false
+permalink:
+name: ${authorname}
+name-slug: ${authorslug}
+pronouns: ${pronouns}
 
-    # Your profile image ("image" below) should be 1:1 aspect ratio and
-    # 540 x 540 px (square).
-    # Be sure to rename your image to match the file name and path below.
-    # Include the .jpg file it in your "assets/images" folder. 
-  image: "${authorslug}.jpg"
-  email: ${email}
-  email-publication: ${emailpublication}
+  # The "date" field must be included and in the yyyy-mm-dd
+  # format for the resource article to be published.
+date: "A date will be added when submission is published"
+content-type: ${categories}
+location: ${place}
+role: ${roletitle}
+website: ${website}
 
-    # To add more social links copy and paste the format below.
-    # Manually add each value.
-    # Icon buttons are only available for the selectable platforms.
-    # You may add any platform, and as many as you wish.
-  social:
+  # Your profile image ("image" below) should be 1:1 aspect ratio and
+  # 540 x 540 px (square).
+  # Be sure to rename your image to match the file name and path below.
+  # Include the .jpg file it in your "assets/images" folder. 
+image: "${authorslug}.jpg"
+email: ${email}
+email-publication: ${emailpublication}
+
+  # To add more social links copy and paste the format below.
+  # Manually add each value.
+  # Icon buttons are only available for the selectable platforms.
+  # You may add any platform, and as many as you wish.
+social:
   - name: ${social1}
     handle: ${social1handle}
     link: ${sociallink1}
 
-    # To add more affiliations, copy and paste the format below.
-    # Manually add each value.
-    # If you wish to include multiple titles, separate them by commas.
-  affiliations:
+  # To add more affiliations, copy and paste the format below.
+  # Manually add each value.
+  # If you wish to include multiple titles, separate them by commas.
+affiliations:
   - name: ${affiliation1}
     title: ${affiliation1title}
     link: ${affiliation1link}\n`;
 
   // add categories to front matter string
   if (categories.length > 0) {
-    frontMatter += " categories:\n";
+    frontMatter += "categories:\n";
     categories.forEach((category) => {
       frontMatter += `  - "${category.trim()}"\n`;
     });
   }
 
   frontMatter += `
-  categories-other: ${categoriesother}\n`;
+categories-other: ${categoriesother}\n`;
 
   // add tags to front matter string
   if (tags.length > 0) {
-    frontMatter += " tags:\n";
+    frontMatter += "tags:\n";
     tags.forEach((tag) => {
       frontMatter += `  - "${tag.trim()}"\n`;
     });
@@ -138,7 +139,7 @@ function generateFrontmatterProfile() {
 
   // add hashes to front matter string
   if (hashes.length > 0) {
-    frontMatter += " hashes:\n";
+    frontMatter += "hashes:\n";
     hashes.forEach((hash) => {
       frontMatter += `  - "#${hash.trim()}"\n`;
     });

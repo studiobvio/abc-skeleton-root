@@ -6,7 +6,7 @@ title-slug: "2022-free-studio"
 date: 2022-07-18
 title: "FREE STUDIO"
 subtitle: "Liberation as Praxis"
-content-type: "Lecture"
+content-type: "Workshop"
 categories:
   - "Workshop"
 tags:
